@@ -1,1730 +1,1938 @@
 [
   {
-    "id": "v14o001",
     "type": "open",
-    "prompt": "Explica EXPLAIN y distingue su función de «Copia de seguridad». Incluye un ejemplo o contexto de uso.",
-    "reference": "EXPLAIN: Plan estimado. No confundir con copia de seguridad. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Un filtro por salario devuelve muy pocos empleados y no hay índice. Propón una solución y justifica por qué es preferible a Índice sobre nombre.",
+    "reference": "Índice sobre salario. El índice se alinea con la columna del predicado.",
     "rubric": [
       [
-        "Definición correcta",
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o001"
+  },
+  {
+    "type": "open",
+    "prompt": "Se filtra por departamento y se ordena por salario. Propón una solución y justifica por qué es preferible a Índice (apellido,nombre).",
+    "reference": "Índice (id_departamento,salario). El prefijo de igualdad y el salario favorecen el acceso y el orden.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o002"
+  },
+  {
+    "type": "open",
+    "prompt": "Un informe busca contrataciones durante 2023 incluyendo horas. Propón una solución y justifica por qué es preferible a Igualdad con el primer día.",
+    "reference": "Intervalo >= inicio y < inicio del año siguiente. El límite superior exclusivo incluye todo el último día.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o003"
+  },
+  {
+    "type": "open",
+    "prompt": "EXPLAIN muestra un índice en possible_keys pero key es NULL. Propón una solución y justifica por qué es preferible a El índice se utiliza obligatoriamente.",
+    "reference": "El índice es candidato pero no elegido. possible_keys y key distinguen candidatos de selección real.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o004"
+  },
+  {
+    "type": "open",
+    "prompt": "EXPLAIN muestra ALL en una tabla de ocho departamentos. Propón una solución y justifica por qué es preferible a Forzar siempre un índice.",
+    "reference": "Evaluar coste y tamaño antes de cambiar. Un escaneo de una tabla pequeña puede ser eficiente.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o005"
+  },
+  {
+    "type": "open",
+    "prompt": "Se necesita comprobar si un índice nuevo cambia el plan. Propón una solución y justifica por qué es preferible a Comparar solo el texto SQL.",
+    "reference": "Comparar EXPLAIN antes y después. La comparación requiere condiciones equivalentes y planes observados.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o006"
+  },
+  {
+    "type": "open",
+    "prompt": "Las estadísticas se quedaron desactualizadas tras una carga masiva. Propón una solución y justifica por qué es preferible a DROP TABLE.",
+    "reference": "ANALYZE TABLE. ANALYZE actualiza estadísticas usadas por el optimizador.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o007"
+  },
+  {
+    "type": "open",
+    "prompt": "Se desea conocer los índices existentes en ventas. Propón una solución y justifica por qué es preferible a SHOW DATABASES.",
+    "reference": "SHOW INDEX FROM ventas. SHOW INDEX enumera índices y columnas.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o008"
+  },
+  {
+    "type": "open",
+    "prompt": "Un plan indica Using filesort. Propón una solución y justifica por qué es preferible a Lectura obligatoria de disco.",
+    "reference": "Ordenación adicional. La ordenación adicional no implica necesariamente archivos en disco.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o009"
+  },
+  {
+    "type": "open",
+    "prompt": "Una consulta necesita solo nombre y salario. Propón una solución y justifica por qué es preferible a Seleccionar todas las columnas.",
+    "reference": "Proyectar nombre y salario. Reducir la proyección evita recuperar datos innecesarios.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o010"
+  },
+  {
+    "type": "open",
+    "prompt": "Una subconsulta suma ventas por empleado durante un periodo. Propón una solución y justifica por qué es preferible a Índice (importe,apellido).",
+    "reference": "Índice (id_empleado,fecha_venta). La igualdad por empleado precede al rango de fecha.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o011"
+  },
+  {
+    "type": "open",
+    "prompt": "Se quiere comprobar equivalencia de una subconsulta y un JOIN con HAVING. Propón una solución y justifica por qué es preferible a Comparar solo tiempo.",
+    "reference": "Comparar identificadores y resultados. Los resultados deben ser equivalentes antes de evaluar rendimiento.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o012"
+  },
+  {
+    "type": "open",
+    "prompt": "Un índice compuesto empieza por departamento y se elimina ese filtro. Propón una solución y justifica por qué es preferible a Asumir idéntica eficiencia.",
+    "reference": "Reevaluar utilidad del prefijo izquierdo. Sin la columna inicial el índice puede resultar menos adecuado.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o013"
+  },
+  {
+    "type": "open",
+    "prompt": "Una tabla recibe muchas escrituras y acumula índices poco usados. Propón una solución y justifica por qué es preferible a Añadir índices a cada columna.",
+    "reference": "Revisar uso y dependencias antes de retirar índices. Los índices tienen costes de mantenimiento y pueden ser necesarios para restricciones.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o014"
+  },
+  {
+    "type": "open",
+    "prompt": "Se necesita borrar un gran volumen de filas en producción. Propón una solución y justifica por qué es preferible a Eliminar toda la tabla.",
+    "reference": "Planificar lotes controlados y validar condiciones. Los lotes pueden limitar duración de bloqueos y tamaño de transacciones.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o015"
+  },
+  {
+    "type": "open",
+    "prompt": "Un plan indica rows muy bajo. Propón una solución y justifica por qué es preferible a Interpretarlo como milisegundos.",
+    "reference": "Tomarlo como estimación y medir ejecución. rows es una estimación de filas examinadas, no una medición de tiempo.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o016"
+  },
+  {
+    "type": "open",
+    "prompt": "Compara HAVING SUM con Clave foránea de empleados: función de cada uno y un ejemplo de uso.",
+    "reference": "HAVING SUM: Filtra grupos por suma. Clave foránea de empleados: id_departamento. Debe distinguir ambas funciones con un ejemplo coherente.",
+    "rubric": [
+      [
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o002",
-    "type": "open",
-    "prompt": "Explica possible_keys y distingue su función de «Índice elegido». Incluye un ejemplo o contexto de uso.",
-    "reference": "possible_keys: Índices candidatos. No confundir con índice elegido. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o017"
   },
   {
-    "id": "v14o003",
     "type": "open",
-    "prompt": "Explica key y distingue su función de «Índices candidatos». Incluye un ejemplo o contexto de uso.",
-    "reference": "key: Índice elegido. No confundir con índices candidatos. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Índice para departamento y salario con Índice para fechas de contratación: función de cada uno y un ejemplo de uso.",
+    "reference": "Índice para departamento y salario: empleados(id_departamento,salario). Índice para fechas de contratación: empleados(fecha_contratacion). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o004",
-    "type": "open",
-    "prompt": "Explica rows y distingue su función de «Filas exactas devueltas». Incluye un ejemplo o contexto de uso.",
-    "reference": "rows: Filas estimadas a examinar. No confundir con filas exactas devueltas. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o018"
   },
   {
-    "id": "v14o005",
     "type": "open",
-    "prompt": "Explica type y distingue su función de «Nombre de índice». Incluye un ejemplo o contexto de uso.",
-    "reference": "type: Método de acceso. No confundir con nombre de índice. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Proyección reducida con index: función de cada uno y un ejemplo de uso.",
+    "reference": "Proyección reducida: Seleccionar columnas necesarias. index: Escaneo de índice. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o006",
-    "type": "open",
-    "prompt": "Explica ALL y distingue su función de «Búsqueda única». Incluye un ejemplo o contexto de uso.",
-    "reference": "ALL: Escaneo de tabla. No confundir con búsqueda única. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o019"
   },
   {
-    "id": "v14o007",
     "type": "open",
-    "prompt": "Explica index y distingue su función de «Escaneo de tabla». Incluye un ejemplo o contexto de uso.",
-    "reference": "index: Escaneo de índice. No confundir con escaneo de tabla. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Prefijo izquierdo con Límite superior exclusivo: función de cada uno y un ejemplo de uso.",
+    "reference": "Prefijo izquierdo: Columnas iniciales del índice. Límite superior exclusivo: Excluye comienzo del siguiente periodo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o008",
-    "type": "open",
-    "prompt": "Explica range y distingue su función de «Escaneo siempre completo». Incluye un ejemplo o contexto de uso.",
-    "reference": "range: Acceso por intervalo. No confundir con escaneo siempre completo. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o020"
   },
   {
-    "id": "v14o009",
     "type": "open",
-    "prompt": "Explica ref y distingue su función de «Escaneo completo de tabla». Incluye un ejemplo o contexto de uso.",
-    "reference": "ref: Búsqueda por clave no única o prefijo. No confundir con escaneo completo de tabla. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Validación de equivalencia con Índice para salario: función de cada uno y un ejemplo de uso.",
+    "reference": "Validación de equivalencia: Comparar resultados de variantes. Índice para salario: empleados(salario). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o010",
-    "type": "open",
-    "prompt": "Explica eq_ref y distingue su función de «Escaneo completo». Incluye un ejemplo o contexto de uso.",
-    "reference": "eq_ref: Una fila como máximo por combinación previa. No confundir con escaneo completo. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o021"
   },
   {
-    "id": "v14o011",
     "type": "open",
-    "prompt": "Explica const y distingue su función de «Escaneo de todas las tablas». Incluye un ejemplo o contexto de uso.",
-    "reference": "const: Acceso constante a una fila como máximo. No confundir con escaneo de todas las tablas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara possible_keys con Prefijo izquierdo: función de cada uno y un ejemplo de uso.",
+    "reference": "possible_keys: Índices candidatos. Prefijo izquierdo: Columnas iniciales del índice. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o012",
-    "type": "open",
-    "prompt": "Explica Using filesort y distingue su función de «Error de consulta». Incluye un ejemplo o contexto de uso.",
-    "reference": "Using filesort: Ordenación adicional. No confundir con error de consulta. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o022"
   },
   {
-    "id": "v14o013",
     "type": "open",
-    "prompt": "Explica ANALYZE TABLE y distingue su función de «Borra datos». Incluye un ejemplo o contexto de uso.",
-    "reference": "ANALYZE TABLE: Actualiza estadísticas. No confundir con borra datos. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara index con CREATE INDEX: función de cada uno y un ejemplo de uso.",
+    "reference": "index: Escaneo de índice. CREATE INDEX: Crea índice. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o014",
-    "type": "open",
-    "prompt": "Explica SHOW INDEX y distingue su función de «Crea índice». Incluye un ejemplo o contexto de uso.",
-    "reference": "SHOW INDEX: Lista índices. No confundir con crea índice. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o023"
   },
   {
-    "id": "v14o015",
     "type": "open",
-    "prompt": "Explica CREATE INDEX y distingue su función de «Borra índice». Incluye un ejemplo o contexto de uso.",
-    "reference": "CREATE INDEX: Crea índice. No confundir con borra índice. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara range con ALL: función de cada uno y un ejemplo de uso.",
+    "reference": "range: Acceso por intervalo. ALL: Escaneo de tabla. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o016",
-    "type": "open",
-    "prompt": "Explica Selectividad alta y distingue su función de «Filtro que devuelve casi todas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Selectividad alta: Filtro que devuelve pocas filas relativas. No confundir con filtro que devuelve casi todas. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o024"
   },
   {
-    "id": "v14o017",
     "type": "open",
-    "prompt": "Explica Índice compuesto y distingue su función de «Varias tablas sin relación». Incluye un ejemplo o contexto de uso.",
-    "reference": "Índice compuesto: Índice sobre varias columnas. No confundir con varias tablas sin relación. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara ref con Selectividad alta: función de cada uno y un ejemplo de uso.",
+    "reference": "ref: Búsqueda por clave no única o prefijo. Selectividad alta: Filtro que devuelve pocas filas relativas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o018",
-    "type": "open",
-    "prompt": "Explica Prefijo izquierdo y distingue su función de «Columnas finales siempre». Incluye un ejemplo o contexto de uso.",
-    "reference": "Prefijo izquierdo: Columnas iniciales del índice. No confundir con columnas finales siempre. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o025"
   },
   {
-    "id": "v14o019",
     "type": "open",
-    "prompt": "Explica Predicado por intervalo y distingue su función de «Función aplicada obligatoriamente». Incluye un ejemplo o contexto de uso.",
-    "reference": "Predicado por intervalo: Límites sobre columna directamente. No confundir con función aplicada obligatoriamente. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Using filesort con rows: función de cada uno y un ejemplo de uso.",
+    "reference": "Using filesort: Ordenación adicional. rows: Filas estimadas a examinar. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o020",
-    "type": "open",
-    "prompt": "Explica Límite superior exclusivo y distingue su función de «Excluye todo el último día». Incluye un ejemplo o contexto de uso.",
-    "reference": "Límite superior exclusivo: Excluye comienzo del siguiente periodo. No confundir con excluye todo el último día. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o026"
   },
   {
-    "id": "v14o021",
     "type": "open",
-    "prompt": "Explica Proyección reducida y distingue su función de «Seleccionar todas las columnas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Proyección reducida: Seleccionar columnas necesarias. No confundir con seleccionar todas las columnas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Índice para ventas por empleado y periodo con Índice para fechas de contratación: función de cada uno y un ejemplo de uso.",
+    "reference": "Índice para ventas por empleado y periodo: ventas(id_empleado,fecha_venta). Índice para fechas de contratación: empleados(fecha_contratacion). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o022",
-    "type": "open",
-    "prompt": "Explica Subconsulta correlacionada y distingue su función de «Nunca depende de consulta externa». Incluye un ejemplo o contexto de uso.",
-    "reference": "Subconsulta correlacionada: Referencia a fila de consulta externa. No confundir con nunca depende de consulta externa. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o027"
   },
   {
-    "id": "v14o023",
     "type": "open",
-    "prompt": "Explica GROUP BY y distingue su función de «Ordena obligatoriamente». Incluye un ejemplo o contexto de uso.",
-    "reference": "GROUP BY: Agrupa filas. No confundir con ordena obligatoriamente. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara CREATE INDEX con Subconsulta correlacionada: función de cada uno y un ejemplo de uso.",
+    "reference": "CREATE INDEX: Crea índice. Subconsulta correlacionada: Referencia a fila de consulta externa. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o024",
-    "type": "open",
-    "prompt": "Explica HAVING SUM y distingue su función de «Filtra filas antes de agrupar». Incluye un ejemplo o contexto de uso.",
-    "reference": "HAVING SUM: Filtra grupos por suma. No confundir con filtra filas antes de agrupar. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o028"
   },
   {
-    "id": "v14o025",
     "type": "open",
-    "prompt": "Explica Estadísticas del optimizador y distingue su función de «Garantizan tiempo exacto». Incluye un ejemplo o contexto de uso.",
-    "reference": "Estadísticas del optimizador: Orientan estimación de costes. No confundir con garantizan tiempo exacto. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Índice para fechas de contratación con Validación de equivalencia: función de cada uno y un ejemplo de uso.",
+    "reference": "Índice para fechas de contratación: empleados(fecha_contratacion). Validación de equivalencia: Comparar resultados de variantes. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o026",
-    "type": "open",
-    "prompt": "Explica Índices adicionales y distingue su función de «Eliminan coste de escritura». Incluye un ejemplo o contexto de uso.",
-    "reference": "Índices adicionales: Coste de almacenamiento y escrituras. No confundir con eliminan coste de escritura. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o029"
   },
   {
-    "id": "v14o027",
     "type": "open",
-    "prompt": "Explica Procesamiento por lotes y distingue su función de «Elimina necesidad de WHERE». Incluye un ejemplo o contexto de uso.",
-    "reference": "Procesamiento por lotes: Divide modificaciones grandes. No confundir con elimina necesidad de where. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Índice para salario con ANALYZE TABLE: función de cada uno y un ejemplo de uso.",
+    "reference": "Índice para salario: empleados(salario). ANALYZE TABLE: Actualiza estadísticas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o028",
-    "type": "open",
-    "prompt": "Explica Validación de equivalencia y distingue su función de «Comparar solo texto SQL». Incluye un ejemplo o contexto de uso.",
-    "reference": "Validación de equivalencia: Comparar resultados de variantes. No confundir con comparar solo texto sql. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o030"
   },
   {
-    "id": "v14o029",
     "type": "open",
-    "prompt": "Explica Medición real y distingue su función de «Leer solo possible_keys». Incluye un ejemplo o contexto de uso.",
-    "reference": "Medición real: Ejecutar en condiciones comparables. No confundir con leer solo possible_keys. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara ALL con Selectividad alta: función de cada uno y un ejemplo de uso.",
+    "reference": "ALL: Escaneo de tabla. Selectividad alta: Filtro que devuelve pocas filas relativas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o030",
-    "type": "open",
-    "prompt": "Explica Clave foránea de empleados y distingue su función de «salario». Incluye un ejemplo o contexto de uso.",
-    "reference": "Clave foránea de empleados: id_departamento. No confundir con salario. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o031"
   },
   {
-    "id": "v14o031",
     "type": "open",
-    "prompt": "Explica Clave de ventas hacia empleados y distingue su función de «importe». Incluye un ejemplo o contexto de uso.",
-    "reference": "Clave de ventas hacia empleados: id_empleado. No confundir con importe. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Selectividad alta con Using filesort: función de cada uno y un ejemplo de uso.",
+    "reference": "Selectividad alta: Filtro que devuelve pocas filas relativas. Using filesort: Ordenación adicional. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o032",
-    "type": "open",
-    "prompt": "Explica Índice para salario y distingue su función de «ventas(importe)». Incluye un ejemplo o contexto de uso.",
-    "reference": "Índice para salario: empleados(salario). No confundir con ventas(importe). El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o032"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 10000 filas antes y 3333 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "66.7 %. (10000 − 3333) / 10000 × 100 = 66.7 %. No mide tiempo real.",
+    "prompt": "Compara Subconsulta correlacionada con Límite superior exclusivo: función de cada uno y un ejemplo de uso.",
+    "reference": "Subconsulta correlacionada: Referencia a fila de consulta externa. Límite superior exclusivo: Excluye comienzo del siguiente periodo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o033"
+    "id": "v16o033"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 13000 filas antes y 3250 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "75.0 %. (13000 − 3250) / 13000 × 100 = 75.0 %. No mide tiempo real.",
+    "prompt": "Compara Clave foránea de empleados con SHOW INDEX: función de cada uno y un ejemplo de uso.",
+    "reference": "Clave foránea de empleados: id_departamento. SHOW INDEX: Lista índices. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o034"
+    "id": "v16o034"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 16000 filas antes y 3200 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "80.0 %. (16000 − 3200) / 16000 × 100 = 80.0 %. No mide tiempo real.",
+    "prompt": "Compara Límite superior exclusivo con Índice para salario: función de cada uno y un ejemplo de uso.",
+    "reference": "Límite superior exclusivo: Excluye comienzo del siguiente periodo. Índice para salario: empleados(salario). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o035"
+    "id": "v16o035"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 19000 filas antes y 3166 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "83.3 %. (19000 − 3166) / 19000 × 100 = 83.3 %. No mide tiempo real.",
+    "prompt": "Compara key con range: función de cada uno y un ejemplo de uso.",
+    "reference": "key: Índice elegido. range: Acceso por intervalo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o036"
+    "id": "v16o036"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 22000 filas antes y 3142 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "85.7 %. (22000 − 3142) / 22000 × 100 = 85.7 %. No mide tiempo real.",
+    "prompt": "Compara GROUP BY con ALL: función de cada uno y un ejemplo de uso.",
+    "reference": "GROUP BY: Agrupa filas. ALL: Escaneo de tabla. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o037"
+    "id": "v16o037"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 25000 filas antes y 3125 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "87.5 %. (25000 − 3125) / 25000 × 100 = 87.5 %. No mide tiempo real.",
+    "prompt": "Compara type con index: función de cada uno y un ejemplo de uso.",
+    "reference": "type: Método de acceso. index: Escaneo de índice. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o038"
+    "id": "v16o038"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 28000 filas antes y 3111 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "88.9 %. (28000 − 3111) / 28000 × 100 = 88.9 %. No mide tiempo real.",
+    "prompt": "Compara Medición real con ALL: función de cada uno y un ejemplo de uso.",
+    "reference": "Medición real: Ejecutar en condiciones comparables. ALL: Escaneo de tabla. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o039"
+    "id": "v16o039"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 31000 filas antes y 10333 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "66.7 %. (31000 − 10333) / 31000 × 100 = 66.7 %. No mide tiempo real.",
+    "prompt": "Compara const con Índice para fechas de contratación: función de cada uno y un ejemplo de uso.",
+    "reference": "const: Acceso constante a una fila como máximo. Índice para fechas de contratación: empleados(fecha_contratacion). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o040"
+    "id": "v16o040"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 34000 filas antes y 8500 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "75.0 %. (34000 − 8500) / 34000 × 100 = 75.0 %. No mide tiempo real.",
+    "prompt": "Compara EXPLAIN con GROUP BY: función de cada uno y un ejemplo de uso.",
+    "reference": "EXPLAIN: Plan estimado. GROUP BY: Agrupa filas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o041"
+    "id": "v16o041"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 37000 filas antes y 7400 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "80.0 %. (37000 − 7400) / 37000 × 100 = 80.0 %. No mide tiempo real.",
+    "prompt": "Compara Estadísticas del optimizador con Selectividad alta: función de cada uno y un ejemplo de uso.",
+    "reference": "Estadísticas del optimizador: Orientan estimación de costes. Selectividad alta: Filtro que devuelve pocas filas relativas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o042"
+    "id": "v16o042"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 40000 filas antes y 6666 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "83.3 %. (40000 − 6666) / 40000 × 100 = 83.3 %. No mide tiempo real.",
+    "prompt": "Compara SHOW INDEX con Clave foránea de empleados: función de cada uno y un ejemplo de uso.",
+    "reference": "SHOW INDEX: Lista índices. Clave foránea de empleados: id_departamento. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o043"
+    "id": "v16o043"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 43000 filas antes y 6142 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "85.7 %. (43000 − 6142) / 43000 × 100 = 85.7 %. No mide tiempo real.",
+    "prompt": "Compara Índice compuesto con Selectividad alta: función de cada uno y un ejemplo de uso.",
+    "reference": "Índice compuesto: Índice sobre varias columnas. Selectividad alta: Filtro que devuelve pocas filas relativas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o044"
+    "id": "v16o044"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 46000 filas antes y 5750 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "87.5 %. (46000 − 5750) / 46000 × 100 = 87.5 %. No mide tiempo real.",
+    "prompt": "Compara Clave de ventas hacia empleados con GROUP BY: función de cada uno y un ejemplo de uso.",
+    "reference": "Clave de ventas hacia empleados: id_empleado. GROUP BY: Agrupa filas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o045"
+    "id": "v16o045"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 49000 filas antes y 5444 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "88.9 %. (49000 − 5444) / 49000 × 100 = 88.9 %. No mide tiempo real.",
+    "prompt": "Compara Predicado por intervalo con Límite superior exclusivo: función de cada uno y un ejemplo de uso.",
+    "reference": "Predicado por intervalo: Límites sobre columna directamente. Límite superior exclusivo: Excluye comienzo del siguiente periodo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o046"
+    "id": "v16o046"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 52000 filas antes y 17333 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "66.7 %. (52000 − 17333) / 52000 × 100 = 66.7 %. No mide tiempo real.",
+    "prompt": "Compara Índices adicionales con Índice para ventas por empleado y periodo: función de cada uno y un ejemplo de uso.",
+    "reference": "Índices adicionales: Coste de almacenamiento y escrituras. Índice para ventas por empleado y periodo: ventas(id_empleado,fecha_venta). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o047"
+    "id": "v16o047"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 55000 filas antes y 13750 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "75.0 %. (55000 − 13750) / 55000 × 100 = 75.0 %. No mide tiempo real.",
+    "prompt": "Compara rows con Índice para ventas por empleado y periodo: función de cada uno y un ejemplo de uso.",
+    "reference": "rows: Filas estimadas a examinar. Índice para ventas por empleado y periodo: ventas(id_empleado,fecha_venta). Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o048"
+    "id": "v16o048"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 58000 filas antes y 11600 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "80.0 %. (58000 − 11600) / 58000 × 100 = 80.0 %. No mide tiempo real.",
+    "prompt": "Compara eq_ref con Subconsulta correlacionada: función de cada uno y un ejemplo de uso.",
+    "reference": "eq_ref: Una fila como máximo por combinación previa. Subconsulta correlacionada: Referencia a fila de consulta externa. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o049"
+    "id": "v16o049"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 61000 filas antes y 10166 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "83.3 %. (61000 − 10166) / 61000 × 100 = 83.3 %. No mide tiempo real.",
+    "prompt": "Compara ANALYZE TABLE con const: función de cada uno y un ejemplo de uso.",
+    "reference": "ANALYZE TABLE: Actualiza estadísticas. const: Acceso constante a una fila como máximo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o050"
+    "id": "v16o050"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 64000 filas antes y 9142 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "85.7 %. (64000 − 9142) / 64000 × 100 = 85.7 %. No mide tiempo real.",
+    "prompt": "Compara Procesamiento por lotes con SHOW INDEX: función de cada uno y un ejemplo de uso.",
+    "reference": "Procesamiento por lotes: Divide modificaciones grandes. SHOW INDEX: Lista índices. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o051"
+    "id": "v16o051"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 67000 filas antes y 8375 después. ¿Qué reducción porcentual estimada hay? Justifica el resultado o muestra el cálculo.",
-    "reference": "87.5 %. (67000 − 8375) / 67000 × 100 = 87.5 %. No mide tiempo real.",
+    "prompt": "Diferencia Índice para departamento y salario de Subconsulta correlacionada y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para departamento y salario: empleados(id_departamento,salario). Subconsulta correlacionada: Referencia a fila de consulta externa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o052"
+    "id": "v16o052"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1300 filas con ALL y 130 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1170. Resultado: 1170. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Medición real de ANALYZE TABLE y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Medición real: Ejecutar en condiciones comparables. ANALYZE TABLE: Actualiza estadísticas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o053"
+    "id": "v16o053"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1300 filas y el filtro devuelve 13 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia ref de Estadísticas del optimizador y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "ref: Búsqueda por clave no única o prefijo. Estadísticas del optimizador: Orientan estimación de costes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o054"
+    "id": "v16o054"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1300 filas sin índice y 260 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Using filesort de Predicado por intervalo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Using filesort: Ordenación adicional. Predicado por intervalo: Límites sobre columna directamente. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o055"
+    "id": "v16o055"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 13 departamentos y 3 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "39. Resultado: 39. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para fechas de contratación de Procesamiento por lotes y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para fechas de contratación: empleados(fecha_contratacion). Procesamiento por lotes: Divide modificaciones grandes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o056"
+    "id": "v16o056"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1400 filas con ALL y 140 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1260. Resultado: 1260. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Subconsulta correlacionada de Índices adicionales y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Subconsulta correlacionada: Referencia a fila de consulta externa. Índices adicionales: Coste de almacenamiento y escrituras. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o057"
+    "id": "v16o057"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1400 filas y el filtro devuelve 14 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia ALL de EXPLAIN y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "ALL: Escaneo de tabla. EXPLAIN: Plan estimado. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o058"
+    "id": "v16o058"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1400 filas sin índice y 280 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Límite superior exclusivo de Clave de ventas hacia empleados y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Límite superior exclusivo: Excluye comienzo del siguiente periodo. Clave de ventas hacia empleados: id_empleado. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o059"
+    "id": "v16o059"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 14 departamentos y 4 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "56. Resultado: 56. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia key de SHOW INDEX y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "key: Índice elegido. SHOW INDEX: Lista índices. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o060"
+    "id": "v16o060"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1500 filas con ALL y 150 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1350. Resultado: 1350. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índices adicionales de Procesamiento por lotes y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índices adicionales: Coste de almacenamiento y escrituras. Procesamiento por lotes: Divide modificaciones grandes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o061"
+    "id": "v16o061"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1500 filas y el filtro devuelve 15 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Límite superior exclusivo de type y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Límite superior exclusivo: Excluye comienzo del siguiente periodo. type: Método de acceso. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o062"
+    "id": "v16o062"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1500 filas sin índice y 300 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia range de Índices adicionales y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "range: Acceso por intervalo. Índices adicionales: Coste de almacenamiento y escrituras. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o063"
+    "id": "v16o063"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 15 departamentos y 5 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "75. Resultado: 75. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia GROUP BY de Procesamiento por lotes y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "GROUP BY: Agrupa filas. Procesamiento por lotes: Divide modificaciones grandes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o064"
+    "id": "v16o064"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1600 filas con ALL y 160 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1440. Resultado: 1440. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Prefijo izquierdo de ref y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Prefijo izquierdo: Columnas iniciales del índice. ref: Búsqueda por clave no única o prefijo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o065"
+    "id": "v16o065"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1600 filas y el filtro devuelve 16 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia index de EXPLAIN y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "index: Escaneo de índice. EXPLAIN: Plan estimado. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o066"
+    "id": "v16o066"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1600 filas sin índice y 320 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia type de const y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "type: Método de acceso. const: Acceso constante a una fila como máximo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o067"
+    "id": "v16o067"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 16 departamentos y 6 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "96. Resultado: 96. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia const de Predicado por intervalo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "const: Acceso constante a una fila como máximo. Predicado por intervalo: Límites sobre columna directamente. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o068"
+    "id": "v16o068"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1700 filas con ALL y 170 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1530. Resultado: 1530. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Validación de equivalencia de Subconsulta correlacionada y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Validación de equivalencia: Comparar resultados de variantes. Subconsulta correlacionada: Referencia a fila de consulta externa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o069"
+    "id": "v16o069"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1700 filas y el filtro devuelve 17 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Límite superior exclusivo de const y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Límite superior exclusivo: Excluye comienzo del siguiente periodo. const: Acceso constante a una fila como máximo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o070"
+    "id": "v16o070"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1700 filas sin índice y 340 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia EXPLAIN de Estadísticas del optimizador y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "EXPLAIN: Plan estimado. Estadísticas del optimizador: Orientan estimación de costes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o071"
+    "id": "v16o071"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 17 departamentos y 7 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "119. Resultado: 119. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para fechas de contratación de type y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para fechas de contratación: empleados(fecha_contratacion). type: Método de acceso. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o072"
+    "id": "v16o072"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1800 filas con ALL y 180 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1620. Resultado: 1620. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Using filesort de SHOW INDEX y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Using filesort: Ordenación adicional. SHOW INDEX: Lista índices. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o073"
+    "id": "v16o073"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1800 filas y el filtro devuelve 18 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia index de ALL y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "index: Escaneo de índice. ALL: Escaneo de tabla. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o074"
+    "id": "v16o074"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1800 filas sin índice y 360 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia SHOW INDEX de ANALYZE TABLE y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "SHOW INDEX: Lista índices. ANALYZE TABLE: Actualiza estadísticas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o075"
+    "id": "v16o075"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 18 departamentos y 8 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "144. Resultado: 144. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para departamento y salario de key y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para departamento y salario: empleados(id_departamento,salario). key: Índice elegido. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o076"
+    "id": "v16o076"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 1900 filas con ALL y 190 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1710. Resultado: 1710. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia ref de Subconsulta correlacionada y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "ref: Búsqueda por clave no única o prefijo. Subconsulta correlacionada: Referencia a fila de consulta externa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o077"
+    "id": "v16o077"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 1900 filas y el filtro devuelve 19 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para ventas por empleado y periodo de Subconsulta correlacionada y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para ventas por empleado y periodo: ventas(id_empleado,fecha_venta). Subconsulta correlacionada: Referencia a fila de consulta externa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o078"
+    "id": "v16o078"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 1900 filas sin índice y 380 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Clave foránea de empleados de Medición real y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Clave foránea de empleados: id_departamento. Medición real: Ejecutar en condiciones comparables. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o079"
+    "id": "v16o079"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 19 departamentos y 2 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "38. Resultado: 38. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia CREATE INDEX de Índice para fechas de contratación y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "CREATE INDEX: Crea índice. Índice para fechas de contratación: empleados(fecha_contratacion). Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o080"
+    "id": "v16o080"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 2000 filas con ALL y 200 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1800. Resultado: 1800. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Medición real de Estadísticas del optimizador y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Medición real: Ejecutar en condiciones comparables. Estadísticas del optimizador: Orientan estimación de costes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o081"
+    "id": "v16o081"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 2000 filas y el filtro devuelve 20 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Medición real de eq_ref y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Medición real: Ejecutar en condiciones comparables. eq_ref: Una fila como máximo por combinación previa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o082"
+    "id": "v16o082"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 2000 filas sin índice y 400 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para fechas de contratación de Medición real y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para fechas de contratación: empleados(fecha_contratacion). Medición real: Ejecutar en condiciones comparables. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o083"
+    "id": "v16o083"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 20 departamentos y 3 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "60. Resultado: 60. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia CREATE INDEX de Subconsulta correlacionada y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "CREATE INDEX: Crea índice. Subconsulta correlacionada: Referencia a fila de consulta externa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o084"
+    "id": "v16o084"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 2100 filas con ALL y 210 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1890. Resultado: 1890. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Subconsulta correlacionada de const y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Subconsulta correlacionada: Referencia a fila de consulta externa. const: Acceso constante a una fila como máximo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o085"
+    "id": "v16o085"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 2100 filas y el filtro devuelve 21 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia eq_ref de Procesamiento por lotes y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "eq_ref: Una fila como máximo por combinación previa. Procesamiento por lotes: Divide modificaciones grandes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o086"
+    "id": "v16o086"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 2100 filas sin índice y 420 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Proyección reducida de Límite superior exclusivo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Proyección reducida: Seleccionar columnas necesarias. Límite superior exclusivo: Excluye comienzo del siguiente periodo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o087"
+    "id": "v16o087"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 21 departamentos y 4 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "84. Resultado: 84. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para departamento y salario de Índice para fechas de contratación y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para departamento y salario: empleados(id_departamento,salario). Índice para fechas de contratación: empleados(fecha_contratacion). Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o088"
+    "id": "v16o088"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 2200 filas con ALL y 220 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "1980. Resultado: 1980. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia ref de Índice para ventas por empleado y periodo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "ref: Búsqueda por clave no única o prefijo. Índice para ventas por empleado y periodo: ventas(id_empleado,fecha_venta). Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o089"
+    "id": "v16o089"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 2200 filas y el filtro devuelve 22 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para fechas de contratación de eq_ref y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para fechas de contratación: empleados(fecha_contratacion). eq_ref: Una fila como máximo por combinación previa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o090"
+    "id": "v16o090"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 2200 filas sin índice y 440 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia index de const y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "index: Escaneo de índice. const: Acceso constante a una fila como máximo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o091"
+    "id": "v16o091"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 22 departamentos y 5 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "110. Resultado: 110. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para departamento y salario de Selectividad alta y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para departamento y salario: empleados(id_departamento,salario). Selectividad alta: Filtro que devuelve pocas filas relativas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o092"
+    "id": "v16o092"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 2300 filas con ALL y 230 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "2070. Resultado: 2070. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Proyección reducida de Índices adicionales y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Proyección reducida: Seleccionar columnas necesarias. Índices adicionales: Coste de almacenamiento y escrituras. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o093"
+    "id": "v16o093"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 2300 filas y el filtro devuelve 23 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Predicado por intervalo de rows y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Predicado por intervalo: Límites sobre columna directamente. rows: Filas estimadas a examinar. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o094"
+    "id": "v16o094"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 2300 filas sin índice y 460 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Selectividad alta de Índice compuesto y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Selectividad alta: Filtro que devuelve pocas filas relativas. Índice compuesto: Índice sobre varias columnas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o095"
+    "id": "v16o095"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 23 departamentos y 6 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "138. Resultado: 138. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Validación de equivalencia de type y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Validación de equivalencia: Comparar resultados de variantes. type: Método de acceso. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o096"
+    "id": "v16o096"
   },
   {
     "type": "open",
-    "prompt": "EXPLAIN estima 2400 filas con ALL y 240 con range. ¿Cuántas filas estimadas se ahorran? Justifica el resultado o muestra el cálculo.",
-    "reference": "2160. Resultado: 2160. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Validación de equivalencia de key y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Validación de equivalencia: Comparar resultados de variantes. key: Índice elegido. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o097"
+    "id": "v16o097"
   },
   {
     "type": "open",
-    "prompt": "En empleados hay 2400 filas y el filtro devuelve 24 filas. ¿Qué porcentaje representa? Justifica el resultado o muestra el cálculo.",
-    "reference": "1. Resultado: 1. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Índice para departamento y salario de ALL y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Índice para departamento y salario: empleados(id_departamento,salario). ALL: Escaneo de tabla. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o098"
+    "id": "v16o098"
   },
   {
     "type": "open",
-    "prompt": "En ventas se estiman 2400 filas sin índice y 480 con índice. ¿Qué factor de reducción de filas se estima? Justifica el resultado o muestra el cálculo.",
-    "reference": "5. Resultado: 5. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Proyección reducida de possible_keys y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Proyección reducida: Seleccionar columnas necesarias. possible_keys: Índices candidatos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o099"
+    "id": "v16o099"
   },
   {
     "type": "open",
-    "prompt": "Un JOIN examina aproximadamente 24 departamentos y 7 empleados por cada uno. ¿Cuál es el producto de esas estimaciones? Justifica el resultado o muestra el cálculo.",
-    "reference": "168. Resultado: 168. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia HAVING SUM de Índice para salario y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "HAVING SUM: Filtra grupos por suma. Índice para salario: empleados(salario). Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o100"
+    "id": "v16o100"
   }
 ]

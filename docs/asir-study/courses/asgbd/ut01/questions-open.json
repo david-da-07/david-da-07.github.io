@@ -1,1734 +1,1938 @@
 [
   {
-    "id": "v14o001",
     "type": "open",
-    "prompt": "Explica Dato y distingue su función de «Software gestor». Incluye un ejemplo o contexto de uso.",
-    "reference": "Dato: Representación elemental. No confundir con software gestor. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Dos usuarios modifican simultáneamente datos bancarios. Propón una solución y justifica por qué es preferible a Durabilidad.",
+    "reference": "Aislamiento. El aislamiento controla la interacción de transacciones concurrentes.",
     "rubric": [
       [
-        "Definición correcta",
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o001"
+  },
+  {
+    "type": "open",
+    "prompt": "Una transferencia debe registrar ambos movimientos o ninguno. Propón una solución y justifica por qué es preferible a Disponibilidad.",
+    "reference": "Atomicidad. La unidad de trabajo se confirma completa o se revierte.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o002"
+  },
+  {
+    "type": "open",
+    "prompt": "Tras un fallo se deben conservar transacciones confirmadas. Propón una solución y justifica por qué es preferible a Atomicidad.",
+    "reference": "Durabilidad. La durabilidad protege los cambios confirmados según garantías del motor.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o003"
+  },
+  {
+    "type": "open",
+    "prompt": "Un operador solo debe consultar tablas concretas. Propón una solución y justifica por qué es preferible a Autenticación sin privilegios.",
+    "reference": "Autorización mediante roles. Los privilegios determinan qué acciones puede realizar una identidad.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o004"
+  },
+  {
+    "type": "open",
+    "prompt": "Se quiere demostrar quién modificó un registro. Propón una solución y justifica por qué es preferible a Backup.",
+    "reference": "Auditoría. La auditoría registra actividad relevante.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o005"
+  },
+  {
+    "type": "open",
+    "prompt": "Un DBA desea comprobar que una copia puede recuperarse. Propón una solución y justifica por qué es preferible a Crear otro usuario.",
+    "reference": "Prueba de restauración. Una restauración de prueba comprueba la recuperabilidad.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o006"
+  },
+  {
+    "type": "open",
+    "prompt": "Una aplicación separa navegador, API de negocio y servidor de datos. Propón una solución y justifica por qué es preferible a Arquitectura centralizada.",
+    "reference": "Arquitectura de tres capas. Presentación, lógica y datos son responsabilidades diferenciadas.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o007"
+  },
+  {
+    "type": "open",
+    "prompt": "Una aplicación de escritorio conecta directamente a PostgreSQL remoto. Propón una solución y justifica por qué es preferible a Tres capas con API intermedia.",
+    "reference": "Cliente-servidor de dos capas. El cliente solicita operaciones directamente al servidor.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o008"
+  },
+  {
+    "type": "open",
+    "prompt": "Un catálogo almacena productos con atributos variables y anidados. Propón una solución y justifica por qué es preferible a Modelo de grafo.",
+    "reference": "Modelo documental. Los documentos acomodan estructuras variables y anidadas.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o009"
+  },
+  {
+    "type": "open",
+    "prompt": "Una aplicación consulta principalmente caminos entre personas relacionadas. Propón una solución y justifica por qué es preferible a Modelo documental.",
+    "reference": "Modelo de grafo. Nodos y aristas representan conexiones y recorridos.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o010"
+  },
+  {
+    "type": "open",
+    "prompt": "Una caché recupera sesiones mediante identificador. Propón una solución y justifica por qué es preferible a Modelo de grafo.",
+    "reference": "Modelo clave-valor. El patrón de acceso clave a valor encaja con sesiones.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o011"
+  },
+  {
+    "type": "open",
+    "prompt": "Se requiere SQL relacional con tipos extensibles. Propón una solución y justifica por qué es preferible a MongoDB.",
+    "reference": "PostgreSQL. PostgreSQL es objeto-relacional y admite extensiones y tipos.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o012"
+  },
+  {
+    "type": "open",
+    "prompt": "Se elimina y recrea el contenedor de la ganadería sin perder datos. Propón una solución y justifica por qué es preferible a Capa escribible del contenedor.",
+    "reference": "Volumen persistente. El volumen vive fuera del ciclo del contenedor.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o013"
+  },
+  {
+    "type": "open",
+    "prompt": "Se necesita comprobar la versión del servidor PostgreSQL conectado. Propón una solución y justifica por qué es preferible a docker images.",
+    "reference": "SELECT version(). SELECT version consulta el servidor al que se conecta psql.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o014"
+  },
+  {
+    "type": "open",
+    "prompt": "Se quiere impedir que un caballo tenga varias fichas veterinarias. Propón una solución y justifica por qué es preferible a FK sin unicidad en ficha_veterinaria.",
+    "reference": "FK UNIQUE en ficha_veterinaria. UNIQUE sobre id_caballo limita la relación a una ficha.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o015"
+  },
+  {
+    "type": "open",
+    "prompt": "Se quieren caballos con premios acumulados incluyendo los que no compitieron. Propón una solución y justifica por qué es preferible a INNER JOIN con SUM.",
+    "reference": "LEFT JOIN con COALESCE(SUM(...),0). LEFT JOIN conserva caballos y COALESCE convierte el agregado nulo en cero.",
+    "rubric": [
+      [
+        "Solución técnica",
+        5
+      ],
+      [
+        "Justificación comparativa",
+        5
+      ]
+    ],
+    "id": "v16o016"
+  },
+  {
+    "type": "open",
+    "prompt": "Compara Aislamiento con Dato: función de cada uno y un ejemplo de uso.",
+    "reference": "Aislamiento: Controla interacción simultánea. Dato: Representación elemental. Debe distinguir ambas funciones con un ejemplo coherente.",
+    "rubric": [
+      [
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o002",
-    "type": "open",
-    "prompt": "Explica Base de datos y distingue su función de «Programa cliente». Incluye un ejemplo o contexto de uso.",
-    "reference": "Base de datos: Conjunto organizado persistente. No confundir con programa cliente. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o017"
   },
   {
-    "id": "v14o003",
     "type": "open",
-    "prompt": "Explica SGBD y distingue su función de «Conjunto de filas sin software». Incluye un ejemplo o contexto de uso.",
-    "reference": "SGBD: Software que gobierna los datos. No confundir con conjunto de filas sin software. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Confidencialidad con Modelo documental: función de cada uno y un ejemplo de uso.",
+    "reference": "Confidencialidad: Acceso autorizado. Modelo documental: Documentos con campos y estructuras. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o004",
-    "type": "open",
-    "prompt": "Explica Integridad y distingue su función de «Acceso libre a cualquiera». Incluye un ejemplo o contexto de uso.",
-    "reference": "Integridad: Datos coherentes con reglas. No confundir con acceso libre a cualquiera. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o018"
   },
   {
-    "id": "v14o005",
     "type": "open",
-    "prompt": "Explica Confidencialidad y distingue su función de «Ausencia de duplicados». Incluye un ejemplo o contexto de uso.",
-    "reference": "Confidencialidad: Acceso autorizado. No confundir con ausencia de duplicados. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Oracle Database con PostgreSQL: función de cada uno y un ejemplo de uso.",
+    "reference": "Oracle Database: Gestor relacional empresarial. PostgreSQL: Gestor objeto-relacional abierto. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o006",
-    "type": "open",
-    "prompt": "Explica Disponibilidad y distingue su función de «Datos sin duplicados». Incluye un ejemplo o contexto de uso.",
-    "reference": "Disponibilidad: Servicio accesible cuando se necesita. No confundir con datos sin duplicados. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o019"
   },
   {
-    "id": "v14o007",
     "type": "open",
-    "prompt": "Explica Autenticación y distingue su función de «Asigna orden de filas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Autenticación: Verifica identidad. No confundir con asigna orden de filas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara POSTGRES_PASSWORD con POSTGRES_DB: función de cada uno y un ejemplo de uso.",
+    "reference": "POSTGRES_PASSWORD: Contraseña inicial. POSTGRES_DB: Base inicial. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o008",
-    "type": "open",
-    "prompt": "Explica Autorización y distingue su función de «Verifica solamente identidad». Incluye un ejemplo o contexto de uso.",
-    "reference": "Autorización: Determina acciones permitidas. No confundir con verifica solamente identidad. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o020"
   },
   {
-    "id": "v14o009",
     "type": "open",
-    "prompt": "Explica Auditoría y distingue su función de «Elimina todo registro». Incluye un ejemplo o contexto de uso.",
-    "reference": "Auditoría: Registra actividad relevante. No confundir con elimina todo registro. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Backup con Integridad: función de cada uno y un ejemplo de uso.",
+    "reference": "Backup: Copia para recuperación. Integridad: Datos coherentes con reglas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o010",
-    "type": "open",
-    "prompt": "Explica Arquitectura centralizada y distingue su función de «Tres capas separadas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Arquitectura centralizada: Componentes en un sistema. No confundir con tres capas separadas. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o021"
   },
   {
-    "id": "v14o011",
     "type": "open",
-    "prompt": "Explica Cliente-servidor y distingue su función de «Todos acceden directo a ficheros». Incluye un ejemplo o contexto de uso.",
-    "reference": "Cliente-servidor: Cliente solicita y servidor procesa. No confundir con todos acceden directo a ficheros. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara MongoDB con Cliente-servidor: función de cada uno y un ejemplo de uso.",
+    "reference": "MongoDB: Gestor documental. Cliente-servidor: Cliente solicita y servidor procesa. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o012",
-    "type": "open",
-    "prompt": "Explica Tres capas y distingue su función de «Solo cliente y disco». Incluye un ejemplo o contexto de uso.",
-    "reference": "Tres capas: Presentación, lógica y datos. No confundir con solo cliente y disco. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o022"
   },
   {
-    "id": "v14o013",
     "type": "open",
-    "prompt": "Explica Arquitectura lógica y distingue su función de «Discos y máquinas concretas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Arquitectura lógica: Funciones y componentes. No confundir con discos y máquinas concretas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Autorización con Monitorización: función de cada uno y un ejemplo de uso.",
+    "reference": "Autorización: Determina acciones permitidas. Monitorización: Observa estado y rendimiento. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o014",
-    "type": "open",
-    "prompt": "Explica Arquitectura física y distingue su función de «Reglas de negocio únicamente». Incluye un ejemplo o contexto de uso.",
-    "reference": "Arquitectura física: Despliegue y recursos. No confundir con reglas de negocio únicamente. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o023"
   },
   {
-    "id": "v14o015",
     "type": "open",
-    "prompt": "Explica DBA y distingue su función de «Solo diseña pantallas». Incluye un ejemplo o contexto de uso.",
-    "reference": "DBA: Administra servicio de datos. No confundir con solo diseña pantallas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Atomicidad con Puerto PostgreSQL predeterminado: función de cada uno y un ejemplo de uso.",
+    "reference": "Atomicidad: Todo o nada. Puerto PostgreSQL predeterminado: 5432. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o016",
-    "type": "open",
-    "prompt": "Explica Backup y distingue su función de «Índice para ordenar». Incluye un ejemplo o contexto de uso.",
-    "reference": "Backup: Copia para recuperación. No confundir con índice para ordenar. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o024"
   },
   {
-    "id": "v14o017",
     "type": "open",
-    "prompt": "Explica Restore y distingue su función de «Crea roles únicamente». Incluye un ejemplo o contexto de uso.",
-    "reference": "Restore: Recupera datos desde copia. No confundir con crea roles únicamente. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Modelo documental con psql: función de cada uno y un ejemplo de uso.",
+    "reference": "Modelo documental: Documentos con campos y estructuras. psql: Cliente de PostgreSQL. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o018",
-    "type": "open",
-    "prompt": "Explica Monitorización y distingue su función de «Sustituye backups». Incluye un ejemplo o contexto de uso.",
-    "reference": "Monitorización: Observa estado y rendimiento. No confundir con sustituye backups. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o025"
   },
   {
-    "id": "v14o019",
     "type": "open",
-    "prompt": "Explica Transacción y distingue su función de «Una tabla física». Incluye un ejemplo o contexto de uso.",
-    "reference": "Transacción: Unidad lógica de trabajo. No confundir con una tabla física. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara PostgreSQL con Transacción: función de cada uno y un ejemplo de uso.",
+    "reference": "PostgreSQL: Gestor objeto-relacional abierto. Transacción: Unidad lógica de trabajo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o020",
-    "type": "open",
-    "prompt": "Explica Atomicidad y distingue su función de «Cambios confirmados persistentes». Incluye un ejemplo o contexto de uso.",
-    "reference": "Atomicidad: Todo o nada. No confundir con cambios confirmados persistentes. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o026"
   },
   {
-    "id": "v14o021",
     "type": "open",
-    "prompt": "Explica Consistencia ACID y distingue su función de «Todo o nada». Incluye un ejemplo o contexto de uso.",
-    "reference": "Consistencia ACID: Respeta reglas de integridad. No confundir con todo o nada. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara MySQL con psql: función de cada uno y un ejemplo de uso.",
+    "reference": "MySQL: Gestor relacional común en web. psql: Cliente de PostgreSQL. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o022",
-    "type": "open",
-    "prompt": "Explica Aislamiento y distingue su función de «Confirma en disco». Incluye un ejemplo o contexto de uso.",
-    "reference": "Aislamiento: Controla interacción simultánea. No confundir con confirma en disco. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o027"
   },
   {
-    "id": "v14o023",
     "type": "open",
-    "prompt": "Explica Durabilidad y distingue su función de «Impide todas las lecturas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Durabilidad: Persiste tras confirmación. No confundir con impide todas las lecturas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Monitorización con DBA: función de cada uno y un ejemplo de uso.",
+    "reference": "Monitorización: Observa estado y rendimiento. DBA: Administra servicio de datos. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o024",
-    "type": "open",
-    "prompt": "Explica Normalización y distingue su función de «Duplica todos los datos». Incluye un ejemplo o contexto de uso.",
-    "reference": "Normalización: Reduce redundancia y anomalías. No confundir con duplica todos los datos. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o028"
   },
   {
-    "id": "v14o025",
     "type": "open",
-    "prompt": "Explica Modelo relacional y distingue su función de «Documentos exclusivamente». Incluye un ejemplo o contexto de uso.",
-    "reference": "Modelo relacional: Tablas relacionadas por claves. No confundir con documentos exclusivamente. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Dato con Backup: función de cada uno y un ejemplo de uso.",
+    "reference": "Dato: Representación elemental. Backup: Copia para recuperación. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o026",
-    "type": "open",
-    "prompt": "Explica Modelo documental y distingue su función de «Solo filas rígidas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Modelo documental: Documentos con campos y estructuras. No confundir con solo filas rígidas. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o029"
   },
   {
-    "id": "v14o027",
     "type": "open",
-    "prompt": "Explica Clave-valor y distingue su función de «Modelo de aristas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Clave-valor: Acceso por clave a valor. No confundir con modelo de aristas. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Disponibilidad con Durabilidad: función de cada uno y un ejemplo de uso.",
+    "reference": "Disponibilidad: Servicio accesible cuando se necesita. Durabilidad: Persiste tras confirmación. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o028",
-    "type": "open",
-    "prompt": "Explica Grafo y distingue su función de «Solo columnas numéricas». Incluye un ejemplo o contexto de uso.",
-    "reference": "Grafo: Nodos y aristas. No confundir con solo columnas numéricas. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o030"
   },
   {
-    "id": "v14o029",
     "type": "open",
-    "prompt": "Explica MongoDB y distingue su función de «Gestor objeto-relacional del laboratorio». Incluye un ejemplo o contexto de uso.",
-    "reference": "MongoDB: Gestor documental. No confundir con gestor objeto-relacional del laboratorio. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Puerto PostgreSQL predeterminado con Durabilidad: función de cada uno y un ejemplo de uso.",
+    "reference": "Puerto PostgreSQL predeterminado: 5432. Durabilidad: Persiste tras confirmación. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o030",
-    "type": "open",
-    "prompt": "Explica PostgreSQL y distingue su función de «Gestor documental exclusivo». Incluye un ejemplo o contexto de uso.",
-    "reference": "PostgreSQL: Gestor objeto-relacional abierto. No confundir con gestor documental exclusivo. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o031"
   },
   {
-    "id": "v14o031",
     "type": "open",
-    "prompt": "Explica Oracle Database y distingue su función de «Gestor documental del laboratorio». Incluye un ejemplo o contexto de uso.",
-    "reference": "Oracle Database: Gestor relacional empresarial. No confundir con gestor documental del laboratorio. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara DBA con Autenticación: función de cada uno y un ejemplo de uso.",
+    "reference": "DBA: Administra servicio de datos. Autenticación: Verifica identidad. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
-      ]
-    ]
-  },
-  {
-    "id": "v14o032",
-    "type": "open",
-    "prompt": "Explica MySQL y distingue su función de «Gestor de grafos puro». Incluye un ejemplo o contexto de uso.",
-    "reference": "MySQL: Gestor relacional común en web. No confundir con gestor de grafos puro. El ejemplo debe ser coherente con la función indicada.",
-    "rubric": [
-      [
-        "Definición correcta",
+        "Segundo concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
-      ],
-      [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o032"
   },
   {
-    "id": "v14o033",
     "type": "open",
-    "prompt": "Explica Replicación y distingue su función de «Normaliza una tabla». Incluye un ejemplo o contexto de uso.",
-    "reference": "Replicación: Mantiene copias en nodos. No confundir con normaliza una tabla. El ejemplo debe ser coherente con la función indicada.",
+    "prompt": "Compara Durabilidad con Transacción: función de cada uno y un ejemplo de uso.",
+    "reference": "Durabilidad: Persiste tras confirmación. Transacción: Unidad lógica de trabajo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Definición correcta",
+        "Primer concepto",
         4
       ],
       [
-        "Distinción técnica",
-        3
+        "Segundo concepto",
+        4
       ],
       [
-        "Ejemplo pertinente",
-        3
+        "Ejemplo",
+        2
       ]
-    ]
+    ],
+    "id": "v16o033"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 13 y 3 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "16. Resultado: 16. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Arquitectura centralizada con Transacción: función de cada uno y un ejemplo de uso.",
+    "reference": "Arquitectura centralizada: Componentes en un sistema. Transacción: Unidad lógica de trabajo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o034"
+    "id": "v16o034"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 13 propietarios; 3 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "13. Resultado: 13. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara SELECT version() con Auditoría: función de cada uno y un ejemplo de uso.",
+    "reference": "SELECT version(): Consulta versión del servidor. Auditoría: Registra actividad relevante. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o035"
+    "id": "v16o035"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 13 participaciones, 3 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "10. Resultado: 10. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara POSTGRES_DB con DBA: función de cada uno y un ejemplo de uso.",
+    "reference": "POSTGRES_DB: Base inicial. DBA: Administra servicio de datos. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o036"
+    "id": "v16o036"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 13 euros y uno de 25. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Volumen Docker con SELECT version(): función de cada uno y un ejemplo de uso.",
+    "reference": "Volumen Docker: Persistencia fuera del ciclo del contenedor. SELECT version(): Consulta versión del servidor. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o037"
+    "id": "v16o037"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 14 y 4 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "18. Resultado: 18. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Arquitectura lógica con Modelo documental: función de cada uno y un ejemplo de uso.",
+    "reference": "Arquitectura lógica: Funciones y componentes. Modelo documental: Documentos con campos y estructuras. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o038"
+    "id": "v16o038"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 14 propietarios; 4 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "14. Resultado: 14. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Transacción con Durabilidad: función de cada uno y un ejemplo de uso.",
+    "reference": "Transacción: Unidad lógica de trabajo. Durabilidad: Persiste tras confirmación. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o039"
+    "id": "v16o039"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 14 participaciones, 4 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "10. Resultado: 10. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Base de datos con Tres capas: función de cada uno y un ejemplo de uso.",
+    "reference": "Base de datos: Conjunto organizado persistente. Tres capas: Presentación, lógica y datos. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o040"
+    "id": "v16o040"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 14 euros y uno de 29. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "19. Resultado: 19. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Cliente-servidor con SELECT version(): función de cada uno y un ejemplo de uso.",
+    "reference": "Cliente-servidor: Cliente solicita y servidor procesa. SELECT version(): Consulta versión del servidor. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o041"
+    "id": "v16o041"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 15 y 5 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "20. Resultado: 20. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Clave-valor con Dato: función de cada uno y un ejemplo de uso.",
+    "reference": "Clave-valor: Acceso por clave a valor. Dato: Representación elemental. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o042"
+    "id": "v16o042"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 15 propietarios; 5 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "15. Resultado: 15. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Autenticación con DBA: función de cada uno y un ejemplo de uso.",
+    "reference": "Autenticación: Verifica identidad. DBA: Administra servicio de datos. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o043"
+    "id": "v16o043"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 15 participaciones, 5 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "10. Resultado: 10. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara psql con Modelo relacional: función de cada uno y un ejemplo de uso.",
+    "reference": "psql: Cliente de PostgreSQL. Modelo relacional: Tablas relacionadas por claves. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o044"
+    "id": "v16o044"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 15 euros y uno de 33. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "21. Resultado: 21. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Tres capas con MongoDB: función de cada uno y un ejemplo de uso.",
+    "reference": "Tres capas: Presentación, lógica y datos. MongoDB: Gestor documental. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o045"
+    "id": "v16o045"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 16 y 6 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "22. Resultado: 22. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara SGBD con Modelo relacional: función de cada uno y un ejemplo de uso.",
+    "reference": "SGBD: Software que gobierna los datos. Modelo relacional: Tablas relacionadas por claves. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o046"
+    "id": "v16o046"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 16 propietarios; 6 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "16. Resultado: 16. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Replicación con SGBD: función de cada uno y un ejemplo de uso.",
+    "reference": "Replicación: Mantiene copias en nodos. SGBD: Software que gobierna los datos. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o047"
+    "id": "v16o047"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 16 participaciones, 6 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "10. Resultado: 10. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Integridad con Grafo: función de cada uno y un ejemplo de uso.",
+    "reference": "Integridad: Datos coherentes con reglas. Grafo: Nodos y aristas. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o048"
+    "id": "v16o048"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 16 euros y uno de 37. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "23. Resultado: 23. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Modelo relacional con Arquitectura lógica: función de cada uno y un ejemplo de uso.",
+    "reference": "Modelo relacional: Tablas relacionadas por claves. Arquitectura lógica: Funciones y componentes. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o049"
+    "id": "v16o049"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 17 y 7 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Normalización con Autenticación: función de cada uno y un ejemplo de uso.",
+    "reference": "Normalización: Reduce redundancia y anomalías. Autenticación: Verifica identidad. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o050"
+    "id": "v16o050"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 17 propietarios; 7 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Arquitectura física con DBA: función de cada uno y un ejemplo de uso.",
+    "reference": "Arquitectura física: Despliegue y recursos. DBA: Administra servicio de datos. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o051"
+    "id": "v16o051"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 17 participaciones, 7 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "10. Resultado: 10. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Restore con Dato: función de cada uno y un ejemplo de uso.",
+    "reference": "Restore: Recupera datos desde copia. Dato: Representación elemental. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o052"
+    "id": "v16o052"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 17 euros y uno de 41. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "25. Resultado: 25. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Grafo con POSTGRES_PASSWORD: función de cada uno y un ejemplo de uso.",
+    "reference": "Grafo: Nodos y aristas. POSTGRES_PASSWORD: Contraseña inicial. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o053"
+    "id": "v16o053"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 18 y 8 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "26. Resultado: 26. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Consistencia ACID con Transacción: función de cada uno y un ejemplo de uso.",
+    "reference": "Consistencia ACID: Respeta reglas de integridad. Transacción: Unidad lógica de trabajo. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o054"
+    "id": "v16o054"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 18 propietarios; 8 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "18. Resultado: 18. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara POSTGRES_USER con MongoDB: función de cada uno y un ejemplo de uso.",
+    "reference": "POSTGRES_USER: Usuario inicial. MongoDB: Gestor documental. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
+      [
+        "Primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o055"
+    "id": "v16o055"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 18 participaciones, 8 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "10. Resultado: 10. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Compara Auditoría con Oracle Database: función de cada uno y un ejemplo de uso.",
+    "reference": "Auditoría: Registra actividad relevante. Oracle Database: Gestor relacional empresarial. Debe distinguir ambas funciones con un ejemplo coherente.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Segundo concepto",
+        4
+      ],
+      [
+        "Ejemplo",
+        2
       ]
     ],
-    "id": "v14o056"
+    "id": "v16o056"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 18 euros y uno de 45. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "27. Resultado: 27. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Durabilidad de Modelo relacional y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Durabilidad: Persiste tras confirmación. Modelo relacional: Tablas relacionadas por claves. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o057"
+    "id": "v16o057"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 19 y 2 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "21. Resultado: 21. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Dato de Restore y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Dato: Representación elemental. Restore: Recupera datos desde copia. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o058"
+    "id": "v16o058"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 19 propietarios; 2 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "19. Resultado: 19. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia MongoDB de Autenticación y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "MongoDB: Gestor documental. Autenticación: Verifica identidad. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o059"
+    "id": "v16o059"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 19 participaciones, 2 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia SELECT version() de Consistencia ACID y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "SELECT version(): Consulta versión del servidor. Consistencia ACID: Respeta reglas de integridad. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o060"
+    "id": "v16o060"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 19 euros y uno de 49. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "29. Resultado: 29. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Transacción de Integridad y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Transacción: Unidad lógica de trabajo. Integridad: Datos coherentes con reglas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o061"
+    "id": "v16o061"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 20 y 3 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "23. Resultado: 23. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Puerto PostgreSQL predeterminado de Grafo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Puerto PostgreSQL predeterminado: 5432. Grafo: Nodos y aristas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o062"
+    "id": "v16o062"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 20 propietarios; 3 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "20. Resultado: 20. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia SGBD de Restore y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "SGBD: Software que gobierna los datos. Restore: Recupera datos desde copia. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o063"
+    "id": "v16o063"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 20 participaciones, 3 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Tres capas de Integridad y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Tres capas: Presentación, lógica y datos. Integridad: Datos coherentes con reglas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o064"
+    "id": "v16o064"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 20 euros y uno de 53. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "31. Resultado: 31. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Modelo documental de MySQL y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Modelo documental: Documentos con campos y estructuras. MySQL: Gestor relacional común en web. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o065"
+    "id": "v16o065"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 21 y 4 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "25. Resultado: 25. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Aislamiento de Dato y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Aislamiento: Controla interacción simultánea. Dato: Representación elemental. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o066"
+    "id": "v16o066"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 21 propietarios; 4 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "21. Resultado: 21. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Oracle Database de Tres capas y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Oracle Database: Gestor relacional empresarial. Tres capas: Presentación, lógica y datos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o067"
+    "id": "v16o067"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 21 participaciones, 4 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Oracle Database de Arquitectura física y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Oracle Database: Gestor relacional empresarial. Arquitectura física: Despliegue y recursos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o068"
+    "id": "v16o068"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 21 euros y uno de 30. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Arquitectura lógica de Arquitectura física y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Arquitectura lógica: Funciones y componentes. Arquitectura física: Despliegue y recursos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o069"
+    "id": "v16o069"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 22 y 5 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "27. Resultado: 27. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Oracle Database de Volumen Docker y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Oracle Database: Gestor relacional empresarial. Volumen Docker: Persistencia fuera del ciclo del contenedor. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o070"
+    "id": "v16o070"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 22 propietarios; 5 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "22. Resultado: 22. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Atomicidad de Clave-valor y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Atomicidad: Todo o nada. Clave-valor: Acceso por clave a valor. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o071"
+    "id": "v16o071"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 22 participaciones, 5 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Tres capas de Arquitectura física y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Tres capas: Presentación, lógica y datos. Arquitectura física: Despliegue y recursos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o072"
+    "id": "v16o072"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 22 euros y uno de 34. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "26. Resultado: 26. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Base de datos de Clave-valor y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Base de datos: Conjunto organizado persistente. Clave-valor: Acceso por clave a valor. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o073"
+    "id": "v16o073"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 23 y 6 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "29. Resultado: 29. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Autorización de Modelo documental y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Autorización: Determina acciones permitidas. Modelo documental: Documentos con campos y estructuras. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o074"
+    "id": "v16o074"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 23 propietarios; 6 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "23. Resultado: 23. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Transacción de Tres capas y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Transacción: Unidad lógica de trabajo. Tres capas: Presentación, lógica y datos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o075"
+    "id": "v16o075"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 23 participaciones, 6 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Puerto PostgreSQL predeterminado de Integridad y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Puerto PostgreSQL predeterminado: 5432. Integridad: Datos coherentes con reglas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o076"
+    "id": "v16o076"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 23 euros y uno de 38. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "28. Resultado: 28. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Confidencialidad de Oracle Database y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Confidencialidad: Acceso autorizado. Oracle Database: Gestor relacional empresarial. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o077"
+    "id": "v16o077"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 24 y 7 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "31. Resultado: 31. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia SELECT version() de Arquitectura lógica y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "SELECT version(): Consulta versión del servidor. Arquitectura lógica: Funciones y componentes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o078"
+    "id": "v16o078"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 24 propietarios; 7 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia PostgreSQL de SGBD y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "PostgreSQL: Gestor objeto-relacional abierto. SGBD: Software que gobierna los datos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o079"
+    "id": "v16o079"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 24 participaciones, 7 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia MongoDB de Dato y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "MongoDB: Gestor documental. Dato: Representación elemental. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o080"
+    "id": "v16o080"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 24 euros y uno de 42. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "30. Resultado: 30. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Tres capas de Grafo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Tres capas: Presentación, lógica y datos. Grafo: Nodos y aristas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o081"
+    "id": "v16o081"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 25 y 8 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "33. Resultado: 33. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Clave-valor de Consistencia ACID y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Clave-valor: Acceso por clave a valor. Consistencia ACID: Respeta reglas de integridad. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o082"
+    "id": "v16o082"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 25 propietarios; 8 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "25. Resultado: 25. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Oracle Database de Integridad y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Oracle Database: Gestor relacional empresarial. Integridad: Datos coherentes con reglas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o083"
+    "id": "v16o083"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 25 participaciones, 8 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "17. Resultado: 17. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Aislamiento de Grafo y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Aislamiento: Controla interacción simultánea. Grafo: Nodos y aristas. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o084"
+    "id": "v16o084"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 25 euros y uno de 46. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "32. Resultado: 32. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Volumen Docker de Base de datos y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Volumen Docker: Persistencia fuera del ciclo del contenedor. Base de datos: Conjunto organizado persistente. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o085"
+    "id": "v16o085"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 26 y 2 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "28. Resultado: 28. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Puerto PostgreSQL predeterminado de Autenticación y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Puerto PostgreSQL predeterminado: 5432. Autenticación: Verifica identidad. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o086"
+    "id": "v16o086"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 26 propietarios; 2 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "26. Resultado: 26. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Arquitectura lógica de psql y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Arquitectura lógica: Funciones y componentes. psql: Cliente de PostgreSQL. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o087"
+    "id": "v16o087"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 26 participaciones, 2 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Volumen Docker de POSTGRES_USER y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Volumen Docker: Persistencia fuera del ciclo del contenedor. POSTGRES_USER: Usuario inicial. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o088"
+    "id": "v16o088"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 26 euros y uno de 50. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "34. Resultado: 34. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Arquitectura centralizada de Arquitectura lógica y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Arquitectura centralizada: Componentes en un sistema. Arquitectura lógica: Funciones y componentes. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o089"
+    "id": "v16o089"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 27 y 3 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "30. Resultado: 30. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia MySQL de Transacción y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "MySQL: Gestor relacional común en web. Transacción: Unidad lógica de trabajo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o090"
+    "id": "v16o090"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 27 propietarios; 3 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "27. Resultado: 27. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Oracle Database de Transacción y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Oracle Database: Gestor relacional empresarial. Transacción: Unidad lógica de trabajo. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
       [
-        "Resultado correcto",
-        5
+        "Distinción del primer concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Distinción del segundo concepto",
+        4
+      ],
+      [
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o091"
+    "id": "v16o091"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 27 participaciones, 3 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Aislamiento de Base de datos y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Aislamiento: Controla interacción simultánea. Base de datos: Conjunto organizado persistente. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o092"
+    "id": "v16o092"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 27 euros y uno de 54. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "36. Resultado: 36. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Dato de psql y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Dato: Representación elemental. psql: Cliente de PostgreSQL. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o093"
+    "id": "v16o093"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 28 y 4 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "32. Resultado: 32. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Aislamiento de Arquitectura física y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Aislamiento: Controla interacción simultánea. Arquitectura física: Despliegue y recursos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o094"
+    "id": "v16o094"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 28 propietarios; 4 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "28. Resultado: 28. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia MySQL de Arquitectura física y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "MySQL: Gestor relacional común en web. Arquitectura física: Despliegue y recursos. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o095"
+    "id": "v16o095"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 28 participaciones, 4 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Autenticación de Consistencia ACID y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Autenticación: Verifica identidad. Consistencia ACID: Respeta reglas de integridad. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o096"
+    "id": "v16o096"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: dos premios de 28 euros y uno de 58. ¿Cuál es AVG(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "38. Resultado: 38. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Arquitectura lógica de POSTGRES_USER y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Arquitectura lógica: Funciones y componentes. POSTGRES_USER: Usuario inicial. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o097"
+    "id": "v16o097"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: un caballo recibe premios de 29 y 5 euros. ¿Qué devuelve SUM(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "34. Resultado: 34. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Confidencialidad de Cliente-servidor y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Confidencialidad: Acceso autorizado. Cliente-servidor: Cliente solicita y servidor procesa. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o098"
+    "id": "v16o098"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: hay 29 propietarios; 5 no tienen caballos y el resto tiene uno. ¿Cuántas filas devuelve LEFT JOIN desde propietario? Justifica el resultado o muestra el cálculo.",
-    "reference": "29. Resultado: 29. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia PostgreSQL de POSTGRES_USER y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "PostgreSQL: Gestor objeto-relacional abierto. POSTGRES_USER: Usuario inicial. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o099"
+    "id": "v16o099"
   },
   {
     "type": "open",
-    "prompt": "Ganadería: una carrera tiene 29 participaciones, 5 con premio NULL. ¿Qué devuelve COUNT(premio_obtenido)? Justifica el resultado o muestra el cálculo.",
-    "reference": "24. Resultado: 24. Se calcula a partir de los datos del enunciado; no es una medición real del servidor.",
+    "prompt": "Diferencia Monitorización de Arquitectura centralizada y explica en qué situación utilizarías o identificarías cada uno.",
+    "reference": "Monitorización: Observa estado y rendimiento. Arquitectura centralizada: Componentes en un sistema. Se requieren ejemplos congruentes con ambos conceptos.",
     "rubric": [
+      [
+        "Distinción del primer concepto",
+        4
+      ],
       [
-        "Resultado correcto",
-        5
+        "Distinción del segundo concepto",
+        4
       ],
       [
-        "Justificación técnica",
-        5
+        "Aplicación",
+        2
       ]
     ],
-    "id": "v14o100"
+    "id": "v16o100"
   }
 ]
