@@ -1,0 +1,11 @@
+{
+  "id": "sad",
+  "name": "Seguridad y Alta Disponibilidad",
+  "color": "#dc2626",
+  "units": [
+    {
+      "id": "u1",
+      "title": "Continuidad y seguridad"
+    }
+  ]
+}

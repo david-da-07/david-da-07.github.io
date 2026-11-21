@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "Choose the correct sentence.",
+    "options": [
+      "The server work.",
+      "The server works.",
+      "The server working."
+    ],
+    "correct": 1,
+    "explanation": "The third person singular takes -s."
+  }
+]

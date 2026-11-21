@@ -1,0 +1,642 @@
+[
+  {
+    "id": "o001",
+    "type": "open",
+    "prompt": "Explica EXPLAIN y distingue su función de «Copia de seguridad». Incluye un ejemplo o contexto de uso.",
+    "reference": "EXPLAIN: Plan estimado. No confundir con copia de seguridad. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o002",
+    "type": "open",
+    "prompt": "Explica possible_keys y distingue su función de «Índice elegido». Incluye un ejemplo o contexto de uso.",
+    "reference": "possible_keys: Índices candidatos. No confundir con índice elegido. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o003",
+    "type": "open",
+    "prompt": "Explica key y distingue su función de «Índices candidatos». Incluye un ejemplo o contexto de uso.",
+    "reference": "key: Índice elegido. No confundir con índices candidatos. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o004",
+    "type": "open",
+    "prompt": "Explica rows y distingue su función de «Filas exactas devueltas». Incluye un ejemplo o contexto de uso.",
+    "reference": "rows: Filas estimadas a examinar. No confundir con filas exactas devueltas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o005",
+    "type": "open",
+    "prompt": "Explica type y distingue su función de «Nombre de índice». Incluye un ejemplo o contexto de uso.",
+    "reference": "type: Método de acceso. No confundir con nombre de índice. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o006",
+    "type": "open",
+    "prompt": "Explica ALL y distingue su función de «Búsqueda única». Incluye un ejemplo o contexto de uso.",
+    "reference": "ALL: Escaneo de tabla. No confundir con búsqueda única. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o007",
+    "type": "open",
+    "prompt": "Explica index y distingue su función de «Escaneo de tabla». Incluye un ejemplo o contexto de uso.",
+    "reference": "index: Escaneo de índice. No confundir con escaneo de tabla. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o008",
+    "type": "open",
+    "prompt": "Explica range y distingue su función de «Escaneo siempre completo». Incluye un ejemplo o contexto de uso.",
+    "reference": "range: Acceso por intervalo. No confundir con escaneo siempre completo. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o009",
+    "type": "open",
+    "prompt": "Explica ref y distingue su función de «Escaneo completo de tabla». Incluye un ejemplo o contexto de uso.",
+    "reference": "ref: Búsqueda por clave no única o prefijo. No confundir con escaneo completo de tabla. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o010",
+    "type": "open",
+    "prompt": "Explica eq_ref y distingue su función de «Escaneo completo». Incluye un ejemplo o contexto de uso.",
+    "reference": "eq_ref: Una fila como máximo por combinación previa. No confundir con escaneo completo. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o011",
+    "type": "open",
+    "prompt": "Explica const y distingue su función de «Escaneo de todas las tablas». Incluye un ejemplo o contexto de uso.",
+    "reference": "const: Acceso constante a una fila como máximo. No confundir con escaneo de todas las tablas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o012",
+    "type": "open",
+    "prompt": "Explica Using filesort y distingue su función de «Error de consulta». Incluye un ejemplo o contexto de uso.",
+    "reference": "Using filesort: Ordenación adicional. No confundir con error de consulta. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o013",
+    "type": "open",
+    "prompt": "Explica ANALYZE TABLE y distingue su función de «Borra datos». Incluye un ejemplo o contexto de uso.",
+    "reference": "ANALYZE TABLE: Actualiza estadísticas. No confundir con borra datos. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o014",
+    "type": "open",
+    "prompt": "Explica SHOW INDEX y distingue su función de «Crea índice». Incluye un ejemplo o contexto de uso.",
+    "reference": "SHOW INDEX: Lista índices. No confundir con crea índice. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o015",
+    "type": "open",
+    "prompt": "Explica CREATE INDEX y distingue su función de «Borra índice». Incluye un ejemplo o contexto de uso.",
+    "reference": "CREATE INDEX: Crea índice. No confundir con borra índice. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o016",
+    "type": "open",
+    "prompt": "Explica Selectividad alta y distingue su función de «Filtro que devuelve casi todas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Selectividad alta: Filtro que devuelve pocas filas relativas. No confundir con filtro que devuelve casi todas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o017",
+    "type": "open",
+    "prompt": "Explica Índice compuesto y distingue su función de «Varias tablas sin relación». Incluye un ejemplo o contexto de uso.",
+    "reference": "Índice compuesto: Índice sobre varias columnas. No confundir con varias tablas sin relación. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o018",
+    "type": "open",
+    "prompt": "Explica Prefijo izquierdo y distingue su función de «Columnas finales siempre». Incluye un ejemplo o contexto de uso.",
+    "reference": "Prefijo izquierdo: Columnas iniciales del índice. No confundir con columnas finales siempre. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o019",
+    "type": "open",
+    "prompt": "Explica Predicado por intervalo y distingue su función de «Función aplicada obligatoriamente». Incluye un ejemplo o contexto de uso.",
+    "reference": "Predicado por intervalo: Límites sobre columna directamente. No confundir con función aplicada obligatoriamente. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o020",
+    "type": "open",
+    "prompt": "Explica Límite superior exclusivo y distingue su función de «Excluye todo el último día». Incluye un ejemplo o contexto de uso.",
+    "reference": "Límite superior exclusivo: Excluye comienzo del siguiente periodo. No confundir con excluye todo el último día. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o021",
+    "type": "open",
+    "prompt": "Explica Proyección reducida y distingue su función de «Seleccionar todas las columnas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Proyección reducida: Seleccionar columnas necesarias. No confundir con seleccionar todas las columnas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o022",
+    "type": "open",
+    "prompt": "Explica Subconsulta correlacionada y distingue su función de «Nunca depende de consulta externa». Incluye un ejemplo o contexto de uso.",
+    "reference": "Subconsulta correlacionada: Referencia a fila de consulta externa. No confundir con nunca depende de consulta externa. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o023",
+    "type": "open",
+    "prompt": "Explica GROUP BY y distingue su función de «Ordena obligatoriamente». Incluye un ejemplo o contexto de uso.",
+    "reference": "GROUP BY: Agrupa filas. No confundir con ordena obligatoriamente. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o024",
+    "type": "open",
+    "prompt": "Explica HAVING SUM y distingue su función de «Filtra filas antes de agrupar». Incluye un ejemplo o contexto de uso.",
+    "reference": "HAVING SUM: Filtra grupos por suma. No confundir con filtra filas antes de agrupar. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o025",
+    "type": "open",
+    "prompt": "Explica Estadísticas del optimizador y distingue su función de «Garantizan tiempo exacto». Incluye un ejemplo o contexto de uso.",
+    "reference": "Estadísticas del optimizador: Orientan estimación de costes. No confundir con garantizan tiempo exacto. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o026",
+    "type": "open",
+    "prompt": "Explica Índices adicionales y distingue su función de «Eliminan coste de escritura». Incluye un ejemplo o contexto de uso.",
+    "reference": "Índices adicionales: Coste de almacenamiento y escrituras. No confundir con eliminan coste de escritura. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o027",
+    "type": "open",
+    "prompt": "Explica Procesamiento por lotes y distingue su función de «Elimina necesidad de WHERE». Incluye un ejemplo o contexto de uso.",
+    "reference": "Procesamiento por lotes: Divide modificaciones grandes. No confundir con elimina necesidad de where. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o028",
+    "type": "open",
+    "prompt": "Explica Validación de equivalencia y distingue su función de «Comparar solo texto SQL». Incluye un ejemplo o contexto de uso.",
+    "reference": "Validación de equivalencia: Comparar resultados de variantes. No confundir con comparar solo texto sql. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o029",
+    "type": "open",
+    "prompt": "Explica Medición real y distingue su función de «Leer solo possible_keys». Incluye un ejemplo o contexto de uso.",
+    "reference": "Medición real: Ejecutar en condiciones comparables. No confundir con leer solo possible_keys. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o030",
+    "type": "open",
+    "prompt": "Explica Clave foránea de empleados y distingue su función de «salario». Incluye un ejemplo o contexto de uso.",
+    "reference": "Clave foránea de empleados: id_departamento. No confundir con salario. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o031",
+    "type": "open",
+    "prompt": "Explica Clave de ventas hacia empleados y distingue su función de «importe». Incluye un ejemplo o contexto de uso.",
+    "reference": "Clave de ventas hacia empleados: id_empleado. No confundir con importe. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o032",
+    "type": "open",
+    "prompt": "Explica Índice para salario y distingue su función de «ventas(importe)». Incluye un ejemplo o contexto de uso.",
+    "reference": "Índice para salario: empleados(salario). No confundir con ventas(importe). El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  }
+]

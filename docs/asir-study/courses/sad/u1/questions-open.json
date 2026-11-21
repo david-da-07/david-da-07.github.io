@@ -1,0 +1,8 @@
+[
+  {
+    "id": "q2",
+    "type": "open",
+    "prompt": "Diferencia RPO y RTO con un ejemplo.",
+    "reference": "RPO: pérdida temporal de datos aceptable; RTO: tiempo objetivo hasta recuperar servicio; ejemplo coherente."
+  }
+]

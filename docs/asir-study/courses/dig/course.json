@@ -1,0 +1,11 @@
+{
+  "id": "dig",
+  "name": "Digitalización",
+  "color": "#0891b2",
+  "units": [
+    {
+      "id": "u1",
+      "title": "Transformación digital"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "aso",
+  "name": "Administración de Sistemas Operativos",
+  "color": "#059669",
+  "units": [
+    {
+      "id": "u1",
+      "title": "Permisos Linux"
+    }
+  ]
+}

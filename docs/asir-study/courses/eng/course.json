@@ -1,0 +1,11 @@
+{
+  "id": "eng",
+  "name": "Inglés",
+  "color": "#2563eb",
+  "units": [
+    {
+      "id": "u1",
+      "title": "Technical English"
+    }
+  ]
+}

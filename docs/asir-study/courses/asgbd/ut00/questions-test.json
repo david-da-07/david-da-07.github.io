@@ -1,0 +1,2501 @@
+[
+  {
+    "id": "t01",
+    "type": "choice",
+    "prompt": "¿Qué produce el diseño conceptual?",
+    "options": [
+      "Modelo E/R",
+      "Un backup",
+      "Índices físicos",
+      "Un fichero de logs"
+    ],
+    "correct": 0,
+    "explanation": "Representa entidades y relaciones del mundo real."
+  },
+  {
+    "id": "t02",
+    "type": "choice",
+    "prompt": "¿Qué fase define tablas y claves?",
+    "options": [
+      "Física",
+      "Lógica",
+      "Conceptual exclusivamente",
+      "Recuperación"
+    ],
+    "correct": 1,
+    "explanation": "El esquema relacional pertenece al diseño lógico."
+  },
+  {
+    "id": "t03",
+    "type": "choice",
+    "prompt": "¿Qué fase estudia métodos de acceso?",
+    "options": [
+      "Conceptual",
+      "Presentación",
+      "Física",
+      "Auditoría"
+    ],
+    "correct": 2,
+    "explanation": "Depende del almacenamiento y del gestor."
+  },
+  {
+    "id": "t04",
+    "type": "choice",
+    "prompt": "¿Qué es un atributo?",
+    "options": [
+      "Una tabla intermedia siempre",
+      "Una copia",
+      "Una consulta",
+      "Propiedad de una entidad"
+    ],
+    "correct": 3,
+    "explanation": "Describe datos de una entidad."
+  },
+  {
+    "id": "t05",
+    "type": "choice",
+    "prompt": "¿Qué propiedad debe tener una clave candidata?",
+    "options": [
+      "Unicidad y minimalidad",
+      "Ser siempre numérica",
+      "Valores duplicados",
+      "Ser siempre FK"
+    ],
+    "correct": 0,
+    "explanation": "Identifica unívocamente cada fila sin componentes sobrantes."
+  },
+  {
+    "id": "t06",
+    "type": "choice",
+    "prompt": "¿Dónde va la FK en 1:N?",
+    "options": [
+      "En ninguna tabla",
+      "En el lado N",
+      "Siempre en el lado 1",
+      "En ambas obligatoriamente"
+    ],
+    "correct": 1,
+    "explanation": "Cada fila del lado N referencia su padre."
+  },
+  {
+    "id": "t07",
+    "type": "choice",
+    "prompt": "¿Cómo implementar N:M?",
+    "options": [
+      "Eliminar ambas claves",
+      "Una FK única en cada tabla",
+      "Tabla intermedia",
+      "Una columna de texto con todos los IDs"
+    ],
+    "correct": 2,
+    "explanation": "La tabla asociativa almacena las referencias."
+  },
+  {
+    "id": "t08",
+    "type": "choice",
+    "prompt": "¿Qué restricción ayuda a garantizar 1:1?",
+    "options": [
+      "COUNT",
+      "DEFAULT sobre FK",
+      "ORDER BY",
+      "UNIQUE sobre FK"
+    ],
+    "correct": 3,
+    "explanation": "Evita repetir la referencia."
+  },
+  {
+    "id": "t09",
+    "type": "choice",
+    "prompt": "¿Qué expresa cardinalidad mínima cero?",
+    "options": [
+      "Participación opcional",
+      "Prohibición de participar",
+      "Exactamente una relación",
+      "Participación ilimitada obligatoria"
+    ],
+    "correct": 0,
+    "explanation": "Puede no existir asociación."
+  },
+  {
+    "id": "t10",
+    "type": "choice",
+    "prompt": "¿Qué instrucción crea una tabla?",
+    "options": [
+      "INSERT INTO",
+      "CREATE TABLE",
+      "SELECT",
+      "UPDATE"
+    ],
+    "correct": 1,
+    "explanation": "Es DDL."
+  },
+  {
+    "id": "t11",
+    "type": "choice",
+    "prompt": "¿Qué instrucción modifica filas existentes?",
+    "options": [
+      "ALTER TABLE",
+      "DROP TABLE",
+      "UPDATE",
+      "CREATE INDEX"
+    ],
+    "correct": 2,
+    "explanation": "UPDATE cambia valores de filas."
+  },
+  {
+    "id": "t12",
+    "type": "choice",
+    "prompt": "¿Qué ocurre con DELETE sin WHERE?",
+    "options": [
+      "Borra una columna",
+      "No hace nada",
+      "Elimina definición de tabla",
+      "Intenta borrar todas las filas"
+    ],
+    "correct": 3,
+    "explanation": "No hay filtro de filas."
+  },
+  {
+    "id": "t13",
+    "type": "choice",
+    "prompt": "¿Qué cláusula proyecta columnas?",
+    "options": [
+      "SELECT",
+      "ORDER BY",
+      "WHERE",
+      "HAVING"
+    ],
+    "correct": 0,
+    "explanation": "La lista SELECT determina columnas de salida."
+  },
+  {
+    "id": "t14",
+    "type": "choice",
+    "prompt": "¿Qué operador exige dos condiciones?",
+    "options": [
+      "DESC",
+      "AND",
+      "LIKE",
+      "OR"
+    ],
+    "correct": 1,
+    "explanation": "Ambas deben cumplirse."
+  },
+  {
+    "id": "t15",
+    "type": "choice",
+    "prompt": "¿Cómo detectar NULL?",
+    "options": [
+      "= NULL",
+      "LIKE NULL",
+      "IS NULL",
+      "> NULL"
+    ],
+    "correct": 2,
+    "explanation": "IS NULL comprueba ausencia de valor."
+  },
+  {
+    "id": "t16",
+    "type": "choice",
+    "prompt": "¿Qué orden ofrece DESC?",
+    "options": [
+      "Aleatorio",
+      "Ascendente",
+      "Por PK obligatorio",
+      "Descendente"
+    ],
+    "correct": 3,
+    "explanation": "DESC invierte el orden ascendente."
+  },
+  {
+    "id": "t17",
+    "type": "choice",
+    "prompt": "¿Qué JOIN conserva clientes sin matrícula?",
+    "options": [
+      "LEFT JOIN desde CLIENTES",
+      "INNER JOIN",
+      "INNER JOIN con AND",
+      "CROSS JOIN"
+    ],
+    "correct": 0,
+    "explanation": "LEFT JOIN conserva filas sin correspondencia."
+  },
+  {
+    "id": "t18",
+    "type": "choice",
+    "prompt": "¿Qué cuenta COUNT(m.ID_MATRICULA) en un LEFT JOIN?",
+    "options": [
+      "Columnas",
+      "Matrículas no nulas",
+      "Clientes distintos automáticamente",
+      "Todas las filas incluso NULL"
+    ],
+    "correct": 1,
+    "explanation": "COUNT de columna ignora NULL."
+  },
+  {
+    "id": "t19",
+    "type": "choice",
+    "prompt": "¿Qué cláusula filtra grupos por COUNT?",
+    "options": [
+      "ON exclusivamente",
+      "WHERE",
+      "HAVING",
+      "FROM"
+    ],
+    "correct": 2,
+    "explanation": "HAVING opera sobre grupos."
+  },
+  {
+    "id": "t20",
+    "type": "choice",
+    "prompt": "¿Qué función calcula precio medio?",
+    "options": [
+      "SUM",
+      "COUNT",
+      "MAX",
+      "AVG"
+    ],
+    "correct": 3,
+    "explanation": "AVG calcula la media."
+  },
+  {
+    "id": "t21",
+    "type": "choice",
+    "prompt": "¿Qué función convierte texto a mayúsculas?",
+    "options": [
+      "UPPER",
+      "SUM",
+      "LOWER",
+      "MIN"
+    ],
+    "correct": 0,
+    "explanation": "UPPER transforma texto."
+  },
+  {
+    "id": "t22",
+    "type": "choice",
+    "prompt": "¿Qué patrón LIKE empieza por A?",
+    "options": [
+      "%A%",
+      "A%",
+      "_A",
+      "%A"
+    ],
+    "correct": 1,
+    "explanation": "% representa cualquier secuencia después de A."
+  },
+  {
+    "id": "t23",
+    "type": "choice",
+    "prompt": "¿Qué hace DROP TABLE?",
+    "options": [
+      "Cambia un valor",
+      "Borra solo una fila",
+      "Elimina la tabla como objeto",
+      "Ordena filas"
+    ],
+    "correct": 2,
+    "explanation": "Es una operación DDL."
+  },
+  {
+    "id": "b024",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Diseño conceptual?",
+    "options": [
+      "Esquema físico",
+      "Plan de ejecución",
+      "Script de carga",
+      "Modelo E/R"
+    ],
+    "correct": 3,
+    "explanation": "Diseño conceptual: Modelo E/R."
+  },
+  {
+    "id": "b025",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Diseño conceptual — Modelo E/R.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Diseño conceptual: Modelo E/R."
+  },
+  {
+    "id": "b026",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «modelo E/R»?",
+    "options": [
+      "Diseño conceptual",
+      "HAVING",
+      "Clave candidata",
+      "INSERT"
+    ],
+    "correct": 0,
+    "explanation": "Diseño conceptual: Modelo E/R."
+  },
+  {
+    "id": "b027",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Diseño lógico?",
+    "options": [
+      "Estadísticas del motor",
+      "Tablas y restricciones",
+      "Bloques en disco",
+      "Entidades sin transformar"
+    ],
+    "correct": 1,
+    "explanation": "Diseño lógico: Tablas y restricciones."
+  },
+  {
+    "id": "b028",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Diseño lógico — Bloques en disco.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Diseño lógico: Tablas y restricciones."
+  },
+  {
+    "id": "b029",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «tablas y restricciones»?",
+    "options": [
+      "Cardinalidad mínima 0",
+      "Clave foránea",
+      "Diseño lógico",
+      "MIN"
+    ],
+    "correct": 2,
+    "explanation": "Diseño lógico: Tablas y restricciones."
+  },
+  {
+    "id": "b030",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Diseño físico?",
+    "options": [
+      "Atributos del MER",
+      "Cardinalidades conceptuales",
+      "Reglas de negocio",
+      "Métodos de almacenamiento"
+    ],
+    "correct": 3,
+    "explanation": "Diseño físico: Métodos de almacenamiento."
+  },
+  {
+    "id": "b031",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Diseño físico — Métodos de almacenamiento.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Diseño físico: Métodos de almacenamiento."
+  },
+  {
+    "id": "b032",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «métodos de almacenamiento»?",
+    "options": [
+      "Diseño físico",
+      "WHERE",
+      "Relación 1:N",
+      "Clave primaria"
+    ],
+    "correct": 0,
+    "explanation": "Diseño físico: Métodos de almacenamiento."
+  },
+  {
+    "id": "b033",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Clave candidata?",
+    "options": [
+      "Atributo opcional",
+      "Identificador mínimo único",
+      "Columna siempre numérica",
+      "Índice no único"
+    ],
+    "correct": 1,
+    "explanation": "Clave candidata: Identificador mínimo único."
+  },
+  {
+    "id": "b034",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Clave candidata — Columna siempre numérica.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Clave candidata: Identificador mínimo único."
+  },
+  {
+    "id": "b035",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «identificador mínimo único»?",
+    "options": [
+      "AVG",
+      "LOWER",
+      "Clave candidata",
+      "COMMIT"
+    ],
+    "correct": 2,
+    "explanation": "Clave candidata: Identificador mínimo único."
+  },
+  {
+    "id": "b036",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Clave primaria?",
+    "options": [
+      "Admite duplicados",
+      "Es siempre compuesta",
+      "Admite NULL",
+      "Identifica cada fila"
+    ],
+    "correct": 3,
+    "explanation": "Clave primaria: Identifica cada fila."
+  },
+  {
+    "id": "b037",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Clave primaria — Identifica cada fila.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Clave primaria: Identifica cada fila."
+  },
+  {
+    "id": "b038",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «identifica cada fila»?",
+    "options": [
+      "Clave primaria",
+      "DECIMAL",
+      "Relación N:M",
+      "COMMIT"
+    ],
+    "correct": 0,
+    "explanation": "Clave primaria: Identifica cada fila."
+  },
+  {
+    "id": "b039",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Clave foránea?",
+    "options": [
+      "Elimina duplicados de toda tabla",
+      "Referencia una clave de otra tabla o la misma",
+      "Ordena filas",
+      "Calcula agregados"
+    ],
+    "correct": 1,
+    "explanation": "Clave foránea: Referencia una clave de otra tabla o la misma."
+  },
+  {
+    "id": "b040",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Clave foránea — Calcula agregados.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Clave foránea: Referencia una clave de otra tabla o la misma."
+  },
+  {
+    "id": "b041",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «referencia una clave de otra tabla o la misma»?",
+    "options": [
+      "CONCAT",
+      "DISTINCT",
+      "Clave foránea",
+      "ROLLBACK"
+    ],
+    "correct": 2,
+    "explanation": "Clave foránea: Referencia una clave de otra tabla o la misma."
+  },
+  {
+    "id": "b042",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Relación 1:N?",
+    "options": [
+      "FK en lado 1 solamente",
+      "FK única en lado N",
+      "Tabla puente obligatoria",
+      "FK en lado N"
+    ],
+    "correct": 3,
+    "explanation": "Relación 1:N: FK en lado N."
+  },
+  {
+    "id": "b043",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Relación 1:N — FK en lado N.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Relación 1:N: FK en lado N."
+  },
+  {
+    "id": "b044",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «fK en lado N»?",
+    "options": [
+      "Relación 1:N",
+      "RIGHT JOIN",
+      "MIN",
+      "Clave foránea"
+    ],
+    "correct": 0,
+    "explanation": "Relación 1:N: FK en lado N."
+  },
+  {
+    "id": "b045",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Relación N:M?",
+    "options": [
+      "Una tabla sin claves",
+      "Tabla de asociación",
+      "Una sola FK en lado 1",
+      "FK única en ambas tablas"
+    ],
+    "correct": 1,
+    "explanation": "Relación N:M: Tabla de asociación."
+  },
+  {
+    "id": "b046",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Relación N:M — Una sola FK en lado 1.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Relación N:M: Tabla de asociación."
+  },
+  {
+    "id": "b047",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «tabla de asociación»?",
+    "options": [
+      "ORDER BY",
+      "VARCHAR",
+      "Relación N:M",
+      "CREATE DATABASE"
+    ],
+    "correct": 2,
+    "explanation": "Relación N:M: Tabla de asociación."
+  },
+  {
+    "id": "b048",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Relación 1:1?",
+    "options": [
+      "Dos FK no únicas",
+      "Índice no único",
+      "FK sin restricción única",
+      "FK con UNIQUE"
+    ],
+    "correct": 3,
+    "explanation": "Relación 1:1: FK con UNIQUE."
+  },
+  {
+    "id": "b049",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Relación 1:1 — FK con UNIQUE.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Relación 1:1: FK con UNIQUE."
+  },
+  {
+    "id": "b050",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «fK con UNIQUE»?",
+    "options": [
+      "Relación 1:1",
+      "HAVING",
+      "REVOKE",
+      "WHERE"
+    ],
+    "correct": 0,
+    "explanation": "Relación 1:1: FK con UNIQUE."
+  },
+  {
+    "id": "b051",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Cardinalidad mínima 0?",
+    "options": [
+      "Máximo muchos",
+      "Participación opcional",
+      "Participación obligatoria",
+      "Máximo uno"
+    ],
+    "correct": 1,
+    "explanation": "Cardinalidad mínima 0: Participación opcional."
+  },
+  {
+    "id": "b052",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Cardinalidad mínima 0 — Participación obligatoria.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Cardinalidad mínima 0: Participación opcional."
+  },
+  {
+    "id": "b053",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «participación opcional»?",
+    "options": [
+      "CONCAT",
+      "WHERE",
+      "Cardinalidad mínima 0",
+      "INNER JOIN"
+    ],
+    "correct": 2,
+    "explanation": "Cardinalidad mínima 0: Participación opcional."
+  },
+  {
+    "id": "b054",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a CREATE DATABASE?",
+    "options": [
+      "Elimina una base",
+      "Concede permisos",
+      "Modifica filas",
+      "Crea una base de datos"
+    ],
+    "correct": 3,
+    "explanation": "CREATE DATABASE: Crea una base de datos."
+  },
+  {
+    "id": "b055",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: CREATE DATABASE — Crea una base de datos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "CREATE DATABASE: Crea una base de datos."
+  },
+  {
+    "id": "b056",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «crea una base de datos»?",
+    "options": [
+      "CREATE DATABASE",
+      "UPDATE",
+      "Diseño físico",
+      "MIN"
+    ],
+    "correct": 0,
+    "explanation": "CREATE DATABASE: Crea una base de datos."
+  },
+  {
+    "id": "b057",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a CREATE TABLE?",
+    "options": [
+      "Inserta registros",
+      "Define una tabla",
+      "Confirma transacción",
+      "Consulta registros"
+    ],
+    "correct": 1,
+    "explanation": "CREATE TABLE: Define una tabla."
+  },
+  {
+    "id": "b058",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: CREATE TABLE — Confirma transacción.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "CREATE TABLE: Define una tabla."
+  },
+  {
+    "id": "b059",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «define una tabla»?",
+    "options": [
+      "DELETE",
+      "MAX",
+      "CREATE TABLE",
+      "INNER JOIN"
+    ],
+    "correct": 2,
+    "explanation": "CREATE TABLE: Define una tabla."
+  },
+  {
+    "id": "b060",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DROP TABLE?",
+    "options": [
+      "Cambia el nombre de columna",
+      "Solo vacía filas",
+      "Revoca permisos",
+      "Elimina el objeto tabla"
+    ],
+    "correct": 3,
+    "explanation": "DROP TABLE: Elimina el objeto tabla."
+  },
+  {
+    "id": "b061",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DROP TABLE — Elimina el objeto tabla.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "DROP TABLE: Elimina el objeto tabla."
+  },
+  {
+    "id": "b062",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «elimina el objeto tabla»?",
+    "options": [
+      "DROP TABLE",
+      "DATE_ADD en MariaDB",
+      "DEFAULT",
+      "LEFT JOIN"
+    ],
+    "correct": 0,
+    "explanation": "DROP TABLE: Elimina el objeto tabla."
+  },
+  {
+    "id": "b063",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a ALTER TABLE?",
+    "options": [
+      "Filtra filas",
+      "Modifica estructura",
+      "Confirma cambios",
+      "Ordena resultados"
+    ],
+    "correct": 1,
+    "explanation": "ALTER TABLE: Modifica estructura."
+  },
+  {
+    "id": "b064",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: ALTER TABLE — Ordena resultados.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "ALTER TABLE: Modifica estructura."
+  },
+  {
+    "id": "b065",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «modifica estructura»?",
+    "options": [
+      "AND",
+      "ROLLBACK",
+      "ALTER TABLE",
+      "NOT NULL"
+    ],
+    "correct": 2,
+    "explanation": "ALTER TABLE: Modifica estructura."
+  },
+  {
+    "id": "b066",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a GRANT?",
+    "options": [
+      "Revierte cambios",
+      "Elimina objetos",
+      "Agrupa filas",
+      "Concede privilegios"
+    ],
+    "correct": 3,
+    "explanation": "GRANT: Concede privilegios."
+  },
+  {
+    "id": "b067",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: GRANT — Concede privilegios.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "GRANT: Concede privilegios."
+  },
+  {
+    "id": "b068",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «concede privilegios»?",
+    "options": [
+      "GRANT",
+      "Relación 1:N",
+      "CONCAT",
+      "OR"
+    ],
+    "correct": 0,
+    "explanation": "GRANT: Concede privilegios."
+  },
+  {
+    "id": "b069",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a REVOKE?",
+    "options": [
+      "Crea tablas",
+      "Retira privilegios",
+      "Inserta registros",
+      "Confirma cambios"
+    ],
+    "correct": 1,
+    "explanation": "REVOKE: Retira privilegios."
+  },
+  {
+    "id": "b070",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: REVOKE — Crea tablas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "REVOKE: Retira privilegios."
+  },
+  {
+    "id": "b071",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «retira privilegios»?",
+    "options": [
+      "SUM",
+      "ALTER TABLE",
+      "REVOKE",
+      "Diseño conceptual"
+    ],
+    "correct": 2,
+    "explanation": "REVOKE: Retira privilegios."
+  },
+  {
+    "id": "b072",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a COMMIT?",
+    "options": [
+      "Define columna",
+      "Ordena consulta",
+      "Revierte transacción",
+      "Confirma transacción"
+    ],
+    "correct": 3,
+    "explanation": "COMMIT: Confirma transacción."
+  },
+  {
+    "id": "b073",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: COMMIT — Confirma transacción.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "COMMIT: Confirma transacción."
+  },
+  {
+    "id": "b074",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «confirma transacción»?",
+    "options": [
+      "COMMIT",
+      "NOT NULL",
+      "LEFT JOIN",
+      "WHERE"
+    ],
+    "correct": 0,
+    "explanation": "COMMIT: Confirma transacción."
+  },
+  {
+    "id": "b075",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a ROLLBACK?",
+    "options": [
+      "Crea índice",
+      "Revierte cambios pendientes",
+      "Concede permiso",
+      "Confirma cambios"
+    ],
+    "correct": 1,
+    "explanation": "ROLLBACK: Revierte cambios pendientes."
+  },
+  {
+    "id": "b076",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: ROLLBACK — Concede permiso.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "ROLLBACK: Revierte cambios pendientes."
+  },
+  {
+    "id": "b077",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «revierte cambios pendientes»?",
+    "options": [
+      "DECIMAL",
+      "INSERT",
+      "ROLLBACK",
+      "SUM"
+    ],
+    "correct": 2,
+    "explanation": "ROLLBACK: Revierte cambios pendientes."
+  },
+  {
+    "id": "b078",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DEFAULT?",
+    "options": [
+      "Orden descendente",
+      "Clave ajena",
+      "Columna obligatoriamente única",
+      "Valor predeterminado"
+    ],
+    "correct": 3,
+    "explanation": "DEFAULT: Valor predeterminado."
+  },
+  {
+    "id": "b079",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DEFAULT — Valor predeterminado.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "DEFAULT: Valor predeterminado."
+  },
+  {
+    "id": "b080",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «valor predeterminado»?",
+    "options": [
+      "DEFAULT",
+      "CREATE TABLE",
+      "Relación N:M",
+      "DATE_ADD en MariaDB"
+    ],
+    "correct": 0,
+    "explanation": "DEFAULT: Valor predeterminado."
+  },
+  {
+    "id": "b081",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a NOT NULL?",
+    "options": [
+      "Establece FK",
+      "Impide valores nulos",
+      "Impide valores negativos",
+      "Impide todos los duplicados"
+    ],
+    "correct": 1,
+    "explanation": "NOT NULL: Impide valores nulos."
+  },
+  {
+    "id": "b082",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: NOT NULL — Impide valores negativos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "NOT NULL: Impide valores nulos."
+  },
+  {
+    "id": "b083",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «impide valores nulos»?",
+    "options": [
+      "AND",
+      "SUM",
+      "NOT NULL",
+      "Diseño físico"
+    ],
+    "correct": 2,
+    "explanation": "NOT NULL: Impide valores nulos."
+  },
+  {
+    "id": "b084",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DECIMAL?",
+    "options": [
+      "Fecha y hora",
+      "Valor binario lógico",
+      "Texto variable",
+      "Número de precisión fija"
+    ],
+    "correct": 3,
+    "explanation": "DECIMAL: Número de precisión fija."
+  },
+  {
+    "id": "b085",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DECIMAL — Número de precisión fija.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "DECIMAL: Número de precisión fija."
+  },
+  {
+    "id": "b086",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «número de precisión fija»?",
+    "options": [
+      "DECIMAL",
+      "AND",
+      "DESCRIBE en MariaDB",
+      "Cardinalidad mínima 0"
+    ],
+    "correct": 0,
+    "explanation": "DECIMAL: Número de precisión fija."
+  },
+  {
+    "id": "b087",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a VARCHAR?",
+    "options": [
+      "Entero sin signo",
+      "Texto de longitud variable",
+      "Fecha sin hora",
+      "Número exacto"
+    ],
+    "correct": 1,
+    "explanation": "VARCHAR: Texto de longitud variable."
+  },
+  {
+    "id": "b088",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: VARCHAR — Número exacto.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "VARCHAR: Texto de longitud variable."
+  },
+  {
+    "id": "b089",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «texto de longitud variable»?",
+    "options": [
+      "INSERT",
+      "OR",
+      "VARCHAR",
+      "CREATE DATABASE"
+    ],
+    "correct": 2,
+    "explanation": "VARCHAR: Texto de longitud variable."
+  },
+  {
+    "id": "b090",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DATE?",
+    "options": [
+      "Texto libre",
+      "Intervalo de filas",
+      "Número decimal",
+      "Fecha sin hora"
+    ],
+    "correct": 3,
+    "explanation": "DATE: Fecha sin hora."
+  },
+  {
+    "id": "b091",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DATE — Fecha sin hora.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "DATE: Fecha sin hora."
+  },
+  {
+    "id": "b092",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «fecha sin hora»?",
+    "options": [
+      "DATE",
+      "REVOKE",
+      "Relación 1:1",
+      "Diseño lógico"
+    ],
+    "correct": 0,
+    "explanation": "DATE: Fecha sin hora."
+  },
+  {
+    "id": "b093",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DISTINCT?",
+    "options": [
+      "Agrupa siempre por clave",
+      "Elimina duplicados del resultado",
+      "Borra filas originales",
+      "Ordena descendente"
+    ],
+    "correct": 1,
+    "explanation": "DISTINCT: Elimina duplicados del resultado."
+  },
+  {
+    "id": "b094",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DISTINCT — Ordena descendente.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "DISTINCT: Elimina duplicados del resultado."
+  },
+  {
+    "id": "b095",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «elimina duplicados del resultado»?",
+    "options": [
+      "DEFAULT",
+      "Diseño lógico",
+      "DISTINCT",
+      "Clave foránea"
+    ],
+    "correct": 2,
+    "explanation": "DISTINCT: Elimina duplicados del resultado."
+  },
+  {
+    "id": "b096",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a WHERE?",
+    "options": [
+      "Filtra grupos agregados",
+      "Ordena datos",
+      "Define columnas de salida",
+      "Filtra filas"
+    ],
+    "correct": 3,
+    "explanation": "WHERE: Filtra filas."
+  },
+  {
+    "id": "b097",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: WHERE — Filtra filas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "WHERE: Filtra filas."
+  },
+  {
+    "id": "b098",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «filtra filas»?",
+    "options": [
+      "WHERE",
+      "IS NULL",
+      "LOWER",
+      "HAVING"
+    ],
+    "correct": 0,
+    "explanation": "WHERE: Filtra filas."
+  },
+  {
+    "id": "b099",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a HAVING?",
+    "options": [
+      "Define claves",
+      "Filtra grupos",
+      "Crea vistas",
+      "Cambia registros"
+    ],
+    "correct": 1,
+    "explanation": "HAVING: Filtra grupos."
+  },
+  {
+    "id": "b100",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: HAVING — Cambia registros.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "HAVING: Filtra grupos."
+  },
+  {
+    "id": "b101",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «filtra grupos»?",
+    "options": [
+      "ALTER TABLE",
+      "Diseño conceptual",
+      "HAVING",
+      "WHERE"
+    ],
+    "correct": 2,
+    "explanation": "HAVING: Filtra grupos."
+  },
+  {
+    "id": "b102",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a ORDER BY?",
+    "options": [
+      "Filtra filas",
+      "Inserta filas",
+      "Elimina duplicados",
+      "Ordena resultado"
+    ],
+    "correct": 3,
+    "explanation": "ORDER BY: Ordena resultado."
+  },
+  {
+    "id": "b103",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: ORDER BY — Ordena resultado.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "ORDER BY: Ordena resultado."
+  },
+  {
+    "id": "b104",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «ordena resultado»?",
+    "options": [
+      "ORDER BY",
+      "DATE_ADD en MariaDB",
+      "ALTER TABLE",
+      "DROP TABLE"
+    ],
+    "correct": 0,
+    "explanation": "ORDER BY: Ordena resultado."
+  },
+  {
+    "id": "b105",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a INSERT?",
+    "options": [
+      "Retira permisos",
+      "Añade filas",
+      "Elimina filas",
+      "Modifica filas existentes"
+    ],
+    "correct": 1,
+    "explanation": "INSERT: Añade filas."
+  },
+  {
+    "id": "b106",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: INSERT — Modifica filas existentes.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "INSERT: Añade filas."
+  },
+  {
+    "id": "b107",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «añade filas»?",
+    "options": [
+      "LEFT JOIN",
+      "OR",
+      "INSERT",
+      "NOW() en MariaDB"
+    ],
+    "correct": 2,
+    "explanation": "INSERT: Añade filas."
+  },
+  {
+    "id": "b108",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a UPDATE?",
+    "options": [
+      "Añade columnas",
+      "Crea otra tabla",
+      "Confirma cambios",
+      "Modifica filas existentes"
+    ],
+    "correct": 3,
+    "explanation": "UPDATE: Modifica filas existentes."
+  },
+  {
+    "id": "b109",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: UPDATE — Modifica filas existentes.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "UPDATE: Modifica filas existentes."
+  },
+  {
+    "id": "b110",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «modifica filas existentes»?",
+    "options": [
+      "UPDATE",
+      "Relación N:M",
+      "AVG",
+      "Relación 1:1"
+    ],
+    "correct": 0,
+    "explanation": "UPDATE: Modifica filas existentes."
+  },
+  {
+    "id": "b111",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DELETE?",
+    "options": [
+      "Concede permisos",
+      "Elimina filas",
+      "Elimina definición de tabla",
+      "Añade registros"
+    ],
+    "correct": 1,
+    "explanation": "DELETE: Elimina filas."
+  },
+  {
+    "id": "b112",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DELETE — Concede permisos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "DELETE: Elimina filas."
+  },
+  {
+    "id": "b113",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «elimina filas»?",
+    "options": [
+      "DATE",
+      "MAX",
+      "DELETE",
+      "Clave primaria"
+    ],
+    "correct": 2,
+    "explanation": "DELETE: Elimina filas."
+  },
+  {
+    "id": "b114",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a INNER JOIN?",
+    "options": [
+      "Todas las filas de ambos lados",
+      "Todas las filas izquierdas",
+      "Todas las filas derechas",
+      "Solo coincidencias"
+    ],
+    "correct": 3,
+    "explanation": "INNER JOIN: Solo coincidencias."
+  },
+  {
+    "id": "b115",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: INNER JOIN — Solo coincidencias.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "INNER JOIN: Solo coincidencias."
+  },
+  {
+    "id": "b116",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «solo coincidencias»?",
+    "options": [
+      "INNER JOIN",
+      "CONCAT",
+      "DEFAULT",
+      "AVG"
+    ],
+    "correct": 0,
+    "explanation": "INNER JOIN: Solo coincidencias."
+  },
+  {
+    "id": "b117",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a LEFT JOIN?",
+    "options": [
+      "Solo filas sin pareja",
+      "Conserva todas las filas izquierdas",
+      "Solo coincidencias",
+      "Solo filas derechas"
+    ],
+    "correct": 1,
+    "explanation": "LEFT JOIN: Conserva todas las filas izquierdas."
+  },
+  {
+    "id": "b118",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: LEFT JOIN — Solo filas derechas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "LEFT JOIN: Conserva todas las filas izquierdas."
+  },
+  {
+    "id": "b119",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «conserva todas las filas izquierdas»?",
+    "options": [
+      "Relación N:M",
+      "INNER JOIN",
+      "LEFT JOIN",
+      "Diseño conceptual"
+    ],
+    "correct": 2,
+    "explanation": "LEFT JOIN: Conserva todas las filas izquierdas."
+  },
+  {
+    "id": "b120",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a RIGHT JOIN?",
+    "options": [
+      "Solo coincidencias",
+      "Solo filas sin pareja",
+      "Solo filas izquierdas",
+      "Conserva todas las filas derechas"
+    ],
+    "correct": 3,
+    "explanation": "RIGHT JOIN: Conserva todas las filas derechas."
+  },
+  {
+    "id": "b121",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: RIGHT JOIN — Conserva todas las filas derechas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "RIGHT JOIN: Conserva todas las filas derechas."
+  },
+  {
+    "id": "b122",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «conserva todas las filas derechas»?",
+    "options": [
+      "RIGHT JOIN",
+      "ALTER TABLE",
+      "Cardinalidad mínima 0",
+      "Clave primaria"
+    ],
+    "correct": 0,
+    "explanation": "RIGHT JOIN: Conserva todas las filas derechas."
+  },
+  {
+    "id": "b123",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a COUNT(columna)?",
+    "options": [
+      "Cuenta siempre todas las filas",
+      "Cuenta valores no nulos",
+      "Suma valores",
+      "Calcula promedio"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna): Cuenta valores no nulos."
+  },
+  {
+    "id": "b124",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: COUNT(columna) — Suma valores.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna): Cuenta valores no nulos."
+  },
+  {
+    "id": "b125",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «cuenta valores no nulos»?",
+    "options": [
+      "CREATE DATABASE",
+      "REPLACE",
+      "COUNT(columna)",
+      "MIN"
+    ],
+    "correct": 2,
+    "explanation": "COUNT(columna): Cuenta valores no nulos."
+  },
+  {
+    "id": "b126",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a SUM?",
+    "options": [
+      "Halla máximo",
+      "Cuenta registros",
+      "Halla mínimo",
+      "Suma valores"
+    ],
+    "correct": 3,
+    "explanation": "SUM: Suma valores."
+  },
+  {
+    "id": "b127",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: SUM — Suma valores.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "SUM: Suma valores."
+  },
+  {
+    "id": "b128",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «suma valores»?",
+    "options": [
+      "SUM",
+      "COUNT(columna)",
+      "LOWER",
+      "DATE"
+    ],
+    "correct": 0,
+    "explanation": "SUM: Suma valores."
+  },
+  {
+    "id": "b129",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a AVG?",
+    "options": [
+      "Cantidad de registros",
+      "Media de valores",
+      "Valor máximo",
+      "Suma de valores"
+    ],
+    "correct": 1,
+    "explanation": "AVG: Media de valores."
+  },
+  {
+    "id": "b130",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: AVG — Valor máximo.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "AVG: Media de valores."
+  },
+  {
+    "id": "b131",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «media de valores»?",
+    "options": [
+      "MAX",
+      "Relación 1:1",
+      "AVG",
+      "VARCHAR"
+    ],
+    "correct": 2,
+    "explanation": "AVG: Media de valores."
+  },
+  {
+    "id": "b132",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a MAX?",
+    "options": [
+      "Menor valor",
+      "Media",
+      "Número de filas",
+      "Mayor valor"
+    ],
+    "correct": 3,
+    "explanation": "MAX: Mayor valor."
+  },
+  {
+    "id": "b133",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: MAX — Mayor valor.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "MAX: Mayor valor."
+  },
+  {
+    "id": "b134",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «mayor valor»?",
+    "options": [
+      "MAX",
+      "VARCHAR",
+      "Clave candidata",
+      "Diseño lógico"
+    ],
+    "correct": 0,
+    "explanation": "MAX: Mayor valor."
+  },
+  {
+    "id": "b135",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a MIN?",
+    "options": [
+      "Mayor valor",
+      "Menor valor",
+      "Número de filas",
+      "Suma"
+    ],
+    "correct": 1,
+    "explanation": "MIN: Menor valor."
+  },
+  {
+    "id": "b136",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: MIN — Suma.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "MIN: Menor valor."
+  },
+  {
+    "id": "b137",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «menor valor»?",
+    "options": [
+      "Clave foránea",
+      "UPPER",
+      "MIN",
+      "AND"
+    ],
+    "correct": 2,
+    "explanation": "MIN: Menor valor."
+  },
+  {
+    "id": "b138",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a LOWER?",
+    "options": [
+      "Concatena",
+      "Convierte a mayúsculas",
+      "Sustituye fragmentos",
+      "Convierte a minúsculas"
+    ],
+    "correct": 3,
+    "explanation": "LOWER: Convierte a minúsculas."
+  },
+  {
+    "id": "b139",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: LOWER — Convierte a minúsculas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "LOWER: Convierte a minúsculas."
+  },
+  {
+    "id": "b140",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «convierte a minúsculas»?",
+    "options": [
+      "LOWER",
+      "REPLACE",
+      "INSERT",
+      "ORDER BY"
+    ],
+    "correct": 0,
+    "explanation": "LOWER: Convierte a minúsculas."
+  },
+  {
+    "id": "b141",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a UPPER?",
+    "options": [
+      "Concatena",
+      "Convierte a mayúsculas",
+      "Extrae fecha",
+      "Convierte a minúsculas"
+    ],
+    "correct": 1,
+    "explanation": "UPPER: Convierte a mayúsculas."
+  },
+  {
+    "id": "b142",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: UPPER — Convierte a minúsculas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "UPPER: Convierte a mayúsculas."
+  },
+  {
+    "id": "b143",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «convierte a mayúsculas»?",
+    "options": [
+      "WHERE",
+      "COMMIT",
+      "UPPER",
+      "ALTER TABLE"
+    ],
+    "correct": 2,
+    "explanation": "UPPER: Convierte a mayúsculas."
+  },
+  {
+    "id": "b144",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a CONCAT?",
+    "options": [
+      "Cambia mayúsculas",
+      "Calcula media",
+      "Ordena filas",
+      "Une cadenas"
+    ],
+    "correct": 3,
+    "explanation": "CONCAT: Une cadenas."
+  },
+  {
+    "id": "b145",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: CONCAT — Une cadenas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "CONCAT: Une cadenas."
+  },
+  {
+    "id": "b146",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «une cadenas»?",
+    "options": [
+      "CONCAT",
+      "MIN",
+      "DELETE",
+      "COUNT(columna)"
+    ],
+    "correct": 0,
+    "explanation": "CONCAT: Une cadenas."
+  },
+  {
+    "id": "b147",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a REPLACE?",
+    "options": [
+      "Cuenta filas",
+      "Sustituye fragmentos de texto",
+      "Convierte a fecha",
+      "Une tablas"
+    ],
+    "correct": 1,
+    "explanation": "REPLACE: Sustituye fragmentos de texto."
+  },
+  {
+    "id": "b148",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: REPLACE — Convierte a fecha.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "REPLACE: Sustituye fragmentos de texto."
+  },
+  {
+    "id": "b149",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «sustituye fragmentos de texto»?",
+    "options": [
+      "GRANT",
+      "VARCHAR",
+      "REPLACE",
+      "WHERE"
+    ],
+    "correct": 2,
+    "explanation": "REPLACE: Sustituye fragmentos de texto."
+  },
+  {
+    "id": "b150",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a NOW() en MariaDB?",
+    "options": [
+      "Solo día del mes",
+      "Número de filas",
+      "Solo año",
+      "Fecha y hora actuales"
+    ],
+    "correct": 3,
+    "explanation": "NOW() en MariaDB: Fecha y hora actuales."
+  },
+  {
+    "id": "b151",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: NOW() en MariaDB — Fecha y hora actuales.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "NOW() en MariaDB: Fecha y hora actuales."
+  },
+  {
+    "id": "b152",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «fecha y hora actuales»?",
+    "options": [
+      "NOW() en MariaDB",
+      "CONCAT",
+      "Relación N:M",
+      "Diseño lógico"
+    ],
+    "correct": 0,
+    "explanation": "NOW() en MariaDB: Fecha y hora actuales."
+  },
+  {
+    "id": "b153",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DATE_ADD en MariaDB?",
+    "options": [
+      "Agrupa fechas",
+      "Suma intervalo a fecha",
+      "Resta siempre un intervalo",
+      "Extrae texto"
+    ],
+    "correct": 1,
+    "explanation": "DATE_ADD en MariaDB: Suma intervalo a fecha."
+  },
+  {
+    "id": "b154",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DATE_ADD en MariaDB — Extrae texto.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "DATE_ADD en MariaDB: Suma intervalo a fecha."
+  },
+  {
+    "id": "b155",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «suma intervalo a fecha»?",
+    "options": [
+      "DEFAULT",
+      "Diseño físico",
+      "DATE_ADD en MariaDB",
+      "OR"
+    ],
+    "correct": 2,
+    "explanation": "DATE_ADD en MariaDB: Suma intervalo a fecha."
+  },
+  {
+    "id": "b156",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a AND?",
+    "options": [
+      "Invierte condición",
+      "Exige al menos una",
+      "Compara con NULL",
+      "Exige ambas condiciones"
+    ],
+    "correct": 3,
+    "explanation": "AND: Exige ambas condiciones."
+  },
+  {
+    "id": "b157",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: AND — Exige ambas condiciones.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "AND: Exige ambas condiciones."
+  },
+  {
+    "id": "b158",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «exige ambas condiciones»?",
+    "options": [
+      "AND",
+      "COUNT(columna)",
+      "ORDER BY",
+      "SUM"
+    ],
+    "correct": 0,
+    "explanation": "AND: Exige ambas condiciones."
+  },
+  {
+    "id": "b159",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a OR?",
+    "options": [
+      "Ordena filas",
+      "Exige al menos una condición",
+      "Exige ambas",
+      "Agrupa filas"
+    ],
+    "correct": 1,
+    "explanation": "OR: Exige al menos una condición."
+  },
+  {
+    "id": "b160",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: OR — Exige ambas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "OR: Exige al menos una condición."
+  },
+  {
+    "id": "b161",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «exige al menos una condición»?",
+    "options": [
+      "LEFT JOIN",
+      "ROLLBACK",
+      "OR",
+      "ORDER BY"
+    ],
+    "correct": 2,
+    "explanation": "OR: Exige al menos una condición."
+  },
+  {
+    "id": "b162",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a IS NULL?",
+    "options": [
+      "Comprueba duplicados",
+      "Comprueba cadena vacía",
+      "Compara con cero",
+      "Comprueba ausencia de valor"
+    ],
+    "correct": 3,
+    "explanation": "IS NULL: Comprueba ausencia de valor."
+  },
+  {
+    "id": "b163",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: IS NULL — Comprueba ausencia de valor.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "IS NULL: Comprueba ausencia de valor."
+  },
+  {
+    "id": "b164",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «comprueba ausencia de valor»?",
+    "options": [
+      "IS NULL",
+      "Diseño físico",
+      "Clave primaria",
+      "HAVING"
+    ],
+    "correct": 0,
+    "explanation": "IS NULL: Comprueba ausencia de valor."
+  },
+  {
+    "id": "b165",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DESCRIBE en MariaDB?",
+    "options": [
+      "Borra estructura",
+      "Muestra estructura de tabla",
+      "Cuenta filas",
+      "Crea índice"
+    ],
+    "correct": 1,
+    "explanation": "DESCRIBE en MariaDB: Muestra estructura de tabla."
+  },
+  {
+    "id": "b166",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DESCRIBE en MariaDB — Crea índice.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "DESCRIBE en MariaDB: Muestra estructura de tabla."
+  },
+  {
+    "id": "b167",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «muestra estructura de tabla»?",
+    "options": [
+      "DATE",
+      "INSERT",
+      "DESCRIBE en MariaDB",
+      "Clave primaria"
+    ],
+    "correct": 2,
+    "explanation": "DESCRIBE en MariaDB: Muestra estructura de tabla."
+  },
+  {
+    "id": "b168",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 10 filas, de las cuales 2 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "2",
+      "12",
+      "10",
+      "8"
+    ],
+    "correct": 3,
+    "explanation": "COUNT(columna) ignora NULL: 10 − 2 = 8."
+  },
+  {
+    "id": "b169",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 13 filas, de las cuales 3 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "10",
+      "16",
+      "13",
+      "3"
+    ],
+    "correct": 0,
+    "explanation": "COUNT(columna) ignora NULL: 13 − 3 = 10."
+  },
+  {
+    "id": "b170",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 16 filas, de las cuales 4 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "20",
+      "12",
+      "4",
+      "16"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna) ignora NULL: 16 − 4 = 12."
+  },
+  {
+    "id": "b171",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 19 filas, de las cuales 5 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "24",
+      "5",
+      "14",
+      "19"
+    ],
+    "correct": 2,
+    "explanation": "COUNT(columna) ignora NULL: 19 − 5 = 14."
+  },
+  {
+    "id": "b172",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 22 filas, de las cuales 6 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "28",
+      "22",
+      "6",
+      "16"
+    ],
+    "correct": 3,
+    "explanation": "COUNT(columna) ignora NULL: 22 − 6 = 16."
+  },
+  {
+    "id": "b173",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 25 filas, de las cuales 7 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "18",
+      "32",
+      "7",
+      "25"
+    ],
+    "correct": 0,
+    "explanation": "COUNT(columna) ignora NULL: 25 − 7 = 18."
+  },
+  {
+    "id": "b174",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 28 filas, de las cuales 8 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "8",
+      "20",
+      "28",
+      "36"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna) ignora NULL: 28 − 8 = 20."
+  },
+  {
+    "id": "b175",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 31 filas, de las cuales 2 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "2",
+      "33",
+      "29",
+      "31"
+    ],
+    "correct": 2,
+    "explanation": "COUNT(columna) ignora NULL: 31 − 2 = 29."
+  },
+  {
+    "id": "b176",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 34 filas, de las cuales 3 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "37",
+      "34",
+      "3",
+      "31"
+    ],
+    "correct": 3,
+    "explanation": "COUNT(columna) ignora NULL: 34 − 3 = 31."
+  },
+  {
+    "id": "b177",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 37 filas, de las cuales 4 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "33",
+      "4",
+      "41",
+      "37"
+    ],
+    "correct": 0,
+    "explanation": "COUNT(columna) ignora NULL: 37 − 4 = 33."
+  },
+  {
+    "id": "b178",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 40 filas, de las cuales 5 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "5",
+      "35",
+      "40",
+      "45"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna) ignora NULL: 40 − 5 = 35."
+  },
+  {
+    "id": "b179",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 43 filas, de las cuales 6 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "49",
+      "43",
+      "37",
+      "6"
+    ],
+    "correct": 2,
+    "explanation": "COUNT(columna) ignora NULL: 43 − 6 = 37."
+  },
+  {
+    "id": "b180",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 46 filas, de las cuales 7 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "53",
+      "46",
+      "7",
+      "39"
+    ],
+    "correct": 3,
+    "explanation": "COUNT(columna) ignora NULL: 46 − 7 = 39."
+  },
+  {
+    "id": "b181",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 49 filas, de las cuales 8 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "41",
+      "49",
+      "57",
+      "8"
+    ],
+    "correct": 0,
+    "explanation": "COUNT(columna) ignora NULL: 49 − 8 = 41."
+  },
+  {
+    "id": "b182",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 52 filas, de las cuales 2 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "54",
+      "50",
+      "52",
+      "2"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna) ignora NULL: 52 − 2 = 50."
+  },
+  {
+    "id": "b183",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 55 filas, de las cuales 3 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "58",
+      "55",
+      "52",
+      "3"
+    ],
+    "correct": 2,
+    "explanation": "COUNT(columna) ignora NULL: 55 − 3 = 52."
+  },
+  {
+    "id": "b184",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 58 filas, de las cuales 4 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "58",
+      "62",
+      "4",
+      "54"
+    ],
+    "correct": 3,
+    "explanation": "COUNT(columna) ignora NULL: 58 − 4 = 54."
+  },
+  {
+    "id": "b185",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 61 filas, de las cuales 5 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "56",
+      "66",
+      "5",
+      "61"
+    ],
+    "correct": 0,
+    "explanation": "COUNT(columna) ignora NULL: 61 − 5 = 56."
+  },
+  {
+    "id": "b186",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 64 filas, de las cuales 6 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "64",
+      "58",
+      "6",
+      "70"
+    ],
+    "correct": 1,
+    "explanation": "COUNT(columna) ignora NULL: 64 − 6 = 58."
+  },
+  {
+    "id": "b187",
+    "type": "choice",
+    "format": "single",
+    "prompt": "Una consulta LEFT JOIN desde CLIENTES devuelve 67 filas, de las cuales 7 tienen ID_MATRICULA NULL. ¿Qué devuelve COUNT(m.ID_MATRICULA)?",
+    "options": [
+      "67",
+      "7",
+      "60",
+      "74"
+    ],
+    "correct": 2,
+    "explanation": "COUNT(columna) ignora NULL: 67 − 7 = 60."
+  }
+]

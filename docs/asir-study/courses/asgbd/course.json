@@ -1,0 +1,19 @@
+{
+  "id": "asgbd",
+  "name": "Administración de Sistemas Gestores de Bases de Datos",
+  "color": "#9333ea",
+  "units": [
+    {
+      "id": "ut00",
+      "title": "UT00 · Conceptos básicos de BD"
+    },
+    {
+      "id": "ut01",
+      "title": "UT01 · Introducción a los SGBD"
+    },
+    {
+      "id": "ut02",
+      "title": "UT02 · Optimización SQL"
+    }
+  ]
+}

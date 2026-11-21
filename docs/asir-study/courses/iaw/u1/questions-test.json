@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "¿Qué código indica recurso no encontrado?",
+    "options": [
+      "200",
+      "404",
+      "500"
+    ],
+    "correct": 1,
+    "explanation": "404 indica que el recurso no se encuentra."
+  }
+]

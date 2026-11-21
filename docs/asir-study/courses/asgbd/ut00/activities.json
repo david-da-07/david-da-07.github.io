@@ -1,0 +1,177 @@
+[
+  {
+    "id": "e01",
+    "type": "open",
+    "prompt": "Teoría · Diferencia las tres fases de diseño con el ejemplo de la clínica.",
+    "reference": "Conceptual: entidades y cardinalidades; lógico: tablas, PK/FK y restricciones; físico: tipos, estructuras de almacenamiento e índices según SGBD.",
+    "activity": true
+  },
+  {
+    "id": "e02",
+    "type": "open",
+    "prompt": "Práctica clínica · Identifica entidades, claves y cardinalidades, incluyendo tratamientos y consultas.",
+    "reference": "Veterinario (colegiado, DNI alternativo si único), despacho (número), mascota (código), historial (número), cliente (DNI), consulta (código), tratamiento (código). Veterinario-despacho 1:1 obligatorio; mascota-historial 1:1 obligatorio; cliente-mascota 1:N, cada mascota un cliente; veterinario-consulta y mascota-consulta 1:N, cada consulta un veterinario y una mascota. Mascota-tratamiento N:M con inicio, fin y observaciones; si hay repeticiones usar inicio o identificador de aplicación. Mínimos no especificados deben justificarse.",
+    "activity": true
+  },
+  {
+    "id": "e03",
+    "type": "open",
+    "prompt": "Práctica clínica · Transforma cliente, mascota e historial al modelo relacional.",
+    "reference": "CLIENTE(DNI PK,...); MASCOTA(codigo PK, DNI_cliente FK NOT NULL,...); HISTORIAL(numero PK, codigo_mascota FK UNIQUE NOT NULL,...). La existencia obligatoria de historial para cada mascota requiere además lógica de creación o restricción adicional.",
+    "activity": true
+  },
+  {
+    "id": "e04",
+    "type": "open",
+    "prompt": "Oracle · Lista los clientes de Madrid mostrando nombre y email.",
+    "reference": "SELECT nombre,email FROM clientes WHERE ciudad = 'Madrid';",
+    "activity": true
+  },
+  {
+    "id": "e05",
+    "type": "open",
+    "prompt": "Oracle · Programas de inglés entre 200 y 500 euros inclusive ordenados de mayor a menor precio.",
+    "reference": "SELECT nombre_programa,precio FROM programas WHERE idioma='Inglés' AND precio BETWEEN 200 AND 500 ORDER BY precio DESC;",
+    "activity": true
+  },
+  {
+    "id": "e06",
+    "type": "open",
+    "prompt": "Oracle · Muestra cliente, programa y cuota mensual de cada matrícula.",
+    "reference": "SELECT c.nombre,c.apellidos,p.nombre_programa,s.cuota_mensual FROM matriculas m JOIN clientes c ON m.id_cliente=c.id_cliente JOIN programas p ON m.id_programa=p.id_programa JOIN suscripciones s ON m.id_suscripcion=s.id_suscripcion;",
+    "activity": true
+  },
+  {
+    "id": "e07",
+    "type": "open",
+    "prompt": "Oracle · Clientes sin matrículas mediante LEFT JOIN.",
+    "reference": "SELECT c.id_cliente,c.nombre FROM clientes c LEFT JOIN matriculas m ON c.id_cliente=m.id_cliente WHERE m.id_matricula IS NULL;",
+    "activity": true
+  },
+  {
+    "id": "e08",
+    "type": "open",
+    "prompt": "Oracle · Número de matrículas por cliente, incluidos los que tienen cero.",
+    "reference": "SELECT c.id_cliente,c.nombre,COUNT(m.id_matricula) total FROM clientes c LEFT JOIN matriculas m ON c.id_cliente=m.id_cliente GROUP BY c.id_cliente,c.nombre;",
+    "activity": true
+  },
+  {
+    "id": "e09",
+    "type": "open",
+    "prompt": "Oracle · Idiomas con más de dos programas y precio medio de sus programas.",
+    "reference": "SELECT idioma,AVG(precio) FROM programas GROUP BY idioma HAVING COUNT(*)>2;",
+    "activity": true
+  },
+  {
+    "id": "e10",
+    "type": "open",
+    "prompt": "Teoría · Diferencia DELETE, DROP y UPDATE.",
+    "reference": "DELETE elimina filas; DROP elimina estructura; UPDATE modifica valores existentes. WHERE limita DELETE/UPDATE.",
+    "activity": true
+  },
+  {
+    "id": "original01",
+    "type": "open",
+    "prompt": "Academia · consulta original 1 · Obtener toda la información de CLIENTES, mostrando todas las columnas y todos los registros.",
+    "reference": "SELECT *\nFROM CLIENTES;",
+    "activity": true
+  },
+  {
+    "id": "original02",
+    "type": "open",
+    "prompt": "Academia · consulta original 2 · Mostrar únicamente nombre, apellidos y correo electrónico de todos los clientes.",
+    "reference": "SELECT\n    NOMBRE AS NOMBRE_CLIENTE,\n    APELLIDOS,\n    EMAIL AS CORREO_ELECTRONICO\nFROM CLIENTES;",
+    "activity": true
+  },
+  {
+    "id": "original03",
+    "type": "open",
+    "prompt": "Academia · consulta original 3 · Mostrar los programas de idiomas cuyo precio sea superior a 200 euros.",
+    "reference": "SELECT NOMBRE_PROGRAMA, IDIOMA, PRECIO\nFROM PROGRAMAS\nWHERE PRECIO > 200;",
+    "activity": true
+  },
+  {
+    "id": "original04",
+    "type": "open",
+    "prompt": "Academia · consulta original 4 · Obtener los programas de inglés cuyo precio sea inferior a 500 euros.",
+    "reference": "SELECT NOMBRE_PROGRAMA, IDIOMA, PRECIO\nFROM PROGRAMAS\nWHERE IDIOMA = 'Inglés'\n  AND PRECIO < 500;",
+    "activity": true
+  },
+  {
+    "id": "original05",
+    "type": "open",
+    "prompt": "Academia · consulta original 5 · Mostrar todos los programas de idiomas ordenados de mayor a menor precio.",
+    "reference": "SELECT NOMBRE_PROGRAMA, IDIOMA, PRECIO\nFROM PROGRAMAS\nORDER BY PRECIO DESC;",
+    "activity": true
+  },
+  {
+    "id": "original06",
+    "type": "open",
+    "prompt": "Academia · consulta original 6 · Mostrar el nombre y los apellidos de cada cliente junto al identificador y la fecha de sus matrículas.",
+    "reference": "SELECT c.NOMBRE, c.APELLIDOS,\n       m.ID_MATRICULA, m.FECHA_MATRICULA\nFROM CLIENTES c\nINNER JOIN MATRICULAS m\n    ON c.ID_CLIENTE = m.ID_CLIENTE;",
+    "activity": true
+  },
+  {
+    "id": "original07",
+    "type": "open",
+    "prompt": "Academia · consulta original 7 · Mostrar nombre y apellidos de cada cliente matriculado, junto con el programa y el idioma.",
+    "reference": "SELECT c.NOMBRE, c.APELLIDOS,\n       p.NOMBRE_PROGRAMA, p.IDIOMA\nFROM CLIENTES c\nINNER JOIN MATRICULAS m\n    ON c.ID_CLIENTE = m.ID_CLIENTE\nINNER JOIN PROGRAMAS p\n    ON m.ID_PROGRAMA = p.ID_PROGRAMA;",
+    "activity": true
+  },
+  {
+    "id": "original08",
+    "type": "open",
+    "prompt": "Academia · consulta original 8 · Mostrar cliente, programa, idioma, tipo de suscripción y cuota mensual para cada matrícula.",
+    "reference": "SELECT c.NOMBRE, c.APELLIDOS,\n       p.NOMBRE_PROGRAMA, p.IDIOMA,\n       s.TIPO AS SUSCRIPCION, s.CUOTA_MENSUAL\nFROM MATRICULAS m\nINNER JOIN CLIENTES c\n    ON m.ID_CLIENTE = c.ID_CLIENTE\nINNER JOIN PROGRAMAS p\n    ON m.ID_PROGRAMA = p.ID_PROGRAMA\nINNER JOIN SUSCRIPCIONES s\n    ON m.ID_SUSCRIPCION = s.ID_SUSCRIPCION;",
+    "activity": true
+  },
+  {
+    "id": "original09",
+    "type": "open",
+    "prompt": "Academia · consulta original 9 · Obtener los clientes matriculados en programas de inglés con precio superior a 300 euros. Academia de idiomas | Consultas SQL para Oracle Página 5",
+    "reference": "SELECT c.NOMBRE, c.APELLIDOS,\n       p.NOMBRE_PROGRAMA, p.PRECIO\nFROM CLIENTES c\nINNER JOIN MATRICULAS m\n    ON c.ID_CLIENTE = m.ID_CLIENTE\nINNER JOIN PROGRAMAS p\n    ON m.ID_PROGRAMA = p.ID_PROGRAMA\nWHERE p.IDIOMA = 'Inglés'\n  AND p.PRECIO > 300;",
+    "activity": true
+  },
+  {
+    "id": "original10",
+    "type": "open",
+    "prompt": "Academia · consulta original 10 · Mostrar todos los clientes, tengan o no matrícula, junto al identificador de matrícula cuando exista.",
+    "reference": "SELECT c.ID_CLIENTE, c.NOMBRE,\n       c.APELLIDOS, m.ID_MATRICULA\nFROM CLIENTES c\nLEFT JOIN MATRICULAS m\n    ON c.ID_CLIENTE = m.ID_CLIENTE\nORDER BY c.ID_CLIENTE;",
+    "activity": true
+  },
+  {
+    "id": "original11",
+    "type": "open",
+    "prompt": "Academia · consulta original 11 · Mostrar exclusivamente los clientes que todavía no tienen matrículas.",
+    "reference": "SELECT c.ID_CLIENTE, c.NOMBRE,\n       c.APELLIDOS, c.EMAIL\nFROM CLIENTES c\nLEFT JOIN MATRICULAS m\n    ON c.ID_CLIENTE = m.ID_CLIENTE\nWHERE m.ID_MATRICULA IS NULL;",
+    "activity": true
+  },
+  {
+    "id": "original12",
+    "type": "open",
+    "prompt": "Academia · consulta original 12 · Mostrar todos los programas, tengan o no matrículas, junto al identificador de cada matrícula cuando exista.",
+    "reference": "SELECT p.ID_PROGRAMA, p.NOMBRE_PROGRAMA,\n       p.IDIOMA, m.ID_MATRICULA\nFROM MATRICULAS m\nRIGHT JOIN PROGRAMAS p\n    ON m.ID_PROGRAMA = p.ID_PROGRAMA\nORDER BY p.ID_PROGRAMA;",
+    "activity": true
+  },
+  {
+    "id": "original13",
+    "type": "open",
+    "prompt": "Academia · consulta original 13 · Mostrar todas las combinaciones posibles entre programas y tipos de suscripción.",
+    "reference": "SELECT p.NOMBRE_PROGRAMA, p.IDIOMA,\n       s.TIPO AS SUSCRIPCION\nFROM PROGRAMAS p\nCROSS JOIN SUSCRIPCIONES s\nORDER BY p.NOMBRE_PROGRAMA, s.TIPO;",
+    "activity": true
+  },
+  {
+    "id": "original14",
+    "type": "open",
+    "prompt": "Academia · consulta original 14 · Mostrar cada programa que tenga matrículas y el número total de matrículas de ese programa.",
+    "reference": "SELECT p.ID_PROGRAMA, p.NOMBRE_PROGRAMA,\n       COUNT(*) AS TOTAL_MATRICULAS\nFROM PROGRAMAS p\nINNER JOIN MATRICULAS m\n    ON p.ID_PROGRAMA = m.ID_PROGRAMA\nGROUP BY p.ID_PROGRAMA, p.NOMBRE_PROGRAMA\nORDER BY TOTAL_MATRICULAS DESC;",
+    "activity": true
+  },
+  {
+    "id": "original15",
+    "type": "open",
+    "prompt": "Academia · consulta original 15 · Mostrar los programas con más de dos matrículas y el total registrado en cada uno.",
+    "reference": "SELECT p.ID_PROGRAMA, p.NOMBRE_PROGRAMA,\n       COUNT(*) AS TOTAL_MATRICULAS\nFROM PROGRAMAS p\nINNER JOIN MATRICULAS m\n    ON p.ID_PROGRAMA = m.ID_PROGRAMA\nGROUP BY p.ID_PROGRAMA, p.NOMBRE_PROGRAMA\nHAVING COUNT(*) > 2\nORDER BY TOTAL_MATRICULAS DESC;",
+    "activity": true
+  }
+]

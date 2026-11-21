@@ -1,0 +1,605 @@
+{
+  "summary": "0.1 Diseño: conceptual (modelo E/R), lógico (tablas, claves y normalización), físico (almacenamiento y acceso según el gestor).\n0.2 E/R: entidad = objeto de interés; atributo = propiedad; relación = asociación. Las claves deben ser únicas y mínimas. La cardinalidad mínima expresa obligatoriedad y la máxima expresa cuántas ocurrencias pueden asociarse. Relaciones 1:1, 1:N y N:M.\n0.3 Modelo relacional: cada entidad se convierte en tabla. En 1:N la FK se sitúa en N; en 1:1 se utiliza una FK única; en N:M se crea una tabla intermedia con las FK y atributos de la relación. PK identifica una fila; FK referencia una clave de otra tabla; una clave candidata puede ser elegida como PK.\n0.4 Herramientas: representar entidades, atributos, relaciones y cardinalidades antes de implementar el esquema.\n0.5 SQL: DDL define estructuras (CREATE, ALTER, DROP); DML consulta y modifica datos (SELECT, INSERT, UPDATE, DELETE). WHERE filtra filas; AND exige todas las condiciones; OR alguna; LIKE busca patrones; IS NULL comprueba ausencia de valor. ORDER BY ordena. INNER JOIN devuelve coincidencias, LEFT JOIN conserva todas las filas de la izquierda, RIGHT JOIN las de la derecha. GROUP BY agrupa; HAVING filtra grupos. COUNT, SUM, AVG, MIN y MAX agregan. COUNT(columna) ignora NULL. Las funciones de cadenas LOWER, UPPER, CONCAT y REPLACE transforman texto. Las funciones de fecha dependen del motor: los apuntes ilustran NOW y DATE_ADD en sintaxis MySQL/MariaDB; no trasladarlas literalmente a Oracle.\nAcademia (Oracle): CLIENTES(ID_CLIENTE,NOMBRE,APELLIDOS,EMAIL,CIUDAD); PROGRAMAS(ID_PROGRAMA,NOMBRE_PROGRAMA,IDIOMA,PRECIO); SUSCRIPCIONES(ID_SUSCRIPCION,TIPO,CUOTA_MENSUAL); MATRICULAS(ID_MATRICULA,ID_CLIENTE,ID_PROGRAMA,ID_SUSCRIPCION,FECHA_MATRICULA). Contrastar con el script real antes de ejecutar.",
+  "lessons": [
+    [
+      "0.1 Diseño de bases de datos",
+      "El diseño conceptual identifica los objetos del negocio y sus asociaciones, sin asumir un gestor concreto. En una clínica, Cliente, Mascota y Veterinario son entidades; sus vínculos expresan reglas del negocio. El diseño lógico transforma esas reglas en tablas, claves y restricciones. La normalización separa hechos que dependen de claves distintas para evitar duplicar información. El diseño físico decide almacenamiento, índices y acceso según el gestor. Confundir estos niveles lleva a diseñar índices antes de saber qué información debe conservarse."
+    ],
+    [
+      "0.2 Entidades, atributos y cardinalidades",
+      "Una entidad representa un conjunto de objetos; una ocurrencia es un objeto individual. Los atributos describen sus propiedades. Una clave candidata identifica inequívocamente una ocurrencia y es mínima; se selecciona una como primaria. La cardinalidad mínima indica si la participación es obligatoria (1) u opcional (0); la máxima indica uno o muchos. Cliente puede tener varias mascotas; cada mascota pertenece a exactamente un cliente. Cada mascota tiene un historial único y cada historial pertenece a una mascota. Mascota y Tratamiento mantienen una asociación N:M con fechas y observaciones propias. Si se repite un tratamiento en distintas fechas, la identificación debe distinguir las aplicaciones."
+    ],
+    [
+      "0.3 Transformación al modelo relacional",
+      "Cada entidad se transforma en una tabla. En 1:N la clave del lado uno se incorpora como FK al lado muchos. NOT NULL impone obligatoriedad en esa dirección. En 1:1 una FK UNIQUE evita que dos filas apunten a la misma entidad; NOT NULL no garantiza por sí sola que todas las filas del otro extremo tengan pareja. En N:M se crea una tabla asociativa con ambas FK y atributos de la relación. Una PK compuesta puede bastar si cada pareja solo aparece una vez. Ejemplo:\nCREATE TABLE aplicacion (id_mascota INT, id_tratamiento INT, fecha_inicio DATE, PRIMARY KEY(id_mascota,id_tratamiento,fecha_inicio));\nSe deben añadir las FK a las tablas correspondientes."
+    ],
+    [
+      "0.4 Diagramas",
+      "Antes de dibujar, extrae sustantivos candidatos a entidades, propiedades y verbos que representan asociaciones. Comprueba cada relación leyendo las reglas en ambos sentidos. En el diagrama conceptual expresa mínimos y máximos; en el relacional identifica PK y FK y las restricciones UNIQUE. La práctica de clínica requiere justificar cada cardinalidad y no inventar mínimos que no se deducen del enunciado."
+    ],
+    [
+      "0.5 DDL, DML, DCL y TCL",
+      "DDL define estructuras: CREATE, ALTER y DROP. DML consulta y modifica: SELECT, INSERT, UPDATE y DELETE. DCL concede o retira privilegios (GRANT, REVOKE). TCL controla transacciones (COMMIT, ROLLBACK). En MariaDB CREATE DATABASE admite CHARACTER SET y COLLATE; el primero determina repertorio de caracteres y el segundo reglas de comparación. USE selecciona la base. CREATE TABLE declara tipos y restricciones; NOT NULL, DEFAULT, PRIMARY KEY y FOREIGN KEY cumplen funciones distintas. AUTO_INCREMENT es sintaxis MariaDB, no debe trasladarse literalmente a Oracle. DROP elimina estructuras; DELETE elimina filas."
+    ],
+    [
+      "0.6 Consultas y modificaciones",
+      "SELECT proyecta columnas, FROM establece el origen y WHERE filtra filas. DISTINCT elimina duplicados del resultado. AND exige ambas condiciones; OR permite cualquiera. LIKE usa % para una secuencia y _ para un carácter. IS NULL comprueba ausencia. ORDER BY PRECIO DESC ordena de mayor a menor. INSERT debe corresponder columnas con valores; UPDATE usa SET y WHERE; DELETE usa FROM y WHERE. Antes de modificar, comprueba con SELECT el alcance del filtro.\nSELECT NOMBRE_PROGRAMA, PRECIO FROM PROGRAMAS WHERE IDIOMA = 'Inglés' AND PRECIO < 500 ORDER BY PRECIO DESC;"
+    ],
+    [
+      "0.7 JOIN y agregaciones",
+      "INNER JOIN conserva coincidencias; LEFT JOIN conserva todas las filas izquierdas y rellena con NULL cuando no hay pareja. Un cliente con tres matrículas genera tres filas. Para localizar clientes sin matrícula usa LEFT JOIN y WHERE m.ID_MATRICULA IS NULL. Para contar matrículas incluyendo cero utiliza COUNT(m.ID_MATRICULA), no COUNT(*). GROUP BY agrupa, WHERE filtra antes de agrupar y HAVING filtra grupos. SUM suma, AVG calcula la media, MIN y MAX extremos.\nSELECT c.ID_CLIENTE, COUNT(m.ID_MATRICULA) FROM CLIENTES c LEFT JOIN MATRICULAS m ON c.ID_CLIENTE=m.ID_CLIENTE GROUP BY c.ID_CLIENTE;"
+    ],
+    [
+      "0.8 Funciones y dialectos",
+      "LOWER y UPPER cambian mayúsculas; REPLACE sustituye texto; CONCAT concatena (en Oracle acepta dos argumentos). Los apuntes emplean funciones de MariaDB como NOW y DATE_ADD; en Oracle se emplean alternativas propias. Comprueba tipos DATE, TIMESTAMP y formatos. En la academia se usan CLIENTES, MATRICULAS, PROGRAMAS y SUSCRIPCIONES; la tabla MATRICULAS enlaza las otras tres mediante sus identificadores."
+    ]
+  ],
+  "pages": [
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 1,
+      "image": "courses/asgbd/ut00/images/d0-p001.jpg",
+      "text": "                                                                                        I.E.S. INFANTA ELENA\n\n\n     Administración de Sistemas\n    Gestores de Bases de Datos\n\n\nTécnico Superior en Administración\n de Sistemas Informáticos en Red"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 2,
+      "image": "courses/asgbd/ut00/images/d0-p002.jpg",
+      "text": "                                                                        I.E.S. INFANTA ELENA\n\n\n\n  UT00. Conceptos Básicos en BD.\n\n\n\n\n\nContenidos Teóricos"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 3,
+      "image": "courses/asgbd/ut00/images/d0-p003.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n Contenidos\n\n UT00. Conceptos básicos de bases de datos.\n\n  0.1.- Diseño de una BD relacional.\n  0.2.- Modelo Entidad/Relación.\n  0.3.- Diagrama Relacional.\n  0.4.- Herramientas E/R, Diagramas.\n  0.5.- Lenguaje SQL.\n\n\n\n\n\n                                                                                       4"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 4,
+      "image": "courses/asgbd/ut00/images/d0-p004.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.1.- Diseño de una base de datos relacional\n\nDiseño Base de Datos:\n\n  Diseñar una BD consiste en definir la estructura de los datos que debe tener un sistema\nde información determinado. Este trabajo puede ser divididoen 3 fases:\n\n❑En la fase de diseño conceptual se describe la información que debe contener la BD y las\n   relaciones entre los datos que almacena. Es hacer una representación del mundo real en\n  un diagrama conceptual ➔ Modelo E/R\n\n❑El diseño lógico parte del resultado del diseño conceptual y da como resultado la\n   estructura de la base de datos, o esquema de la BD, es decir, en el caso de bases de\n   datos relacionales el diseño lógico define el modelo relacional: las tablas que existirán,\n   sus atributos, las relaciones entre ellas, su normalización, etc...\n\n❑El diseño físico parte del lógico y da como resultado una descripción de la\n   implementación de una BD en memoria: las estructuras de almacenamiento y los métodos\n   utilizados para tener un acceso eficiente a los datos. El objetivo es conseguir una mayor\n   eficiencia, y se tienen en cuenta aspectos concretos del Sistema de Gestión de Base de\n   Datos sobre el que se vaya a implementar.                                              5"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 5,
+      "image": "courses/asgbd/ut00/images/d0-p005.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.1.- Diseño de una base de datos relacional\n\nDiseño Base de Datos:\n\n\n\n\n\n                                                                                       5"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 6,
+      "image": "courses/asgbd/ut00/images/d0-p006.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.2.- Modelo Entidad/Relación.\n\nModelo E/R:\n\n❑El modelo E/R parte de una situación real a partir de la cual se definen entidades, que\n   están compuestas por atributos y relaciones entre dichas entidades.\n\nEntidades y Atributos:\n\n❑Una Entidad es un objeto del mundo real sobre el que queremos almacenar información,\n  puede ser algo abstracto (Ej: estudiante, curso, matricula, etc)\n\n❑Las entidades están compuestas de atributos que son los datos que definen el objeto\n   (nombre, matricula, dirección,...). De entre los atributos habrá uno, clave de la entidad. Ya\n  que puede haber varias claves y necesitamos elegir una, lo haremos atendiendo a estas\n   normas:\n     - Que sea única.\n     - Que se tenga pleno conocimiento de ella\n     - Que sea mínima, ya que será muy utilizada por el gestor de base de datos.\n                                                                                       6"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 7,
+      "image": "courses/asgbd/ut00/images/d0-p007.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.2.- Modelo Entidad/Relación.\n\nRelaciones:\n\nUna relación es la asociación entre entidades, sin existencia propia en el mundo real que\nestamos modelando, pero necesaria para reflejar las interacciones existentes entre entidades.\n\nLas relaciones pueden ser de tres tipos, según su cardinalidad:\n\n❑Relaciones 1:1: las ocurrencias de las entidades que intervienen en la relación se asocian\n  una a una.\n\n❑ Relaciones 1:n o n:1:  Una ocurrencia de una entidad está asociada con muchas\n   ocurrencias (n) de otra entidad, o viceversa.\n\n❑Relaciones n:n: Cada ocurrencia, en cualquiera de las dos entidades de la relación,\n  puede estar asociada con muchas ocurrencias (n) de la otra entidad y viceversa.\n\nCardinalidad:\nEs el número de ocurrencias de una entidad que se pueden asociar a una ocurrencia de otra\nentidad a través de una relación.\n                                                                                       7"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 8,
+      "image": "courses/asgbd/ut00/images/d0-p008.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.2.- Modelo Entidad/Relación.\n\n\n              Representación gráfica de entidades, relaciones y atributos\n                           Modelo Entidad/Relación\n\n\n\n\n\n                                                                                       8"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 9,
+      "image": "courses/asgbd/ut00/images/d0-p009.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.2.- Modelo Entidad/Relación.\n\n\n             Añadiendo la cardinalidad a la representación gráfica\n\n\n\n\n\n                                                                                       9"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 10,
+      "image": "courses/asgbd/ut00/images/d0-p010.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nPaso del modelo E/R al modelo Lógico (Esquema de Base de datos):\n\n❑En una BD relaciona todos los datos se almacenan en forma de tablas, tanto las\n  entidades como los datos necesarios para representar una relación. La tabla es además\n   la unidad de almacenamiento principal.\n\n❑Las tablas están compuestas por filas (o registros) y columnas (o atributos). Cada uno\n  de  los  registros tiene  la información sobre una entidad concreta (considerados una\n  unidad/ocurrencia).\n\n❑Cada tabla debe poseer una clave primaria, esto es, un identificador único de cada\n   registro compuesto por una o más columnas.\n\n❑Para establecer una relación entre dos tablas es necesario  incluir, en forma de\n  columna, en una de ellas la clave primaria de la otra. A esta columna se le llama clave\n  externa.\n\n❑Las relaciones de cardinalidad n:n se representarán en el esquema relacional de BD\n  como una nueva tabla.\n                                                                                       10"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 11,
+      "image": "courses/asgbd/ut00/images/d0-p011.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\n Entidades:\n❑Para cada entidad del modelo se creará una tabla del diagrama con tantos campos\n  como atributos tenga la entidad.\n\n\n\n\n\n                                                                                             11"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 12,
+      "image": "courses/asgbd/ut00/images/d0-p012.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nRelaciones 1:1.\n\nSe transforman incluyendo en una de las dos tablas la clave primaria de la otra tabla\ncon la que se está relacionada. Ese nuevo campo que se incluye en la tabla recibe el\nnombre de clave ajena.\n\n\n\n\n\n                                                                                       12"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 13,
+      "image": "courses/asgbd/ut00/images/d0-p013.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nRelaciones 1:N o N:1.\n\n❑Se representan como las relaciones 1-1, es decir, incluyendo la clave primaria de una\n  de las tablas en la otra, pero en este caso no es indiferente donde se coloque la clave\n   ajena, esta debe estar obligatoriamente en la tabla del 'mucho’ (n). Además, en este\n   caso sí se permitirá que haya valores repetidos en dicho campo.\n\n\n\n\n\n                                                                                       13"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 14,
+      "image": "courses/asgbd/ut00/images/d0-p014.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nRelaciones N:N.\n\n❑Se transforman en tablas, es decir, se creará una nueva tabla para representar dicha\n   relación. Esta nueva tabla tendrá dos claves ajenas, que serán las claves primarias de las\n   tablas que relaciona. Su propia clave estará formada por la unión de ambas claves\n   ajenas.\n\n\n\n\n\n                                                                                       14"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 15,
+      "image": "courses/asgbd/ut00/images/d0-p015.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nRelaciones N:N.\n\n\n\n\n\n                                                                                       15"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 16,
+      "image": "courses/asgbd/ut00/images/d0-p016.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nCardinalidad.\n\n\n\n\n\n                                                                                       16"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 17,
+      "image": "courses/asgbd/ut00/images/d0-p017.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nCardinalidad.\n\n\n\n\n\n                                                                                       17"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 18,
+      "image": "courses/asgbd/ut00/images/d0-p018.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\n\n\n\n\n                                                                                       18"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 19,
+      "image": "courses/asgbd/ut00/images/d0-p019.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nEjemplo: Academia de idiomas.\n\n\n\n\n\n                                                                                       19"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 20,
+      "image": "courses/asgbd/ut00/images/d0-p020.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nAlgo más sobre las claves.\n\n❑Clave Candidata\n\nEs una clave primaria alternativa utilizada para identificar unívocamente a una y sólo una\npresencia (ocurrencia) de cada entidad.\n\nEl atributo id-cliente es un atributo que permite identificar unívocamente las ocurrencias de la\nentidad clientes. Supongamos que la combinación {nombre-cliente y calle-cliente} también es\nsuficiente para distinguir entre los miembros de la entidad cliente.\n\nEntonces, los conjuntos {id-cliente} y {nombre-cliente, calle-cliente} son claves candidatas.\nSin embargo, aunque  los  atributos  id-cliente y nombre-cliente juntos puedan  distinguir\nentidades cliente (superclave), su combinación no forma una clave candidata, ya que el\natributo id-cliente por sí solo es una clave candidata.\n\n\n\n\n                                                                                       20"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 21,
+      "image": "courses/asgbd/ut00/images/d0-p021.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.3.- Diagrama Relacional\n\nAlgo más sobre las claves.\n\n❑Clave Primaria\n\nEs una clave candidata elegida por el diseñador de la base de datos como elemento principal\npara identificar las entidades dentro de un conjunto de entidades. No puede tener valores\nrepetidos ni NULOS.\n\nLa designación de una clave representa una restricción en el desarrollo del mundo real que se\nmodela. La clave primaria se debería elegir de manera que sus atributos nunca, o muy\nraramente, cambien.\n\n❑Clave Foránea o Externa\n\nRepresenta un atributo que a su vez es una clave primaria en otra tabla, pero que está\nincluida entre los atributos de una tabla para permitir la relación.\n\n\n                                                                                       21"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 22,
+      "image": "courses/asgbd/ut00/images/d0-p022.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.4.- Herramientas E/R, Diagramas.\n\nLucichart /Drawio.\n\n\n\n\n\n                                                                                       22"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 23,
+      "image": "courses/asgbd/ut00/images/d0-p023.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.4.- Herramientas E/R, Diagramas.\n\nphpMyAdmin.\n\n\n\n\n\n                                                                                       23"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 24,
+      "image": "courses/asgbd/ut00/images/d0-p024.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nHistoria.\n\n\n\n\n\n                                                                                       24"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 25,
+      "image": "courses/asgbd/ut00/images/d0-p025.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nFunciones del leguaje SQL.\n\n❑SQL (Structured Query Language) es un lenguaje de dominio específico utilizado en\n   programación, diseñado para administrar, manipular y recuperar información de\n   sistemas de gestión de bases de datos relacionales.\n\n\n\n\n\n                                                                                       25"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 26,
+      "image": "courses/asgbd/ut00/images/d0-p026.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE, DROP, ALTER)\n\n❑Data Definition Language: permite a los programadores  definir las estructuras que\n   almacenarán los datos. DDL está compuesto por sentencias para la creación (CREATE),\n   modificación (ALTER) y borrado (DROP) de los componentes principales de una base\n  de datos:\n\n        - base de datos (DATABASE)\n        - tablas (TABLE)\n        - usuarios (USER)\n        - vistas (VIEW)\n        - índices (INDEX)\n        - procedimientos almacenados (PROCEDURE)\n        - disparadores (TRIGGER)\n\n\n\n                                                                                       26"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 27,
+      "image": "courses/asgbd/ut00/images/d0-p027.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT, INSERT, DELETE, UPDATE)\n\n❑Data Manipulation Language: permite a los usuarios realizar consultas o modificación de\n   los datos. Está compuesto por sentencias que sirven para :\n\n        - Consultar (SELECT)\n        - Insertar (INSERT)\n        - Modificar (UPDATE)\n        - Borrar (DELETE)\n\n\n\n\n\n                                                                                       27"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 28,
+      "image": "courses/asgbd/ut00/images/d0-p028.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDCL (GRANT, REVOKE)\n\n❑Data Control Language: es un lenguaje que permiten al administrador controlar el acceso\n  a los datos contenidos en la Base de Datos.\n\n       - Dar permisos (GRANT)\n       - Quitar permisos (REVOKE)\n\n\n\n\n\n                                                                                       28"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 29,
+      "image": "courses/asgbd/ut00/images/d0-p029.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nTCL (COMMIT, ROLLBACK)\n\n❑Transactional Control Language: Permite  administrar  diferentes transacciones que\n   ocurren dentro de una base de datos.\n\n        - Confirmar la operación (COMMIT)\n        - Retroceder la operación (ROLLBACK)\n\n\n\n\n\n                                                                                       29"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 30,
+      "image": "courses/asgbd/ut00/images/d0-p030.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE DATABASE)\n\n❑La cláusula CREATE DATABASE puede llevar clausulas por defecto, son las indicadas\n   entre corchetes.  La base de datos que se crea debe ser única. En caso de que ya exista\n  MySQL/MariaDB generan un error.\n\n    CREATE DATABASE [IF NOT EXISTS] nombre_base_datos     CREATE DATABASE [IF NOT EXISTS] nombre_base_datos\n    [CHARACTER SET charset_name]     [CHARACTER SET charset_name]\n    [COLLATE collate_name];     [COLLATE collate_name];\n\n❑IF NOT EXISTS: Evita el error en caso de que la base de datos ya exista.\n\n❑CHARACTER SET: conjunto de caracteres válidos en los tipos de datos “character”.\n\n❑COLLATE: conjunto de reglas para comparar el “carácter set”.\n\n\n\n\n                                                                                       30"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 31,
+      "image": "courses/asgbd/ut00/images/d0-p031.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE DATABASE)\n\n❑Creamos Base de datos testdb:\n\n     mysql> CREATE DATABASE testdb;\n\n❑Visualizamos la base de datos testdb:\n\n     mysql> SHOW CREATE DATABASE testdb;\n\n❑Visualizamos todas las bases de datos.\n\n    mysql> SHOW databases;\n\n❑Usamos la base de datos testdb:\n\n     mysql> USE testdb;\n\n\n\n\n                                                                                       31"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 32,
+      "image": "courses/asgbd/ut00/images/d0-p032.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (DROP DATABASE)\n\n❑La cláusula DROP DATABASE elimina todas las tablas de una base de datos y borra\n   dicha BD de forma permanente. Si se intenta borrar una BD que no existe\n  MySQL/MariaDB dará error.\n\n❑Devuelve el número de tablas borradas o cero en caso de que la BD esté vacía.\n    DROP DATABASE [IF EXISTS] nombre_base_datos;    DROP DATABASE [IF EXISTS] nombre_base_datos;\n❑IF EXISTS: Evita la generación de un error en caso de que la base de datos no exista.\n\n❑Borramos la BD testdb:\n❑mysql> DROP DATABASE testdb;\n\n\n\n\n\n                                                                                       32"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 33,
+      "image": "courses/asgbd/ut00/images/d0-p033.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑La cláusula CREATE TABLE crea una tabla dentro de una BD. La tabla debe ser única, es\n   decir, no puede existir una tabla en dicha BD con el mismo nombre.\n\n❑Devuelve el número de tablas borradas o cero en caso de que la BD esté vacía.\n    CREATE TABLE [IF NOT EXISTS] nombre_tabla (\n    CREATE TABLE [IF NOT EXISTS] nombre_tabla (       column1_definition, Column2_definition,\n      column1_definition, Column2_definition,            ....,\n           ....,      Table_constraints)\n      Table_constraints)     [ENGINE] = motor_almacenamiento;\n     [ENGINE] = motor_almacenamiento;\n\n\n\n\n\n                                                                                       33"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 34,
+      "image": "courses/asgbd/ut00/images/d0-p034.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑ColumnN_definition: define las características de cada columna.\n\n❑Table_constraints: después de definir las columnas de la tabla definimos la  lista de\n   constraints: PK y FK.\n\n❑IF NOT EXISTS: Es opcional e indica si la tabla ya existe en la BD.\n\n❑ENGINE: es también opcional y define el Motor de Almacenamiento a utilizar.\n\n\n\n\n\n                                                                                       34"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 35,
+      "image": "courses/asgbd/ut00/images/d0-p035.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑Para cada columna se debe de definir la siguiente información:\n\n  Column_name  Column_name\n   data_type (length)   data_type (length)\n  [NOT NULL]  [NOT NULL]\n  [DEFAULT value]  [DEFAULT value]\n  [AUTOINCREMENT]  [AUTOINCREMENT]\n\n\n\n\n\n                                                                                       35"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 36,
+      "image": "courses/asgbd/ut00/images/d0-p036.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑Column_name: especifica el nombre de la columna.\n\n❑Data_type: es el tipo de dato de la columna, por ej. INT o VARCHAR(100).\n\n❑NOT NULL: asegura que la columna no tendrá valores a NULL. Si no se especifica,\n   entonces la columna podrá tomar valores NULL.\n\n❑DEFAULT: especifica el valor por defecto de la columna. Si no so se especifica, entonces\n   la columna no tomará ningún valor por defecto.\n\n❑AUTO INCREMENT: especifica que el valor de la columna se incrementará\n   automáticamente en 1 cada vez que se inserte una fila en la tabla.\n\n\n\n\n\n                                                                                       36"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 37,
+      "image": "courses/asgbd/ut00/images/d0-p037.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑Creamos la tabla task.\n\n\n\n\n\n                                                                                       37"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 38,
+      "image": "courses/asgbd/ut00/images/d0-p038.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑Podemos ver la estructura de la tabla creada con el comando DESCRIBE o DESC:\n    mysql> DESCRIBE tasks;\n\n\n\n\n\n                                                                                       38"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 39,
+      "image": "courses/asgbd/ut00/images/d0-p039.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (CREATE TABLE)\n\n❑Creando una tabla con PRIMARY KEY y FOREING KEY checklist.\n\n\n\n\n\n❑La tabla “checklists” tiene una PRIMARY KEY  que está formada por dos columnas\n   (todo_id, task_id) y una FOREIGN KEY (task_id) que referencia a la primary key task_id\n  de la tabla “tasks”.\n                                                                                       39"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 40,
+      "image": "courses/asgbd/ut00/images/d0-p040.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDDL (DROP TABLE)\n\n❑DROP TABLE borra una tabla de la BD siempre que dicha tabla exista. Borra una tabla y\n   sus datos de forma permanente.\n\n  DROP TABLE [IF EXISTS] nombre_tabla;  DROP TABLE [IF EXISTS] nombre_tabla;\n\n❑Si se intenta borrar una tabla que no existe MySQL/MariaDB generan un error.\n\n\n\n\n\n                                                                                       40"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 41,
+      "image": "courses/asgbd/ut00/images/d0-p041.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nTipos de Datos Numéricos.\n\n\n\n\n\n                                                                                       41"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 42,
+      "image": "courses/asgbd/ut00/images/d0-p042.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nTipos de Datos Texto.\n\n\n\n\n\nTipos de Datos Lógicos\n\n❑Son los tipos BIT o BOLL que admiten los valores 0 o 1.\n\n                                                                                       42"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 43,
+      "image": "courses/asgbd/ut00/images/d0-p043.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nTipos de Datos Fecha.\n\n\n\n\n\n                                                                                       43"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 44,
+      "image": "courses/asgbd/ut00/images/d0-p044.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT)\n\n❑SELECT\n\n  La lista de los atributos/columnas que se incluirán en el resultado de una consulta.\n\n❑FROM\n\n   Especifica las relaciones (tablas) que se van a usar como origen en el proceso de la\n   consulta.\n\n❑WHERE\n\n   Especifica la condición de filtro sobre las tuplas de la tabla en la que se quiere realizar la\n   búsqueda.\n\n\n\n\n\n                                                                                       44"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 45,
+      "image": "courses/asgbd/ut00/images/d0-p045.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Cláusulas y operadores.\n\n        Cláusulas                             Operadores\n\n\n\n\n\n                                                                                       45"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 46,
+      "image": "courses/asgbd/ut00/images/d0-p046.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Consulta de todos los campos de una tabla.\n\n   mysql> SELECT * FROM DEPARTMENT;\n\n\n\n\n\n                                                                                       46"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 47,
+      "image": "courses/asgbd/ut00/images/d0-p047.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Consulta de algunos campos de una tabla.\n\n   mysql> SELECT DEPTNO, DEPTNAME, ADMRDEPT FROM DEPARTMENT;\n\n\n\n\n\n                                                                                       47"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 48,
+      "image": "courses/asgbd/ut00/images/d0-p048.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Consulta de valores distintos.\n\n   mysql> SELECT ADMRDEPT FROM DEPARTMENT;\n\n\n\n\n\n                                                                                       48"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 49,
+      "image": "courses/asgbd/ut00/images/d0-p049.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Consulta de valores distintos.\n\n   mysql> SELECT DISTINCT ADMRDEPT FROM DEPARTMENT;\n\n\n\n\n\n                                                                                       49"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 50,
+      "image": "courses/asgbd/ut00/images/d0-p050.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Consulta de campos usando WHERE como filtro y OR.\n\n   mysql> SELECT DEPTNO, DEPTNAME, ADMRDEPT\n       FROM DEPARTMENT\n       WHERE DEPTNO = 'A00' OR DEPTNO = 'E11';\n\n\n\n\n\n                                                                                       50"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 51,
+      "image": "courses/asgbd/ut00/images/d0-p051.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (SELECT) Ordenar la salida de los datos consultados.\n\n   mysql> SELECT DEPTNO, DEPTNAME, ADMRDEPT\n       FROM DEPARTMENT\n        ORDER BY ADMRDEPT ASC\n\n\n\n\n\n                                                                                       51"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 52,
+      "image": "courses/asgbd/ut00/images/d0-p052.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT)\n\n❑INSERT\n   Inserta una o más filas en una tabla.\n\n❑INTO\n   Especifica la tabla y la lista de la columna/as a las que se va a dar valor.\n\n❑VALUES\n   Especifica la lista de valores que se van a insertar en la tabla y columnas indicadas.\n\n\n\n\n\n                                                                                       52"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 53,
+      "image": "courses/asgbd/ut00/images/d0-p053.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT)\n\n❑El número de columnas y de valores debe ser el mismo y estar en la misma posición es\n   decir la posición de la columna se debe corresponder con la posición del valor:\n\n     INSERT\n      INTO table (c1,c2,c3,…)\n     VALUES (v1,v2,v3,…);\n\n\n❑Para insertar múltiples filas en una tabla usaremos la siguiente sintaxis:\n\n\n     INSERT\n      INTO table (c1,c2,c3,…)\n     VALUES (v1,v2,v3,…), (v4,v5,v6,…), (v7,v8,v9,…) ;\n\n                                                                                       53"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 54,
+      "image": "courses/asgbd/ut00/images/d0-p054.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT)\n\n❑Creamos un tabal sobre la que explicaremos la sentencia insert.\n\n\n\n\n\n                                                                                       54"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 55,
+      "image": "courses/asgbd/ut00/images/d0-p055.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT) Insertamos valores en una fila.\n\n❑Creamos un tabla sobre la que explicaremos la sentencia insert.\n\n\n\n\n❑Inserta una fila en la tabla dando valor a los campos title y priority. El resto de valores\n   tomarán el valor por defecto.\n\n❑La columna task_id de la tabla creada es AUTO_INCREMENT por lo que\n  MySQL/MariaDB generan un entero secuencial cada vez que se inserta una fila en la tabla.\n\n❑Las columnas start_date, due_date, and description toman NULL como valor por defecto\n   por lo que, MySQL/MariaDB utilizan NULL para insertar valores en estas columnas si no se\n   especifica explícitamente un determinado valor en la sentencia INSERT.\n\n\n\n                                                                                       55"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 56,
+      "image": "courses/asgbd/ut00/images/d0-p056.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT) Insertamos una fila utilizando valores por defecto.\n\n\n\n\n\n❑En este ejemplo especificamos que la columna priority tome el valor por defecto\n  (DEFAULT value)\n\n❑Como el valor por defecto es 3 (Ver la sentencia en la que hemos creado la table) significa\n  que el valor de dicha columna para esa fila será 3.\n\n\n\n\n\n                                                                                       56"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 57,
+      "image": "courses/asgbd/ut00/images/d0-p057.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT) Insertamos fechas\n\n\n\n\n\n❑Para insertar una fecha se debe poner el valor literal de la misma siendo necesario seguir\n   el siguiente formato ‘YYYY-MM-DD’\n\n\n\n\n\n                                                                                       57"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 58,
+      "image": "courses/asgbd/ut00/images/d0-p058.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (INSERT) Insertar múltiples filas en una tabla.\n\n\n\n\n\n                                                                                       58"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 59,
+      "image": "courses/asgbd/ut00/images/d0-p059.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE).\n\n❑UPDATE\n   Actualiza el valor de una o más columnas en una o más filas en una tabla.\n   Esta clausula especifica la Tabla que se quiere actualizar\n\n❑SET\n   Especifica las columnas que se quieren actualizar y el nuevo valor que deben tomar.\n\n❑WHERE\n   Especifica las filas de la tabla que se desean actualizar.\n   Si se omite la cláusula WHERE se actualizarán todas las filas de la tabla\n\n\n\n\n\n                                                                                       59"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 60,
+      "image": "courses/asgbd/ut00/images/d0-p060.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE).\n\n❑La cláusula UPDATE soporta dos tipos de modificaciones LOW_PRIORITY e IGNORE.\n\n\n       UPDATE [LOW_PRIORITY] [IGNORE] table_name\n       SET\n          column_name1 = expr1,\n          column_name2 = expr2,\n                     ...\n       [WHERE\n             condition];\n\n\n\n\n\n                                                                                       60"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 61,
+      "image": "courses/asgbd/ut00/images/d0-p061.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE).\n\n❑LOW_PRIORITY : indica a la sentencia UPDATE que retrase la actualización hasta que no\n  haya otros clientes que “estén leyendo” los datos de la tabla. El LOW_PRIORITY tiene\n   efecto para los motores de almacenamiento que usan sólo bloqueo a nivel de tabla\n  (MyISAM, MEMORY, MERGE).\n\n❑El modificador IGNORE permite que la sentencia UPDATE continúe actualizando las filas\n   incluso si se producen errores. Las filas que causan errores como conflictos de claves\n   duplicadas no se actualizarán\n\n\n\n\n\n                                                                                       61"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 62,
+      "image": "courses/asgbd/ut00/images/d0-p062.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE). Actualizando un columna de una fila.\n\n❑Consultamos una fila de una tabla.\n\n\n\n\n\n❑Actualizamos dicha fila.\n\n\n\n\n\n                                                                                       62"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 63,
+      "image": "courses/asgbd/ut00/images/d0-p063.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE). Uso de Update para sustituir un string.\n\n❑En el siguiente ejemplo se sustituye en la columna email un string por otro (el dominio)\n   solo en aquellas filas que cumplan las condiciones de la clausula WHERE.\n\n\n\n\n\n❑Se sustituye el string ‘@classicmodelcars.com’ por ‘@mysqltutorial.org’ en aquellas filas\n  que cumplan en las que jobTitle es ‘Sales Rep’ y OfficeCOde es igual a 6.\n\n\n\n\n                                                                                       63"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 64,
+      "image": "courses/asgbd/ut00/images/d0-p064.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE). Actualización de filas con el resultado de un select.\n\n❑Con lenguaje SQL se pueden hacer cosas como esta: en la base de datos\n  de classicmodels, asignar el número de un representante de ventas aleatorio a cada\n   cliente que no tenga ninguno asignado:\n\n\n\n\n\n❑Todos los clientes tendrán número de empleado distinto de NULL.\n\n                                                                                       64"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 65,
+      "image": "courses/asgbd/ut00/images/d0-p065.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (UPDATE). Actualización de filas con el resultado de un select.\n\n❑DELETE\n   Borra una o más filas de una tabla.\n\n❑FROM\n   Especifica la tabla de la que se quiere borrar.\n\n❑WHERE\n   Especifica la condición que deben cumplir las filas que se van a borrar.\n   Si no se especifica la condición usando la clausula WHERE se borrarán todas las filas de\n    la tabla.\n\n\n\n\n\n                                                                                       65"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 66,
+      "image": "courses/asgbd/ut00/images/d0-p066.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (DELETE).\n\n❑La cláusula DELETE borra información de la base de datos.\n\n\n       DELETE FROM table_name\n      WHERE condition;\n\n\n\n\n\n                                                                                       66"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 67,
+      "image": "courses/asgbd/ut00/images/d0-p067.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (DELETE). Borrando filas de una tabla.\n\n\n\n\n❑Borra de la tabla empleados todos aquellos cuyo officeCode sea 4.\n\n\n\n\n❑Borra todas las filas de la tabla employees;\n\n\n\n\n\n                                                                                       67"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 68,
+      "image": "courses/asgbd/ut00/images/d0-p068.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (DELETE). Borrando filas de una tabla.\n\n❑También se pueden aplicar otras cláusulas para borrar o no una fila, o incluso limitar el\n  número de elementos a eliminar. Por ejemplo:\n\n\n\n\n❑Elimina las 10 primeras filas de la tabla customers.\n\n\n\n\n\n❑Elige los clientes en los que el país es ‘France’, los ordena por su creditLimit y borra las\n  5 primeras filas.\n\n                                                                                       68"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 69,
+      "image": "courses/asgbd/ut00/images/d0-p069.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas)\n\n❑Nosotros podemos consultar el contenido de una tabla puntualmente para obtener su\n   información:\n\n                     SELECT * FROM myTabla;\n\n❑Sin embargo, generalmente necesitaremos combinar información de distintas tablas.\n   Obtener datos específicos de distintas tablas, y presentar la información de una mejor\n   manera, resulta imprescindible para el conocimiento de la información de nuestro\n   sistema. Cuando trabajamos con bases de datos relacionales una tabla \"padre\"\n   representa una entidad independiente, y una tabla “hija” representa una entidad que\n  depende de otra. Estas dependencia representa las relaciones que existen entre las\n   tablas y se representan mediante columnas que tienen un mismo tipo de dato.\n\n\n\n                                                                                       69"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 70,
+      "image": "courses/asgbd/ut00/images/d0-p070.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas)\n\n❑La cláusula JOIN nos permite asociar 2 o más tablas, en base a una columna que tengan\n  en común.\n\n\n\n\n\n                                                                                       70"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 71,
+      "image": "courses/asgbd/ut00/images/d0-p071.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN y LEFT JOIN.\n\n\n\n\n\n                                                                                       71"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 72,
+      "image": "courses/asgbd/ut00/images/d0-p072.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) OUTER JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       72"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 73,
+      "image": "courses/asgbd/ut00/images/d0-p073.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN , LEFT JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       73"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 74,
+      "image": "courses/asgbd/ut00/images/d0-p074.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN , LEFT JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       74"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 75,
+      "image": "courses/asgbd/ut00/images/d0-p075.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN , LEFT JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       75"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 76,
+      "image": "courses/asgbd/ut00/images/d0-p076.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN , LEFT JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       76"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 77,
+      "image": "courses/asgbd/ut00/images/d0-p077.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN , LEFT JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       77"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 78,
+      "image": "courses/asgbd/ut00/images/d0-p078.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nDML (Consultas combinadas) INNER JOIN , LEFT JOIN y RIGHT JOIN.\n\n\n\n\n\n                                                                                       78"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 79,
+      "image": "courses/asgbd/ut00/images/d0-p079.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nFunciones de Agregación.\n\nLas funciones de agregación en SQL nos permiten efectuar operaciones sobre un\nconjunto de resultados, pero devolviendo un único valor agregado para todos ellos. Es\ndecir, nos permiten obtener medias, máximos, etc... sobre un conjunto de valores.\n\n❑COUNT: devuelve el número total de filas seleccionadas por la consulta.\n\n❑MIN: devuelve el valor mínimo del campo que especifiquemos.\n\n❑MAX: devuelve el valor máximo del campo que especifiquemos.\n\n❑SUM: suma los valores del campo que especifiquemos.\n\n❑AVG: devuelve el valor promedio del campo que especifiquemos.\n\n\n\n\n                                                                                       79"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 80,
+      "image": "courses/asgbd/ut00/images/d0-p080.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nFunciones sobre fechas.\n\n❑NOW(): devuelve una constante que indica el instante de tiempo (fecha y hora) en el que\n   la sentencia comienza a ejecutarse.\n❑SYSDATE(): devuelve la fecha y hora del servidor del instante en el que se ejecuta la\n   función. En esto difiere de NOW().  Si en una misma sentencia se ejecuta la función\n  NOW() varias veces devolverá siempre el mismo valor. No ocurre así con SYSDATE() que\n   devuelve la fecha de cada vez que se ejecuta.\n❑CURRENT_DATE(): devuelve la fecha actual  del cliente. Si el servidor y el cliente están\n  en la misma máquina no habrá diferencia.\n\n❑Ejemplos:\n       SELECT NOW(), SLEEP(2), NOW();\n       SELECT SYSDATE(), SLEEP(2), SYSDATE();\n\n\n\n                                                                                       80"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 81,
+      "image": "courses/asgbd/ut00/images/d0-p081.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nFunciones sobre fechas.\n\n❑DATE_ADD( ‘Fecha’, INTERVAL <num> MINUTE): suma al valor fecha el número de\n   minutos indicados en el intervalo.\n\n❑DATE_ADD( ‘Fecha’, INTERVAL <num> HOUR): suma al valor fecha el número de horas\n   indicados en el intervalo.\n\n❑DATE_ADD( ‘Fecha’, INTERVAL <num> DAY): suma al valor fecha el número de días\n   indicados en el intervalo.\n\n❑DATE_SUB(‘Fecha’, INTERVAL <num> MIN/DAY/HOUR): resta a una fecha el valor\n   indicado en el intervalo.\n\n❑Comparar fechas usaremos los operadores: >, < , <= y >=.\n\n\nNota: cuando se usa una fecha debe escribirse entre comillas simples: ‘AA-MM-DD’\n\n\n                                                                                       81"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 82,
+      "image": "courses/asgbd/ut00/images/d0-p082.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nFunciones con string.\n\n❑LOWER o LCASE convierte una cadena a minúsculas:\n    -> SELECT LOWER('Hola'); ⇒ hola\n❑UPPER o UCASE convierte una cadena a mayúsculas:\n    -> SELECT UPPER('Hola'); ⇒ HOLA\n❑LEFT(cadena, longitud) extrae varios caracteres del comienzo (la parte izquierda) de la\n   cadena:\n    -> SELECT LEFT('Hola',2); ⇒ Ho\n❑RIGHT(cadena, longitud) extrae varios caracteres del final (la parte derecha) de la cadena\n    -> SELECT RIGHT('Hola',2); ⇒ la\n\n\n\n\n\n                                                                                       82"
+    },
+    {
+      "document": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "page": 83,
+      "image": "courses/asgbd/ut00/images/d0-p083.jpg",
+      "text": "UT00. Conceptos Básicos BD.                                                             I.E.S. INFANTA ELENA\n\n0.5.- Lenguaje SQL.\n\nFunciones con string.\n\n❑CONCAT une (concatena) varias cadenas para formar una nueva:\n    -> SELECT CONCAT('Ho', 'la'); ⇒ Hola\n❑REPLACE(cadena, cadena_sustituida, nueva_cadena) devuelve  la cadena cambiando\n   ciertas secuencias de caracteres por otras:\n    -> SELECT REPLACE('Hola', 'l', 'LLL'); ⇒ HoLLLa\n❑LENGTH devuelve la longitud de la cadena en bytes\n    -> SELECT LENGTH('Hola’); ⇒ 4\n\n\n\n\n\n                                                                                       83"
+    },
+    {
+      "document": "EJ2_T0_ASIR2_MER_CLINICA_VETERINARIA.pdf",
+      "page": 1,
+      "image": "courses/asgbd/ut00/images/d1-p001.jpg",
+      "text": " EJERCICIO: BASE DE DATOS DE UNA CLÍNICA\n             VETERINARIA\nUna clínica veterinaria desea desarrollar una base de datos para gestionar la información\nrelacionada con sus clientes, mascotas, veterinarios, historiales médicos, consultas y\ntratamientos.\nDespués de entrevistar al personal de la clínica se han obtenido los siguientes requisitos:\nLa clínica dispone de varios veterinarios. De cada veterinario se desea almacenar su número de\ncolegiado, DNI, nombre, apellidos, teléfono y especialidad.\nCada veterinario dispone de un despacho propio dentro de la clínica. De cada despacho interesa\nconocer su número, planta y extensión en metros cuadrados. Un despacho está asignado\nexclusivamente a un veterinario y ningún veterinario puede disponer de más de un despacho.\nLa clínica atiende a diferentes mascotas. De cada mascota se almacena un código identificativo,\nnombre, especie, raza, sexo y fecha de nacimiento.\nCada mascota dispone de un único historial médico, creado cuando la mascota es registrada por\nprimera vez. Del historial se guarda un número de historial, fecha de apertura, grupo sanguíneo y\nposibles alergias. Un historial médico pertenece exclusivamente a una mascota.\nLas mascotas pertenecen a los clientes de la clínica. De cada cliente se registra DNI, nombre,\napellidos, dirección, teléfono y correo electrónico. Un cliente puede tener varias mascotas\nregistradas en la clínica, pero cada mascota figura asociada a un único cliente.\nLos veterinarios realizan consultas a las mascotas. De cada consulta interesa almacenar un\ncódigo de consulta, fecha, hora, motivo de la visita, diagnóstico y precio. Un veterinario puede\nrealizar numerosas consultas a lo largo del tiempo, pero cada consulta es atendida por un único\nveterinario.\nAdemás, la clínica dispone de diferentes tratamientos que pueden ser prescritos a las mascotas.\nDe cada tratamiento se almacena un código, nombre, descripción, duración estimada y precio.\nUna mascota puede recibir diferentes tratamientos a lo largo de su vida y un mismo tratamiento\npuede aplicarse a muchas mascotas. Para cada tratamiento aplicado a una mascota es necesario\nregistrar además la fecha de inicio, la fecha de finalización y las observaciones sobre su\nevolución."
+    },
+    {
+      "document": "EJ2_T0_ASIR2_MER_CLINICA_VETERINARIA.pdf",
+      "page": 2,
+      "image": "courses/asgbd/ut00/images/d1-p002.jpg",
+      "text": "Trabajo a realizar\n  1.    Identifica todas las entidades necesarias.\n  2.   Determina los atributos de cada entidad.\n  3.    Establece una clave primaria apropiada para cada entidad.\n  4.    Identifica las relaciones existentes entre las entidades.\n  5.   Determina las cardinalidades mínimas y máximas de cada relación.\n  6.    Indica si alguna relación necesita almacenar atributos propios.\n  7.   Representa el Diagrama Entidad-Relación completo utilizando la notación empleada en\n        clase.\n  8.    Justifica brevemente las cardinalidades establecidas.\nImportante: las cardinalidades deben deducirse de las reglas de negocio descritas en el\nenunciado."
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 1,
+      "image": "courses/asgbd/ut00/images/d2-p001.jpg",
+      "text": " 15 CONSULTAS SQL PARA ORACLE DATABASE\n\n\n Academia de idiomas · 2.º ASIR · Administración de Sistemas Gestores de Bases de Datos\n\n\n\n\n Material didáctico: enunciado, conceptos clave y solución\n\n\n Nota: las consultas son una reconstrucción didáctica del material tratado. Los nombres de las columnas\n\n deben contrastarse con el script real de academia_idiomas antes de su ejecución.\n\n\n Estructura de referencia\n\n\n  TABLA         COLUMNAS UTILIZADAS\n\n  CLIENTES         ID_CLIENTE, NOMBRE, APELLIDOS, EMAIL, CIUDAD\n\n  PROGRAMAS     ID_PROGRAMA, NOMBRE_PROGRAMA, IDIOMA, PRECIO\n\n  SUSCRIPCIONES   ID_SUSCRIPCION, TIPO, CUOTA_MENSUAL\n\n  MATRICULAS      ID_MATRICULA, ID_CLIENTE, ID_PROGRAMA, ID_SUSCRIPCION,\n\n                 FECHA_MATRICULA\n\n\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 1"
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 2,
+      "image": "courses/asgbd/ut00/images/d2-p002.jpg",
+      "text": " Consulta 1. Mostrar todos los clientes\n\n Enunciado\n\n Obtener toda la información de CLIENTES, mostrando todas las columnas y todos los registros.\n\n Conceptos clave\n\n • SELECT recupera información de una tabla.\n\n • El asterisco (*) selecciona todas las columnas.\n\n • FROM indica la tabla de origen. Sin WHERE no se filtran filas.\n\n Solución SQL (Oracle)\n\n SELECT *\n FROM CLIENTES;\n\n\n\n Consulta 2. Seleccionar determinadas columnas\n\n Enunciado\n\n Mostrar únicamente nombre, apellidos y correo electrónico de todos los clientes.\n\n Conceptos clave\n\n • La proyección selecciona las columnas que se desean visualizar.\n\n • El orden del SELECT determina el orden de las columnas.\n\n • AS define un alias de presentación, sin cambiar la estructura de la tabla.\n\n Solución SQL (Oracle)\n\n SELECT\n     NOMBRE AS NOMBRE_CLIENTE,\n     APELLIDOS,\n     EMAIL AS CORREO_ELECTRONICO\n FROM CLIENTES;\n\n\n\n Consulta 3. Filtrar registros con WHERE\n\n Enunciado\n\n Mostrar los programas de idiomas cuyo precio sea superior a 200 euros.\n\n Conceptos clave\n\n • WHERE filtra filas por una condición.\n\n • El operador > significa mayor que.\n\n • Los valores numéricos se escriben sin comillas.\n\n Solución SQL (Oracle)\n\n SELECT NOMBRE_PROGRAMA, IDIOMA, PRECIO\n FROM PROGRAMAS\n WHERE PRECIO > 200;\n\n\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 2"
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 3,
+      "image": "courses/asgbd/ut00/images/d2-p003.jpg",
+      "text": " Consulta 4. Aplicar varias condiciones con AND\n\n Enunciado\n\n Obtener los programas de inglés cuyo precio sea inferior a 500 euros.\n\n Conceptos clave\n\n • AND exige que se cumplan ambas condiciones.\n\n • = compara igualdad y < compara si un valor es menor.\n\n • Los literales de texto llevan comillas simples; la coincidencia depende del texto almacenado.\n\n Solución SQL (Oracle)\n\n SELECT NOMBRE_PROGRAMA, IDIOMA, PRECIO\n FROM PROGRAMAS\n WHERE IDIOMA = 'Inglés'\n   AND PRECIO < 500;\n\n\n\n Consulta 5. Ordenar resultados con ORDER BY\n\n Enunciado\n\n Mostrar todos los programas de idiomas ordenados de mayor a menor precio.\n\n Conceptos clave\n\n • ORDER BY ordena las filas del resultado.\n\n • DESC establece orden descendente y ASC ascendente (predeterminado).\n\n • Sin ORDER BY el orden no está garantizado.\n\n Solución SQL (Oracle)\n\n SELECT NOMBRE_PROGRAMA, IDIOMA, PRECIO\n FROM PROGRAMAS\n ORDER BY PRECIO DESC;\n\n\n\n Consulta 6. INNER JOIN entre dos tablas\n\n Enunciado\n\n Mostrar el nombre y los apellidos de cada cliente junto al identificador y la fecha de sus matrículas.\n\n Conceptos clave\n\n • INNER JOIN devuelve únicamente las filas que encuentran correspondencia.\n\n • ON especifica la igualdad entre la clave primaria de CLIENTES y la foránea de MATRICULAS.\n\n • Los alias c y m acortan las referencias; un cliente con varias matrículas aparece varias veces.\n\n Solución SQL (Oracle)\n\n SELECT c.NOMBRE, c.APELLIDOS,\n        m.ID_MATRICULA, m.FECHA_MATRICULA\n FROM CLIENTES c\n INNER JOIN MATRICULAS m\n     ON c.ID_CLIENTE = m.ID_CLIENTE;\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 3"
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 4,
+      "image": "courses/asgbd/ut00/images/d2-p004.jpg",
+      "text": " Consulta 7. INNER JOIN entre tres tablas\n\n Enunciado\n\n Mostrar nombre y apellidos de cada cliente matriculado, junto con el programa y el idioma.\n\n Conceptos clave\n\n • Se relacionan CLIENTES, MATRICULAS y PROGRAMAS.\n\n • MATRICULAS sirve de tabla intermediaria.\n\n • Cada JOIN incorpora una tabla y requiere su propia condición ON.\n\n Solución SQL (Oracle)\n\n SELECT c.NOMBRE, c.APELLIDOS,\n        p.NOMBRE_PROGRAMA, p.IDIOMA\n FROM CLIENTES c\n INNER JOIN MATRICULAS m\n     ON c.ID_CLIENTE = m.ID_CLIENTE\n INNER JOIN PROGRAMAS p\n     ON m.ID_PROGRAMA = p.ID_PROGRAMA;\n\n\n\n Consulta 8. INNER JOIN entre cuatro tablas\n\n Enunciado\n\n Mostrar cliente, programa, idioma, tipo de suscripción y cuota mensual para cada matrícula.\n\n Conceptos clave\n\n • Se combinan cuatro tablas mediante tres INNER JOIN.\n\n • Las claves foráneas de MATRICULAS enlazan con las otras tres tablas.\n\n • Los alias identifican columnas y evitan ambigüedades.\n\n Solución SQL (Oracle)\n\n SELECT c.NOMBRE, c.APELLIDOS,\n        p.NOMBRE_PROGRAMA, p.IDIOMA,\n        s.TIPO AS SUSCRIPCION, s.CUOTA_MENSUAL\n FROM MATRICULAS m\n INNER JOIN CLIENTES c\n     ON m.ID_CLIENTE = c.ID_CLIENTE\n INNER JOIN PROGRAMAS p\n     ON m.ID_PROGRAMA = p.ID_PROGRAMA\n INNER JOIN SUSCRIPCIONES s\n     ON m.ID_SUSCRIPCION = s.ID_SUSCRIPCION;\n\n\n\n Consulta 9. INNER JOIN combinado con WHERE\n\n Enunciado\n\n Obtener los clientes matriculados en programas de inglés con precio superior a 300 euros.\n\n\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 4"
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 5,
+      "image": "courses/asgbd/ut00/images/d2-p005.jpg",
+      "text": " Conceptos clave\n\n • JOIN y ON definen relaciones entre tablas.\n\n • WHERE filtra las filas resultantes.\n\n • AND exige simultáneamente idioma y precio.\n\n Solución SQL (Oracle)\n\n SELECT c.NOMBRE, c.APELLIDOS,\n        p.NOMBRE_PROGRAMA, p.PRECIO\n FROM CLIENTES c\n INNER JOIN MATRICULAS m\n     ON c.ID_CLIENTE = m.ID_CLIENTE\n INNER JOIN PROGRAMAS p\n     ON m.ID_PROGRAMA = p.ID_PROGRAMA\n WHERE p.IDIOMA = 'Inglés'\n   AND p.PRECIO > 300;\n\n\n\n Consulta 10. LEFT JOIN\n\n Enunciado\n\n Mostrar todos los clientes, tengan o no matrícula, junto al identificador de matrícula cuando exista.\n\n Conceptos clave\n\n • LEFT JOIN conserva todas las filas de la tabla izquierda.\n\n • Cuando no hay coincidencia, las columnas de la tabla derecha son NULL.\n\n • Puede haber varias filas por cliente cuando tiene varias matrículas.\n\n Solución SQL (Oracle)\n\n SELECT c.ID_CLIENTE, c.NOMBRE,\n        c.APELLIDOS, m.ID_MATRICULA\n FROM CLIENTES c\n LEFT JOIN MATRICULAS m\n     ON c.ID_CLIENTE = m.ID_CLIENTE\n ORDER BY c.ID_CLIENTE;\n\n\n\n Consulta 11. Clientes sin matrícula\n\n Enunciado\n\n Mostrar exclusivamente los clientes que todavía no tienen matrículas.\n\n Conceptos clave\n\n • LEFT JOIN conserva los clientes sin correspondencia.\n\n • IS NULL detecta la ausencia de matrícula.\n\n • En SQL no se usa = NULL para esta comprobación.\n\n\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 5"
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 6,
+      "image": "courses/asgbd/ut00/images/d2-p006.jpg",
+      "text": " Solución SQL (Oracle)\n\n SELECT c.ID_CLIENTE, c.NOMBRE,\n        c.APELLIDOS, c.EMAIL\n FROM CLIENTES c\n LEFT JOIN MATRICULAS m\n     ON c.ID_CLIENTE = m.ID_CLIENTE\n WHERE m.ID_MATRICULA IS NULL;\n\n\n\n Consulta 12. RIGHT JOIN\n\n Enunciado\n\n Mostrar todos los programas, tengan o no matrículas, junto al identificador de cada matrícula cuando\n\n exista.\n\n Conceptos clave\n\n • RIGHT JOIN conserva todas las filas de la tabla derecha.\n\n • Cuando falta coincidencia en la tabla izquierda, sus columnas son NULL.\n\n • Puede reescribirse invirtiendo el orden de tablas con LEFT JOIN.\n\n Solución SQL (Oracle)\n\n SELECT p.ID_PROGRAMA, p.NOMBRE_PROGRAMA,\n        p.IDIOMA, m.ID_MATRICULA\n FROM MATRICULAS m\n RIGHT JOIN PROGRAMAS p\n     ON m.ID_PROGRAMA = p.ID_PROGRAMA\n ORDER BY p.ID_PROGRAMA;\n\n\n\n Consulta 13. CROSS JOIN\n\n Enunciado\n\n Mostrar todas las combinaciones posibles entre programas y tipos de suscripción.\n\n Conceptos clave\n\n • CROSS JOIN produce el producto cartesiano sin condición ON.\n\n • Si hay 5 programas y 3 suscripciones, se obtienen 15 filas.\n\n • Las combinaciones no tienen por qué estar contratadas.\n\n Solución SQL (Oracle)\n\n SELECT p.NOMBRE_PROGRAMA, p.IDIOMA,\n        s.TIPO AS SUSCRIPCION\n FROM PROGRAMAS p\n CROSS JOIN SUSCRIPCIONES s\n ORDER BY p.NOMBRE_PROGRAMA, s.TIPO;\n\n\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 6"
+    },
+    {
+      "document": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "page": 7,
+      "image": "courses/asgbd/ut00/images/d2-p007.jpg",
+      "text": " Consulta 14. GROUP BY combinado con JOIN\n\n Enunciado\n\n Mostrar cada programa que tenga matrículas y el número total de matrículas de ese programa.\n\n Conceptos clave\n\n • COUNT(*) cuenta las filas de cada grupo.\n\n • GROUP BY reúne las matrículas de un mismo programa.\n\n • INNER JOIN excluye los programas sin matrícula; ORDER BY permite ordenar el total.\n\n Solución SQL (Oracle)\n\n SELECT p.ID_PROGRAMA, p.NOMBRE_PROGRAMA,\n        COUNT(*) AS TOTAL_MATRICULAS\n FROM PROGRAMAS p\n INNER JOIN MATRICULAS m\n     ON p.ID_PROGRAMA = m.ID_PROGRAMA\n GROUP BY p.ID_PROGRAMA, p.NOMBRE_PROGRAMA\n ORDER BY TOTAL_MATRICULAS DESC;\n\n\n\n Consulta 15. GROUP BY, HAVING y JOIN\n\n Enunciado\n\n Mostrar los programas con más de dos matrículas y el total registrado en cada uno.\n\n Conceptos clave\n\n • GROUP BY crea grupos y COUNT(*) calcula su tamaño.\n\n • HAVING filtra grupos después de la agregación.\n\n • WHERE filtra filas antes de agrupar; WHERE COUNT(*) > 2 no es válido.\n\n Solución SQL (Oracle)\n\n SELECT p.ID_PROGRAMA, p.NOMBRE_PROGRAMA,\n        COUNT(*) AS TOTAL_MATRICULAS\n FROM PROGRAMAS p\n INNER JOIN MATRICULAS m\n     ON p.ID_PROGRAMA = m.ID_PROGRAMA\n GROUP BY p.ID_PROGRAMA, p.NOMBRE_PROGRAMA\n HAVING COUNT(*) > 2\n ORDER BY TOTAL_MATRICULAS DESC;\n\n\n\n\n\nAcademia de idiomas | Consultas SQL para Oracle                                                       Página 7"
+    }
+  ],
+  "resources": [
+    {
+      "name": "ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf",
+      "path": "courses/asgbd/ut00/resources/ASIR1_ASGBD_UT00_Conceptos_Basicos_BD_2025_F.pdf"
+    },
+    {
+      "name": "EJ2_T0_ASIR2_MER_CLINICA_VETERINARIA.pdf",
+      "path": "courses/asgbd/ut00/resources/EJ2_T0_ASIR2_MER_CLINICA_VETERINARIA.pdf"
+    },
+    {
+      "name": "EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf",
+      "path": "courses/asgbd/ut00/resources/EJ1_T0_Repaso_Academia_Idiomas_15_Consultas_SQL_Oracle.pdf"
+    }
+  ]
+}

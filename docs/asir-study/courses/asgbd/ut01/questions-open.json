@@ -1,0 +1,662 @@
+[
+  {
+    "id": "o001",
+    "type": "open",
+    "prompt": "Explica Dato y distingue su función de «Software gestor». Incluye un ejemplo o contexto de uso.",
+    "reference": "Dato: Representación elemental. No confundir con software gestor. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o002",
+    "type": "open",
+    "prompt": "Explica Base de datos y distingue su función de «Programa cliente». Incluye un ejemplo o contexto de uso.",
+    "reference": "Base de datos: Conjunto organizado persistente. No confundir con programa cliente. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o003",
+    "type": "open",
+    "prompt": "Explica SGBD y distingue su función de «Conjunto de filas sin software». Incluye un ejemplo o contexto de uso.",
+    "reference": "SGBD: Software que gobierna los datos. No confundir con conjunto de filas sin software. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o004",
+    "type": "open",
+    "prompt": "Explica Integridad y distingue su función de «Acceso libre a cualquiera». Incluye un ejemplo o contexto de uso.",
+    "reference": "Integridad: Datos coherentes con reglas. No confundir con acceso libre a cualquiera. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o005",
+    "type": "open",
+    "prompt": "Explica Confidencialidad y distingue su función de «Ausencia de duplicados». Incluye un ejemplo o contexto de uso.",
+    "reference": "Confidencialidad: Acceso autorizado. No confundir con ausencia de duplicados. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o006",
+    "type": "open",
+    "prompt": "Explica Disponibilidad y distingue su función de «Datos sin duplicados». Incluye un ejemplo o contexto de uso.",
+    "reference": "Disponibilidad: Servicio accesible cuando se necesita. No confundir con datos sin duplicados. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o007",
+    "type": "open",
+    "prompt": "Explica Autenticación y distingue su función de «Asigna orden de filas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Autenticación: Verifica identidad. No confundir con asigna orden de filas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o008",
+    "type": "open",
+    "prompt": "Explica Autorización y distingue su función de «Verifica solamente identidad». Incluye un ejemplo o contexto de uso.",
+    "reference": "Autorización: Determina acciones permitidas. No confundir con verifica solamente identidad. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o009",
+    "type": "open",
+    "prompt": "Explica Auditoría y distingue su función de «Elimina todo registro». Incluye un ejemplo o contexto de uso.",
+    "reference": "Auditoría: Registra actividad relevante. No confundir con elimina todo registro. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o010",
+    "type": "open",
+    "prompt": "Explica Arquitectura centralizada y distingue su función de «Tres capas separadas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Arquitectura centralizada: Componentes en un sistema. No confundir con tres capas separadas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o011",
+    "type": "open",
+    "prompt": "Explica Cliente-servidor y distingue su función de «Todos acceden directo a ficheros». Incluye un ejemplo o contexto de uso.",
+    "reference": "Cliente-servidor: Cliente solicita y servidor procesa. No confundir con todos acceden directo a ficheros. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o012",
+    "type": "open",
+    "prompt": "Explica Tres capas y distingue su función de «Solo cliente y disco». Incluye un ejemplo o contexto de uso.",
+    "reference": "Tres capas: Presentación, lógica y datos. No confundir con solo cliente y disco. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o013",
+    "type": "open",
+    "prompt": "Explica Arquitectura lógica y distingue su función de «Discos y máquinas concretas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Arquitectura lógica: Funciones y componentes. No confundir con discos y máquinas concretas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o014",
+    "type": "open",
+    "prompt": "Explica Arquitectura física y distingue su función de «Reglas de negocio únicamente». Incluye un ejemplo o contexto de uso.",
+    "reference": "Arquitectura física: Despliegue y recursos. No confundir con reglas de negocio únicamente. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o015",
+    "type": "open",
+    "prompt": "Explica DBA y distingue su función de «Solo diseña pantallas». Incluye un ejemplo o contexto de uso.",
+    "reference": "DBA: Administra servicio de datos. No confundir con solo diseña pantallas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o016",
+    "type": "open",
+    "prompt": "Explica Backup y distingue su función de «Índice para ordenar». Incluye un ejemplo o contexto de uso.",
+    "reference": "Backup: Copia para recuperación. No confundir con índice para ordenar. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o017",
+    "type": "open",
+    "prompt": "Explica Restore y distingue su función de «Crea roles únicamente». Incluye un ejemplo o contexto de uso.",
+    "reference": "Restore: Recupera datos desde copia. No confundir con crea roles únicamente. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o018",
+    "type": "open",
+    "prompt": "Explica Monitorización y distingue su función de «Sustituye backups». Incluye un ejemplo o contexto de uso.",
+    "reference": "Monitorización: Observa estado y rendimiento. No confundir con sustituye backups. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o019",
+    "type": "open",
+    "prompt": "Explica Transacción y distingue su función de «Una tabla física». Incluye un ejemplo o contexto de uso.",
+    "reference": "Transacción: Unidad lógica de trabajo. No confundir con una tabla física. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o020",
+    "type": "open",
+    "prompt": "Explica Atomicidad y distingue su función de «Cambios confirmados persistentes». Incluye un ejemplo o contexto de uso.",
+    "reference": "Atomicidad: Todo o nada. No confundir con cambios confirmados persistentes. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o021",
+    "type": "open",
+    "prompt": "Explica Consistencia ACID y distingue su función de «Todo o nada». Incluye un ejemplo o contexto de uso.",
+    "reference": "Consistencia ACID: Respeta reglas de integridad. No confundir con todo o nada. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o022",
+    "type": "open",
+    "prompt": "Explica Aislamiento y distingue su función de «Confirma en disco». Incluye un ejemplo o contexto de uso.",
+    "reference": "Aislamiento: Controla interacción simultánea. No confundir con confirma en disco. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o023",
+    "type": "open",
+    "prompt": "Explica Durabilidad y distingue su función de «Impide todas las lecturas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Durabilidad: Persiste tras confirmación. No confundir con impide todas las lecturas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o024",
+    "type": "open",
+    "prompt": "Explica Normalización y distingue su función de «Duplica todos los datos». Incluye un ejemplo o contexto de uso.",
+    "reference": "Normalización: Reduce redundancia y anomalías. No confundir con duplica todos los datos. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o025",
+    "type": "open",
+    "prompt": "Explica Modelo relacional y distingue su función de «Documentos exclusivamente». Incluye un ejemplo o contexto de uso.",
+    "reference": "Modelo relacional: Tablas relacionadas por claves. No confundir con documentos exclusivamente. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o026",
+    "type": "open",
+    "prompt": "Explica Modelo documental y distingue su función de «Solo filas rígidas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Modelo documental: Documentos con campos y estructuras. No confundir con solo filas rígidas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o027",
+    "type": "open",
+    "prompt": "Explica Clave-valor y distingue su función de «Modelo de aristas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Clave-valor: Acceso por clave a valor. No confundir con modelo de aristas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o028",
+    "type": "open",
+    "prompt": "Explica Grafo y distingue su función de «Solo columnas numéricas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Grafo: Nodos y aristas. No confundir con solo columnas numéricas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o029",
+    "type": "open",
+    "prompt": "Explica MongoDB y distingue su función de «Gestor objeto-relacional del laboratorio». Incluye un ejemplo o contexto de uso.",
+    "reference": "MongoDB: Gestor documental. No confundir con gestor objeto-relacional del laboratorio. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o030",
+    "type": "open",
+    "prompt": "Explica PostgreSQL y distingue su función de «Gestor documental exclusivo». Incluye un ejemplo o contexto de uso.",
+    "reference": "PostgreSQL: Gestor objeto-relacional abierto. No confundir con gestor documental exclusivo. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o031",
+    "type": "open",
+    "prompt": "Explica Oracle Database y distingue su función de «Gestor documental del laboratorio». Incluye un ejemplo o contexto de uso.",
+    "reference": "Oracle Database: Gestor relacional empresarial. No confundir con gestor documental del laboratorio. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o032",
+    "type": "open",
+    "prompt": "Explica MySQL y distingue su función de «Gestor de grafos puro». Incluye un ejemplo o contexto de uso.",
+    "reference": "MySQL: Gestor relacional común en web. No confundir con gestor de grafos puro. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o033",
+    "type": "open",
+    "prompt": "Explica Replicación y distingue su función de «Normaliza una tabla». Incluye un ejemplo o contexto de uso.",
+    "reference": "Replicación: Mantiene copias en nodos. No confundir con normaliza una tabla. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  }
+]

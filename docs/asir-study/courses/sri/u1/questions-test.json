@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "¿Qué servicio asigna direcciones IP automáticamente?",
+    "options": [
+      "DNS",
+      "HTTP",
+      "DHCP"
+    ],
+    "correct": 2,
+    "explanation": "DHCP entrega la configuración de red."
+  }
+]

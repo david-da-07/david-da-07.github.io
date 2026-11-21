@@ -1,0 +1,72 @@
+[
+  {
+    "id": "e01",
+    "type": "open",
+    "prompt": "Teoría · Interpreta type=ALL, possible_keys=idx_salario, key=NULL, rows=10000.",
+    "reference": "Escaneo completo estimado de 10000 filas; idx_salario candidato pero no elegido por coste estimado. No prueba ausencia de índice ni tiempo real.",
+    "activity": true
+  },
+  {
+    "id": "e02",
+    "type": "open",
+    "prompt": "Práctica 1 · Diseña comparación de filtros salario > 85000 y > 20000 antes/después de índice.",
+    "reference": "EXPLAIN SELECT nombre,apellido,salario FROM empleados WHERE salario>85000; CREATE INDEX idx_salario ON empleados(salario); ANALYZE TABLE empleados; repetir EXPLAIN anterior y con salario>20000. Comparar type,key,rows,Extra; filtro bajo devuelve al menos tantas filas y puede favorecer ALL. No inventar resultados.",
+    "activity": true
+  },
+  {
+    "id": "e03",
+    "type": "open",
+    "prompt": "Práctica 2 · Consulta empleados de Ventas y explica por qué ALL en departamento no es necesariamente malo.",
+    "reference": "EXPLAIN SELECT e.nombre,e.apellido,d.nombre FROM empleados e JOIN departamento d ON e.id_departamento=d.id WHERE d.nombre='Ventas'; SHOW INDEX FROM empleados; SHOW INDEX FROM departamento; ALL en 8 filas puede ser barato; comprobar índice soporte FK y plan real.",
+    "activity": true
+  },
+  {
+    "id": "e04",
+    "type": "open",
+    "prompt": "Práctica 3 · Índice compuesto para departamento=1, salario>60000, orden descendente. Explica qué cambia sin departamento.",
+    "reference": "CREATE INDEX idx_depto_salario ON empleados(id_departamento,salario); ANALYZE TABLE empleados; EXPLAIN SELECT nombre,apellido,salario FROM empleados WHERE id_departamento=1 AND salario>60000 ORDER BY salario DESC; sin id_departamento no se aprovecha del mismo modo el prefijo izquierdo; comprobar filesort y elección real.",
+    "activity": true
+  },
+  {
+    "id": "e05",
+    "type": "open",
+    "prompt": "Práctica 4 · Reescribe YEAR(fecha_contratacion)=2023 para aprovechar un índice.",
+    "reference": "WHERE fecha_contratacion >= '2023-01-01' AND fecha_contratacion < '2024-01-01'; CREATE INDEX idx_fecha ON empleados(fecha_contratacion); comparar EXPLAIN y resultados; límite exclusivo incluye cualquier hora de 2023.",
+    "activity": true
+  },
+  {
+    "id": "e06",
+    "type": "open",
+    "prompt": "Práctica 5 · Empleados con ventas acumuladas superiores a 10000 en 2024: JOIN y HAVING.",
+    "reference": "SELECT e.id,e.nombre,e.apellido FROM empleados e JOIN ventas v ON v.id_empleado=e.id WHERE v.fecha_venta>='2024-01-01' AND v.fecha_venta<'2025-01-01' GROUP BY e.id,e.nombre,e.apellido HAVING SUM(v.importe)>10000; comparar identificadores con subconsulta correlacionada.",
+    "activity": true
+  },
+  {
+    "id": "e07",
+    "type": "open",
+    "prompt": "Práctica 5 · Escribe la subconsulta correlacionada equivalente y propone índice.",
+    "reference": "SELECT e.id,e.nombre,e.apellido FROM empleados e WHERE (SELECT SUM(v.importe) FROM ventas v WHERE v.id_empleado=e.id AND v.fecha_venta>='2024-01-01' AND v.fecha_venta<'2025-01-01')>10000; índice (id_empleado,fecha_venta) puede beneficiar búsquedas por empleado y rango. Comparar con (fecha_venta,id_empleado) y verificar EXPLAIN.",
+    "activity": true
+  },
+  {
+    "id": "e08",
+    "type": "open",
+    "prompt": "Teoría · Diferencia EXPLAIN y medición real.",
+    "reference": "EXPLAIN estima accesos y filas según estadísticas. Medir consultas reales bajo condiciones comparables; considerar caché y carga. Validar resultados y no garantizar mejoras solo por estimaciones.",
+    "activity": true
+  },
+  {
+    "id": "e09",
+    "type": "open",
+    "prompt": "Teoría · Plan A rows=10000 y plan B rows=1200. Calcula reducción estimada.",
+    "reference": "(10000-1200)/10000*100=88%. No equivale a reducción del tiempo real.",
+    "activity": true
+  },
+  {
+    "id": "e10",
+    "type": "open",
+    "prompt": "Ejercicio nuevo · ¿Qué riesgos tienen UPDATE sin WHERE e índices redundantes?",
+    "reference": "UPDATE sin WHERE modifica todas las filas; controlar alcance, transacciones y lotes. Índices redundantes ocupan espacio y penalizan escrituras; revisar dependencias y planes antes de eliminar.",
+    "activity": true
+  }
+]

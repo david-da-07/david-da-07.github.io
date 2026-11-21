@@ -1,0 +1,702 @@
+[
+  {
+    "id": "o001",
+    "type": "open",
+    "prompt": "Explica Diseño conceptual y distingue su función de «Esquema físico». Incluye un ejemplo o contexto de uso.",
+    "reference": "Diseño conceptual: Modelo E/R. No confundir con esquema físico. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o002",
+    "type": "open",
+    "prompt": "Explica Diseño lógico y distingue su función de «Entidades sin transformar». Incluye un ejemplo o contexto de uso.",
+    "reference": "Diseño lógico: Tablas y restricciones. No confundir con entidades sin transformar. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o003",
+    "type": "open",
+    "prompt": "Explica Diseño físico y distingue su función de «Reglas de negocio». Incluye un ejemplo o contexto de uso.",
+    "reference": "Diseño físico: Métodos de almacenamiento. No confundir con reglas de negocio. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o004",
+    "type": "open",
+    "prompt": "Explica Clave candidata y distingue su función de «Columna siempre numérica». Incluye un ejemplo o contexto de uso.",
+    "reference": "Clave candidata: Identificador mínimo único. No confundir con columna siempre numérica. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o005",
+    "type": "open",
+    "prompt": "Explica Clave primaria y distingue su función de «Admite duplicados». Incluye un ejemplo o contexto de uso.",
+    "reference": "Clave primaria: Identifica cada fila. No confundir con admite duplicados. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o006",
+    "type": "open",
+    "prompt": "Explica Clave foránea y distingue su función de «Ordena filas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Clave foránea: Referencia una clave de otra tabla o la misma. No confundir con ordena filas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o007",
+    "type": "open",
+    "prompt": "Explica Relación 1:N y distingue su función de «FK única en lado N». Incluye un ejemplo o contexto de uso.",
+    "reference": "Relación 1:N: FK en lado N. No confundir con fk única en lado n. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o008",
+    "type": "open",
+    "prompt": "Explica Relación N:M y distingue su función de «FK única en ambas tablas». Incluye un ejemplo o contexto de uso.",
+    "reference": "Relación N:M: Tabla de asociación. No confundir con fk única en ambas tablas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o009",
+    "type": "open",
+    "prompt": "Explica Relación 1:1 y distingue su función de «FK sin restricción única». Incluye un ejemplo o contexto de uso.",
+    "reference": "Relación 1:1: FK con UNIQUE. No confundir con fk sin restricción única. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o010",
+    "type": "open",
+    "prompt": "Explica Cardinalidad mínima 0 y distingue su función de «Participación obligatoria». Incluye un ejemplo o contexto de uso.",
+    "reference": "Cardinalidad mínima 0: Participación opcional. No confundir con participación obligatoria. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o011",
+    "type": "open",
+    "prompt": "Explica CREATE DATABASE y distingue su función de «Elimina una base». Incluye un ejemplo o contexto de uso.",
+    "reference": "CREATE DATABASE: Crea una base de datos. No confundir con elimina una base. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o012",
+    "type": "open",
+    "prompt": "Explica CREATE TABLE y distingue su función de «Inserta registros». Incluye un ejemplo o contexto de uso.",
+    "reference": "CREATE TABLE: Define una tabla. No confundir con inserta registros. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o013",
+    "type": "open",
+    "prompt": "Explica DROP TABLE y distingue su función de «Solo vacía filas». Incluye un ejemplo o contexto de uso.",
+    "reference": "DROP TABLE: Elimina el objeto tabla. No confundir con solo vacía filas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o014",
+    "type": "open",
+    "prompt": "Explica ALTER TABLE y distingue su función de «Filtra filas». Incluye un ejemplo o contexto de uso.",
+    "reference": "ALTER TABLE: Modifica estructura. No confundir con filtra filas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o015",
+    "type": "open",
+    "prompt": "Explica GRANT y distingue su función de «Revierte cambios». Incluye un ejemplo o contexto de uso.",
+    "reference": "GRANT: Concede privilegios. No confundir con revierte cambios. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o016",
+    "type": "open",
+    "prompt": "Explica REVOKE y distingue su función de «Crea tablas». Incluye un ejemplo o contexto de uso.",
+    "reference": "REVOKE: Retira privilegios. No confundir con crea tablas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o017",
+    "type": "open",
+    "prompt": "Explica COMMIT y distingue su función de «Revierte transacción». Incluye un ejemplo o contexto de uso.",
+    "reference": "COMMIT: Confirma transacción. No confundir con revierte transacción. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o018",
+    "type": "open",
+    "prompt": "Explica ROLLBACK y distingue su función de «Confirma cambios». Incluye un ejemplo o contexto de uso.",
+    "reference": "ROLLBACK: Revierte cambios pendientes. No confundir con confirma cambios. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o019",
+    "type": "open",
+    "prompt": "Explica DEFAULT y distingue su función de «Clave ajena». Incluye un ejemplo o contexto de uso.",
+    "reference": "DEFAULT: Valor predeterminado. No confundir con clave ajena. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o020",
+    "type": "open",
+    "prompt": "Explica NOT NULL y distingue su función de «Impide todos los duplicados». Incluye un ejemplo o contexto de uso.",
+    "reference": "NOT NULL: Impide valores nulos. No confundir con impide todos los duplicados. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o021",
+    "type": "open",
+    "prompt": "Explica DECIMAL y distingue su función de «Texto variable». Incluye un ejemplo o contexto de uso.",
+    "reference": "DECIMAL: Número de precisión fija. No confundir con texto variable. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o022",
+    "type": "open",
+    "prompt": "Explica VARCHAR y distingue su función de «Número exacto». Incluye un ejemplo o contexto de uso.",
+    "reference": "VARCHAR: Texto de longitud variable. No confundir con número exacto. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o023",
+    "type": "open",
+    "prompt": "Explica DATE y distingue su función de «Texto libre». Incluye un ejemplo o contexto de uso.",
+    "reference": "DATE: Fecha sin hora. No confundir con texto libre. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o024",
+    "type": "open",
+    "prompt": "Explica DISTINCT y distingue su función de «Borra filas originales». Incluye un ejemplo o contexto de uso.",
+    "reference": "DISTINCT: Elimina duplicados del resultado. No confundir con borra filas originales. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o025",
+    "type": "open",
+    "prompt": "Explica WHERE y distingue su función de «Filtra grupos agregados». Incluye un ejemplo o contexto de uso.",
+    "reference": "WHERE: Filtra filas. No confundir con filtra grupos agregados. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o026",
+    "type": "open",
+    "prompt": "Explica HAVING y distingue su función de «Define claves». Incluye un ejemplo o contexto de uso.",
+    "reference": "HAVING: Filtra grupos. No confundir con define claves. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o027",
+    "type": "open",
+    "prompt": "Explica ORDER BY y distingue su función de «Filtra filas». Incluye un ejemplo o contexto de uso.",
+    "reference": "ORDER BY: Ordena resultado. No confundir con filtra filas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o028",
+    "type": "open",
+    "prompt": "Explica INSERT y distingue su función de «Modifica filas existentes». Incluye un ejemplo o contexto de uso.",
+    "reference": "INSERT: Añade filas. No confundir con modifica filas existentes. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o029",
+    "type": "open",
+    "prompt": "Explica UPDATE y distingue su función de «Crea otra tabla». Incluye un ejemplo o contexto de uso.",
+    "reference": "UPDATE: Modifica filas existentes. No confundir con crea otra tabla. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o030",
+    "type": "open",
+    "prompt": "Explica DELETE y distingue su función de «Elimina definición de tabla». Incluye un ejemplo o contexto de uso.",
+    "reference": "DELETE: Elimina filas. No confundir con elimina definición de tabla. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o031",
+    "type": "open",
+    "prompt": "Explica INNER JOIN y distingue su función de «Todas las filas izquierdas». Incluye un ejemplo o contexto de uso.",
+    "reference": "INNER JOIN: Solo coincidencias. No confundir con todas las filas izquierdas. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o032",
+    "type": "open",
+    "prompt": "Explica LEFT JOIN y distingue su función de «Solo coincidencias». Incluye un ejemplo o contexto de uso.",
+    "reference": "LEFT JOIN: Conserva todas las filas izquierdas. No confundir con solo coincidencias. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o033",
+    "type": "open",
+    "prompt": "Explica RIGHT JOIN y distingue su función de «Solo coincidencias». Incluye un ejemplo o contexto de uso.",
+    "reference": "RIGHT JOIN: Conserva todas las filas derechas. No confundir con solo coincidencias. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o034",
+    "type": "open",
+    "prompt": "Explica COUNT(columna) y distingue su función de «Suma valores». Incluye un ejemplo o contexto de uso.",
+    "reference": "COUNT(columna): Cuenta valores no nulos. No confundir con suma valores. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  },
+  {
+    "id": "o035",
+    "type": "open",
+    "prompt": "Explica SUM y distingue su función de «Cuenta registros». Incluye un ejemplo o contexto de uso.",
+    "reference": "SUM: Suma valores. No confundir con cuenta registros. El ejemplo debe ser coherente con la función indicada.",
+    "rubric": [
+      [
+        "Definición correcta",
+        4
+      ],
+      [
+        "Distinción técnica",
+        3
+      ],
+      [
+        "Ejemplo pertinente",
+        3
+      ]
+    ]
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "id": "q2",
+    "type": "open",
+    "prompt": "Compara IaaS, PaaS y SaaS.",
+    "reference": "IaaS: infraestructura y gestión del SO por cliente; PaaS: plataforma gestionada; SaaS: aplicación gestionada."
+  }
+]

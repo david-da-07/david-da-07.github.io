@@ -1,0 +1,8 @@
+[
+  {
+    "id": "q2",
+    "type": "open",
+    "prompt": "Explica DNS y la diferencia entre registros A y AAAA.",
+    "reference": "DNS es un sistema distribuido y jerárquico de resolución; A asocia IPv4 y AAAA IPv6."
+  }
+]

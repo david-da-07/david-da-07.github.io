@@ -1,0 +1,72 @@
+[
+  {
+    "id": "e01",
+    "type": "open",
+    "prompt": "Teoría · Explica dato, BD y SGBD con un caso de matrículas.",
+    "reference": "Dato: nota o DNI; BD: datos organizados y relacionados; SGBD: software que consulta, protege y administra.",
+    "activity": true
+  },
+  {
+    "id": "e02",
+    "type": "open",
+    "prompt": "Teoría · Diseña arquitectura de tres capas para clínica y explica sus ventajas.",
+    "reference": "Navegador/presentación, API con reglas y autenticación, SGBD con persistencia; centraliza lógica y evita conexiones directas desde cada cliente.",
+    "activity": true
+  },
+  {
+    "id": "e03",
+    "type": "open",
+    "prompt": "Teoría · Explica ACID en una transferencia bancaria.",
+    "reference": "Atomicidad: cargo y abono juntos; consistencia: reglas válidas; aislamiento: transferencias concurrentes no interfieren indebidamente; durabilidad: cambios confirmados persisten.",
+    "activity": true
+  },
+  {
+    "id": "e04",
+    "type": "open",
+    "prompt": "Teoría · Elige gestor para ERP y catálogo flexible. Justifica.",
+    "reference": "ERP: relacional como Oracle/PostgreSQL/MySQL por relaciones y transacciones; catálogo flexible: MongoDB puede encajar por documentos variables; valorar operación, consistencia, equipo y coste. Alternativas justificadas válidas.",
+    "activity": true
+  },
+  {
+    "id": "e05",
+    "type": "open",
+    "prompt": "Práctica · Escribe comandos para desplegar PostgreSQL 18 en Docker y verificar conexión.",
+    "reference": "docker pull postgres:18\ndocker volume create ganaderia-data\ndocker run -d --name postgres-ganaderia -e POSTGRES_USER=asir -e POSTGRES_PASSWORD=CLAVE_DE_PRUEBA -e POSTGRES_DB=ganaderia -v ganaderia-data:/var/lib/postgresql postgres:18\ndocker ps\ndocker exec -it postgres-ganaderia psql -U asir -d ganaderia -c \"SELECT version();\". No incluir claves reales; mapeo de puerto opcional para conexión externa.",
+    "activity": true
+  },
+  {
+    "id": "e06",
+    "type": "open",
+    "prompt": "Práctica · Crea ficha_veterinaria y participacion con claves y restricciones. Supón que caballo y carrera tienen PK INTEGER.",
+    "reference": "CREATE TABLE ficha_veterinaria(id_ficha INTEGER PRIMARY KEY,id_caballo INTEGER NOT NULL UNIQUE REFERENCES caballo(id_caballo),observaciones TEXT); CREATE TABLE participacion(id_caballo INTEGER REFERENCES caballo(id_caballo),id_carrera INTEGER REFERENCES carrera(id_carrera),posicion INTEGER,premio_obtenido NUMERIC(10,2),PRIMARY KEY(id_caballo,id_carrera));",
+    "activity": true
+  },
+  {
+    "id": "e07",
+    "type": "open",
+    "prompt": "Práctica Q1 · Caballo y nombre de propietario.",
+    "reference": "SELECT c.nombre,p.nombre FROM caballo c INNER JOIN propietario p ON c.id_propietario=p.id_propietario;",
+    "activity": true
+  },
+  {
+    "id": "e08",
+    "type": "open",
+    "prompt": "Práctica Q2 · Premios acumulados por caballo, incluidos los que no han participado.",
+    "reference": "SELECT c.id_caballo,c.nombre,COALESCE(SUM(p.premio_obtenido),0) FROM caballo c LEFT JOIN participacion p ON p.id_caballo=c.id_caballo GROUP BY c.id_caballo,c.nombre;",
+    "activity": true
+  },
+  {
+    "id": "e09",
+    "type": "open",
+    "prompt": "Práctica Q3 · Número de participantes y premio medio por carrera.",
+    "reference": "SELECT c.id_carrera,c.nombre,COUNT(p.id_caballo),AVG(p.premio_obtenido) FROM carrera c LEFT JOIN participacion p ON p.id_carrera=c.id_carrera GROUP BY c.id_carrera,c.nombre;",
+    "activity": true
+  },
+  {
+    "id": "e10",
+    "type": "open",
+    "prompt": "Práctica Q4 · Todos los propietarios con número de caballos.",
+    "reference": "SELECT p.id_propietario,p.nombre,COUNT(c.id_caballo) FROM propietario p LEFT JOIN caballo c ON c.id_propietario=p.id_propietario GROUP BY p.id_propietario,p.nombre;",
+    "activity": true
+  }
+]

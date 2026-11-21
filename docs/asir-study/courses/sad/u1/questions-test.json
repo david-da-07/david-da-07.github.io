@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "¿Qué mide RTO?",
+    "options": [
+      "Tiempo objetivo de recuperación",
+      "Tamaño de copia",
+      "Longitud de contraseña"
+    ],
+    "correct": 0,
+    "explanation": "RTO es el objetivo temporal de restauración del servicio."
+  }
+]

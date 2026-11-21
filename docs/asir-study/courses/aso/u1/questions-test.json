@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "¿Qué comando cambia permisos?",
+    "options": [
+      "chown",
+      "chmod",
+      "ps"
+    ],
+    "correct": 1,
+    "explanation": "chmod modifica los bits de permisos."
+  }
+]

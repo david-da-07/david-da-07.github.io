@@ -1,0 +1,11 @@
+{
+  "id": "nube",
+  "name": "Arquitectura Nube",
+  "color": "#0284c7",
+  "units": [
+    {
+      "id": "u1",
+      "title": "Modelos de servicio"
+    }
+  ]
+}

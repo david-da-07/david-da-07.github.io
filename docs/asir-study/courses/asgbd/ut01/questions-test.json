@@ -1,0 +1,2194 @@
+[
+  {
+    "id": "t01",
+    "type": "choice",
+    "prompt": "¿Qué es un SGBD?",
+    "options": [
+      "Software que administra datos",
+      "Una tabla únicamente",
+      "Un cable de red",
+      "Un dato aislado"
+    ],
+    "correct": 0,
+    "explanation": "Intermedia entre usuarios y datos."
+  },
+  {
+    "id": "t02",
+    "type": "choice",
+    "prompt": "¿Qué servicio controla acceso simultáneo?",
+    "options": [
+      "Presentación",
+      "Concurrencia",
+      "DNS",
+      "Compresión exclusivamente"
+    ],
+    "correct": 1,
+    "explanation": "Coordina usuarios concurrentes."
+  },
+  {
+    "id": "t03",
+    "type": "choice",
+    "prompt": "¿A qué familia pertenece GRANT?",
+    "options": [
+      "DML",
+      "DDL",
+      "DCL",
+      "TCL"
+    ],
+    "correct": 2,
+    "explanation": "Controla privilegios."
+  },
+  {
+    "id": "t04",
+    "type": "choice",
+    "prompt": "¿A qué familia pertenece COMMIT?",
+    "options": [
+      "DCL",
+      "DDL",
+      "DML",
+      "TCL"
+    ],
+    "correct": 3,
+    "explanation": "Confirma una transacción."
+  },
+  {
+    "id": "t05",
+    "type": "choice",
+    "prompt": "¿Qué arquitectura incluye una API intermedia?",
+    "options": [
+      "Tres capas",
+      "Fichero plano",
+      "Cliente directo exclusivamente",
+      "Centralizada exclusivamente"
+    ],
+    "correct": 0,
+    "explanation": "Separa presentación, lógica y datos."
+  },
+  {
+    "id": "t06",
+    "type": "choice",
+    "prompt": "¿Qué arquitectura concentra aplicación, gestor y datos?",
+    "options": [
+      "Documental",
+      "Centralizada",
+      "Grafo",
+      "Tres capas obligatoria"
+    ],
+    "correct": 1,
+    "explanation": "Los componentes están en un sistema central."
+  },
+  {
+    "id": "t07",
+    "type": "choice",
+    "prompt": "¿Qué describe la arquitectura física?",
+    "options": [
+      "Permisos SQL únicamente",
+      "Solo nombres de tablas",
+      "Recursos y despliegue",
+      "Cardinalidades exclusivamente"
+    ],
+    "correct": 2,
+    "explanation": "Describe infraestructura y distribución física."
+  },
+  {
+    "id": "t08",
+    "type": "choice",
+    "prompt": "¿Qué tarea corresponde al DBA?",
+    "options": [
+      "Diseñar solo logotipos",
+      "Editar únicamente CSS",
+      "Administrar DNS exclusivamente",
+      "Verificar backups y recuperación"
+    ],
+    "correct": 3,
+    "explanation": "Mantiene fiabilidad del servicio."
+  },
+  {
+    "id": "t09",
+    "type": "choice",
+    "prompt": "¿Qué significa confidencialidad?",
+    "options": [
+      "Acceso solo autorizado",
+      "Acceso para todos",
+      "Eliminar claves",
+      "Duplicar tablas"
+    ],
+    "correct": 0,
+    "explanation": "Protege frente a acceso no autorizado."
+  },
+  {
+    "id": "t10",
+    "type": "choice",
+    "prompt": "¿Qué propiedad ACID implica todo o nada?",
+    "options": [
+      "Durabilidad",
+      "Atomicidad",
+      "Aislamiento",
+      "Disponibilidad"
+    ],
+    "correct": 1,
+    "explanation": "La transacción es indivisible."
+  },
+  {
+    "id": "t11",
+    "type": "choice",
+    "prompt": "¿Qué propiedad mantiene cambios confirmados?",
+    "options": [
+      "Confidencialidad",
+      "Atomicidad",
+      "Durabilidad",
+      "Escalabilidad"
+    ],
+    "correct": 2,
+    "explanation": "Los cambios confirmados sobreviven a fallos."
+  },
+  {
+    "id": "t12",
+    "type": "choice",
+    "prompt": "¿Qué propiedad coordina transacciones simultáneas?",
+    "options": [
+      "Normalización",
+      "Proyección",
+      "Durabilidad",
+      "Aislamiento"
+    ],
+    "correct": 3,
+    "explanation": "Limita interferencias entre transacciones."
+  },
+  {
+    "id": "t13",
+    "type": "choice",
+    "prompt": "¿Qué hace ROLLBACK?",
+    "options": [
+      "Revierte cambios no confirmados",
+      "Confirma cambios",
+      "Crea un índice",
+      "Otorga permisos"
+    ],
+    "correct": 0,
+    "explanation": "Deshace la unidad de trabajo pendiente."
+  },
+  {
+    "id": "t14",
+    "type": "choice",
+    "prompt": "¿Qué reduce normalización?",
+    "options": [
+      "Todas las consultas",
+      "Redundancia y anomalías",
+      "Toda relación",
+      "Necesidad de seguridad"
+    ],
+    "correct": 1,
+    "explanation": "Organiza información de forma coherente."
+  },
+  {
+    "id": "t15",
+    "type": "choice",
+    "prompt": "¿Qué modelo emplea MongoDB?",
+    "options": [
+      "Relacional puro",
+      "Ficheros CSV",
+      "Documental",
+      "Grafo exclusivamente"
+    ],
+    "correct": 2,
+    "explanation": "Utiliza documentos BSON."
+  },
+  {
+    "id": "t16",
+    "type": "choice",
+    "prompt": "¿Qué modelo NoSQL representa conexiones como aristas?",
+    "options": [
+      "Clave-valor",
+      "Documental",
+      "Relacional exclusivamente",
+      "Grafo"
+    ],
+    "correct": 3,
+    "explanation": "Modela entidades y conexiones."
+  },
+  {
+    "id": "t17",
+    "type": "choice",
+    "prompt": "¿Qué gestor es objeto-relacional?",
+    "options": [
+      "PostgreSQL",
+      "MongoDB",
+      "Un fichero CSV",
+      "Redis"
+    ],
+    "correct": 0,
+    "explanation": "Combina modelo relacional con extensibilidad."
+  },
+  {
+    "id": "t18",
+    "type": "choice",
+    "prompt": "¿Qué gestor es referencia principal del curso?",
+    "options": [
+      "Redis",
+      "Oracle",
+      "SQLite",
+      "MongoDB"
+    ],
+    "correct": 1,
+    "explanation": "El temario indica Oracle como referencia."
+  },
+  {
+    "id": "t19",
+    "type": "choice",
+    "prompt": "¿Qué debe guiar la selección de gestor?",
+    "options": [
+      "Precio únicamente",
+      "Color del logo",
+      "Requisitos del proyecto",
+      "Popularidad únicamente"
+    ],
+    "correct": 2,
+    "explanation": "Se valoran requisitos técnicos y operación."
+  },
+  {
+    "id": "t20",
+    "type": "choice",
+    "prompt": "¿Qué puerto usa PostgreSQL por defecto?",
+    "options": [
+      "3306",
+      "27017",
+      "1521",
+      "5432"
+    ],
+    "correct": 3,
+    "explanation": "Puerto habitual de PostgreSQL."
+  },
+  {
+    "id": "t21",
+    "type": "choice",
+    "prompt": "¿Qué variable inicializa la base de datos en la imagen postgres?",
+    "options": [
+      "POSTGRES_DB",
+      "DATABASE_PORT",
+      "MYSQL_DATABASE",
+      "PG_TABLE"
+    ],
+    "correct": 0,
+    "explanation": "Define la BD inicial."
+  },
+  {
+    "id": "t22",
+    "type": "choice",
+    "prompt": "¿Qué garantiza persistencia al recrear el contenedor?",
+    "options": [
+      "SELECT version()",
+      "Volumen correctamente montado",
+      "docker ps",
+      "Puerto publicado"
+    ],
+    "correct": 1,
+    "explanation": "Los datos se guardan fuera de la capa efímera."
+  },
+  {
+    "id": "t23",
+    "type": "choice",
+    "prompt": "¿Qué restricción evita dos fichas para el mismo caballo?",
+    "options": [
+      "ORDER BY",
+      "DEFAULT",
+      "UNIQUE(id_caballo)",
+      "AVG"
+    ],
+    "correct": 2,
+    "explanation": "La FK única limita la relación a 1:1."
+  },
+  {
+    "id": "t24",
+    "type": "choice",
+    "prompt": "¿Qué JOIN incluye propietarios sin caballos?",
+    "options": [
+      "INNER JOIN con DISTINCT",
+      "INNER JOIN",
+      "CROSS JOIN",
+      "LEFT JOIN desde propietario"
+    ],
+    "correct": 3,
+    "explanation": "Conserva propietarios sin coincidencia."
+  },
+  {
+    "id": "b025",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Dato?",
+    "options": [
+      "Representación elemental",
+      "Conjunto persistente organizado",
+      "Arquitectura de despliegue",
+      "Software gestor"
+    ],
+    "correct": 0,
+    "explanation": "Dato: Representación elemental."
+  },
+  {
+    "id": "b026",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Dato — Representación elemental.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Dato: Representación elemental."
+  },
+  {
+    "id": "b027",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «representación elemental»?",
+    "options": [
+      "Cliente-servidor",
+      "Dato",
+      "Arquitectura lógica",
+      "Oracle Database"
+    ],
+    "correct": 1,
+    "explanation": "Dato: Representación elemental."
+  },
+  {
+    "id": "b028",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Base de datos?",
+    "options": [
+      "Interfaz gráfica",
+      "Motor de consultas",
+      "Conjunto organizado persistente",
+      "Programa cliente"
+    ],
+    "correct": 2,
+    "explanation": "Base de datos: Conjunto organizado persistente."
+  },
+  {
+    "id": "b029",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Base de datos — Motor de consultas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Base de datos: Conjunto organizado persistente."
+  },
+  {
+    "id": "b030",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «conjunto organizado persistente»?",
+    "options": [
+      "POSTGRES_DB",
+      "Volumen Docker",
+      "Arquitectura física",
+      "Base de datos"
+    ],
+    "correct": 3,
+    "explanation": "Base de datos: Conjunto organizado persistente."
+  },
+  {
+    "id": "b031",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a SGBD?",
+    "options": [
+      "Software que gobierna los datos",
+      "Solo interfaz de usuario",
+      "Conjunto de filas sin software",
+      "Solo fichero de copia"
+    ],
+    "correct": 0,
+    "explanation": "SGBD: Software que gobierna los datos."
+  },
+  {
+    "id": "b032",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: SGBD — Software que gobierna los datos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "SGBD: Software que gobierna los datos."
+  },
+  {
+    "id": "b033",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «software que gobierna los datos»?",
+    "options": [
+      "Cliente-servidor",
+      "SGBD",
+      "Tres capas",
+      "Normalización"
+    ],
+    "correct": 1,
+    "explanation": "SGBD: Software que gobierna los datos."
+  },
+  {
+    "id": "b034",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Integridad?",
+    "options": [
+      "Cifrado obligatorio de todo dato",
+      "Acceso libre a cualquiera",
+      "Datos coherentes con reglas",
+      "Servicio siempre rápido"
+    ],
+    "correct": 2,
+    "explanation": "Integridad: Datos coherentes con reglas."
+  },
+  {
+    "id": "b035",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Integridad — Acceso libre a cualquiera.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Integridad: Datos coherentes con reglas."
+  },
+  {
+    "id": "b036",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «datos coherentes con reglas»?",
+    "options": [
+      "DBA",
+      "Oracle Database",
+      "Disponibilidad",
+      "Integridad"
+    ],
+    "correct": 3,
+    "explanation": "Integridad: Datos coherentes con reglas."
+  },
+  {
+    "id": "b037",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Confidencialidad?",
+    "options": [
+      "Acceso autorizado",
+      "Servicio operativo",
+      "Orden de consultas",
+      "Ausencia de duplicados"
+    ],
+    "correct": 0,
+    "explanation": "Confidencialidad: Acceso autorizado."
+  },
+  {
+    "id": "b038",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Confidencialidad — Acceso autorizado.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Confidencialidad: Acceso autorizado."
+  },
+  {
+    "id": "b039",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «acceso autorizado»?",
+    "options": [
+      "Arquitectura física",
+      "Confidencialidad",
+      "Base de datos",
+      "Backup"
+    ],
+    "correct": 1,
+    "explanation": "Confidencialidad: Acceso autorizado."
+  },
+  {
+    "id": "b040",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Disponibilidad?",
+    "options": [
+      "Cifrado de disco",
+      "Datos sin duplicados",
+      "Servicio accesible cuando se necesita",
+      "Acceso anónimo"
+    ],
+    "correct": 2,
+    "explanation": "Disponibilidad: Servicio accesible cuando se necesita."
+  },
+  {
+    "id": "b041",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Disponibilidad — Cifrado de disco.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Disponibilidad: Servicio accesible cuando se necesita."
+  },
+  {
+    "id": "b042",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «servicio accesible cuando se necesita»?",
+    "options": [
+      "Normalización",
+      "Autorización",
+      "Volumen Docker",
+      "Disponibilidad"
+    ],
+    "correct": 3,
+    "explanation": "Disponibilidad: Servicio accesible cuando se necesita."
+  },
+  {
+    "id": "b043",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Autenticación?",
+    "options": [
+      "Verifica identidad",
+      "Calcula índices",
+      "Asigna orden de filas",
+      "Normaliza tablas"
+    ],
+    "correct": 0,
+    "explanation": "Autenticación: Verifica identidad."
+  },
+  {
+    "id": "b044",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Autenticación — Verifica identidad.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Autenticación: Verifica identidad."
+  },
+  {
+    "id": "b045",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «verifica identidad»?",
+    "options": [
+      "MySQL",
+      "Autenticación",
+      "psql",
+      "Base de datos"
+    ],
+    "correct": 1,
+    "explanation": "Autenticación: Verifica identidad."
+  },
+  {
+    "id": "b046",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Autorización?",
+    "options": [
+      "Replica tablas",
+      "Verifica solamente identidad",
+      "Determina acciones permitidas",
+      "Compacta datos"
+    ],
+    "correct": 2,
+    "explanation": "Autorización: Determina acciones permitidas."
+  },
+  {
+    "id": "b047",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Autorización — Compacta datos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Autorización: Determina acciones permitidas."
+  },
+  {
+    "id": "b048",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «determina acciones permitidas»?",
+    "options": [
+      "MongoDB",
+      "Restore",
+      "Volumen Docker",
+      "Autorización"
+    ],
+    "correct": 3,
+    "explanation": "Autorización: Determina acciones permitidas."
+  },
+  {
+    "id": "b049",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Auditoría?",
+    "options": [
+      "Registra actividad relevante",
+      "Crea entidades",
+      "Cambia cardinalidad",
+      "Elimina todo registro"
+    ],
+    "correct": 0,
+    "explanation": "Auditoría: Registra actividad relevante."
+  },
+  {
+    "id": "b050",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Auditoría — Registra actividad relevante.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Auditoría: Registra actividad relevante."
+  },
+  {
+    "id": "b051",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «registra actividad relevante»?",
+    "options": [
+      "Arquitectura centralizada",
+      "Auditoría",
+      "Disponibilidad",
+      "Modelo documental"
+    ],
+    "correct": 1,
+    "explanation": "Auditoría: Registra actividad relevante."
+  },
+  {
+    "id": "b052",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Arquitectura centralizada?",
+    "options": [
+      "Datos siempre distribuidos",
+      "Cliente sin aplicación",
+      "Componentes en un sistema",
+      "Tres capas separadas"
+    ],
+    "correct": 2,
+    "explanation": "Arquitectura centralizada: Componentes en un sistema."
+  },
+  {
+    "id": "b053",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Arquitectura centralizada — Tres capas separadas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Arquitectura centralizada: Componentes en un sistema."
+  },
+  {
+    "id": "b054",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «componentes en un sistema»?",
+    "options": [
+      "Oracle Database",
+      "Transacción",
+      "Backup",
+      "Arquitectura centralizada"
+    ],
+    "correct": 3,
+    "explanation": "Arquitectura centralizada: Componentes en un sistema."
+  },
+  {
+    "id": "b055",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Cliente-servidor?",
+    "options": [
+      "Cliente solicita y servidor procesa",
+      "Solo una capa de presentación",
+      "Sin servidor de datos",
+      "Todos acceden directo a ficheros"
+    ],
+    "correct": 0,
+    "explanation": "Cliente-servidor: Cliente solicita y servidor procesa."
+  },
+  {
+    "id": "b056",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Cliente-servidor — Cliente solicita y servidor procesa.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Cliente-servidor: Cliente solicita y servidor procesa."
+  },
+  {
+    "id": "b057",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «cliente solicita y servidor procesa»?",
+    "options": [
+      "SELECT version()",
+      "Cliente-servidor",
+      "Restore",
+      "Modelo documental"
+    ],
+    "correct": 1,
+    "explanation": "Cliente-servidor: Cliente solicita y servidor procesa."
+  },
+  {
+    "id": "b058",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Tres capas?",
+    "options": [
+      "Tres copias de cada tabla",
+      "Solo cliente y disco",
+      "Presentación, lógica y datos",
+      "Tres usuarios simultáneos"
+    ],
+    "correct": 2,
+    "explanation": "Tres capas: Presentación, lógica y datos."
+  },
+  {
+    "id": "b059",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Tres capas — Tres usuarios simultáneos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Tres capas: Presentación, lógica y datos."
+  },
+  {
+    "id": "b060",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «presentación, lógica y datos»?",
+    "options": [
+      "Aislamiento",
+      "DBA",
+      "Replicación",
+      "Tres capas"
+    ],
+    "correct": 3,
+    "explanation": "Tres capas: Presentación, lógica y datos."
+  },
+  {
+    "id": "b061",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Arquitectura lógica?",
+    "options": [
+      "Funciones y componentes",
+      "Solo direcciones IP",
+      "Discos y máquinas concretas",
+      "Solo capacidad RAM"
+    ],
+    "correct": 0,
+    "explanation": "Arquitectura lógica: Funciones y componentes."
+  },
+  {
+    "id": "b062",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Arquitectura lógica — Funciones y componentes.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Arquitectura lógica: Funciones y componentes."
+  },
+  {
+    "id": "b063",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «funciones y componentes»?",
+    "options": [
+      "Consistencia ACID",
+      "Arquitectura lógica",
+      "MySQL",
+      "Volumen Docker"
+    ],
+    "correct": 1,
+    "explanation": "Arquitectura lógica: Funciones y componentes."
+  },
+  {
+    "id": "b064",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Arquitectura física?",
+    "options": [
+      "Modelo conceptual exclusivamente",
+      "Reglas de negocio únicamente",
+      "Despliegue y recursos",
+      "Solo nombres de tablas"
+    ],
+    "correct": 2,
+    "explanation": "Arquitectura física: Despliegue y recursos."
+  },
+  {
+    "id": "b065",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Arquitectura física — Modelo conceptual exclusivamente.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Arquitectura física: Despliegue y recursos."
+  },
+  {
+    "id": "b066",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «despliegue y recursos»?",
+    "options": [
+      "MySQL",
+      "Base de datos",
+      "Transacción",
+      "Arquitectura física"
+    ],
+    "correct": 3,
+    "explanation": "Arquitectura física: Despliegue y recursos."
+  },
+  {
+    "id": "b067",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a DBA?",
+    "options": [
+      "Administra servicio de datos",
+      "Solo introduce filas",
+      "Solo desarrolla páginas",
+      "Solo diseña pantallas"
+    ],
+    "correct": 0,
+    "explanation": "DBA: Administra servicio de datos."
+  },
+  {
+    "id": "b068",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: DBA — Administra servicio de datos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "DBA: Administra servicio de datos."
+  },
+  {
+    "id": "b069",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «administra servicio de datos»?",
+    "options": [
+      "Puerto PostgreSQL predeterminado",
+      "DBA",
+      "Autenticación",
+      "Restore"
+    ],
+    "correct": 1,
+    "explanation": "DBA: Administra servicio de datos."
+  },
+  {
+    "id": "b070",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Backup?",
+    "options": [
+      "Consulta de auditoría",
+      "Índice para ordenar",
+      "Copia para recuperación",
+      "Clave de autorización"
+    ],
+    "correct": 2,
+    "explanation": "Backup: Copia para recuperación."
+  },
+  {
+    "id": "b071",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Backup — Índice para ordenar.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Backup: Copia para recuperación."
+  },
+  {
+    "id": "b072",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «copia para recuperación»?",
+    "options": [
+      "Autorización",
+      "Atomicidad",
+      "Arquitectura lógica",
+      "Backup"
+    ],
+    "correct": 3,
+    "explanation": "Backup: Copia para recuperación."
+  },
+  {
+    "id": "b073",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Restore?",
+    "options": [
+      "Recupera datos desde copia",
+      "Ordena datos",
+      "Crea roles únicamente",
+      "Normaliza tablas"
+    ],
+    "correct": 0,
+    "explanation": "Restore: Recupera datos desde copia."
+  },
+  {
+    "id": "b074",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Restore — Recupera datos desde copia.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Restore: Recupera datos desde copia."
+  },
+  {
+    "id": "b075",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «recupera datos desde copia»?",
+    "options": [
+      "Consistencia ACID",
+      "Restore",
+      "SELECT version()",
+      "POSTGRES_DB"
+    ],
+    "correct": 1,
+    "explanation": "Restore: Recupera datos desde copia."
+  },
+  {
+    "id": "b076",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Monitorización?",
+    "options": [
+      "Elimina restricciones",
+      "Sustituye backups",
+      "Observa estado y rendimiento",
+      "Impide toda concurrencia"
+    ],
+    "correct": 2,
+    "explanation": "Monitorización: Observa estado y rendimiento."
+  },
+  {
+    "id": "b077",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Monitorización — Impide toda concurrencia.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Monitorización: Observa estado y rendimiento."
+  },
+  {
+    "id": "b078",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «observa estado y rendimiento»?",
+    "options": [
+      "Cliente-servidor",
+      "Tres capas",
+      "Backup",
+      "Monitorización"
+    ],
+    "correct": 3,
+    "explanation": "Monitorización: Observa estado y rendimiento."
+  },
+  {
+    "id": "b079",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Transacción?",
+    "options": [
+      "Unidad lógica de trabajo",
+      "Un usuario del motor",
+      "Una tabla física",
+      "Un índice compuesto"
+    ],
+    "correct": 0,
+    "explanation": "Transacción: Unidad lógica de trabajo."
+  },
+  {
+    "id": "b080",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Transacción — Unidad lógica de trabajo.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Transacción: Unidad lógica de trabajo."
+  },
+  {
+    "id": "b081",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «unidad lógica de trabajo»?",
+    "options": [
+      "Consistencia ACID",
+      "Transacción",
+      "Tres capas",
+      "Autenticación"
+    ],
+    "correct": 1,
+    "explanation": "Transacción: Unidad lógica de trabajo."
+  },
+  {
+    "id": "b082",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Atomicidad?",
+    "options": [
+      "Cambios confirmados persistentes",
+      "Visibilidad entre sesiones",
+      "Todo o nada",
+      "Reglas válidas"
+    ],
+    "correct": 2,
+    "explanation": "Atomicidad: Todo o nada."
+  },
+  {
+    "id": "b083",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Atomicidad — Visibilidad entre sesiones.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Atomicidad: Todo o nada."
+  },
+  {
+    "id": "b084",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «todo o nada»?",
+    "options": [
+      "Transacción",
+      "POSTGRES_DB",
+      "Tres capas",
+      "Atomicidad"
+    ],
+    "correct": 3,
+    "explanation": "Atomicidad: Todo o nada."
+  },
+  {
+    "id": "b085",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Consistencia ACID?",
+    "options": [
+      "Respeta reglas de integridad",
+      "Todo o nada",
+      "Persistencia tras fallo",
+      "Separación entre sesiones"
+    ],
+    "correct": 0,
+    "explanation": "Consistencia ACID: Respeta reglas de integridad."
+  },
+  {
+    "id": "b086",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Consistencia ACID — Respeta reglas de integridad.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Consistencia ACID: Respeta reglas de integridad."
+  },
+  {
+    "id": "b087",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «respeta reglas de integridad»?",
+    "options": [
+      "POSTGRES_USER",
+      "Consistencia ACID",
+      "Arquitectura lógica",
+      "Backup"
+    ],
+    "correct": 1,
+    "explanation": "Consistencia ACID: Respeta reglas de integridad."
+  },
+  {
+    "id": "b088",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Aislamiento?",
+    "options": [
+      "Confirma en disco",
+      "Crea copias",
+      "Controla interacción simultánea",
+      "Define tipos de datos"
+    ],
+    "correct": 2,
+    "explanation": "Aislamiento: Controla interacción simultánea."
+  },
+  {
+    "id": "b089",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Aislamiento — Confirma en disco.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Aislamiento: Controla interacción simultánea."
+  },
+  {
+    "id": "b090",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «controla interacción simultánea»?",
+    "options": [
+      "Volumen Docker",
+      "Disponibilidad",
+      "Arquitectura física",
+      "Aislamiento"
+    ],
+    "correct": 3,
+    "explanation": "Aislamiento: Controla interacción simultánea."
+  },
+  {
+    "id": "b091",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Durabilidad?",
+    "options": [
+      "Persiste tras confirmación",
+      "Impide todas las lecturas",
+      "Revierte todo cambio",
+      "Crea claves"
+    ],
+    "correct": 0,
+    "explanation": "Durabilidad: Persiste tras confirmación."
+  },
+  {
+    "id": "b092",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Durabilidad — Persiste tras confirmación.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Durabilidad: Persiste tras confirmación."
+  },
+  {
+    "id": "b093",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «persiste tras confirmación»?",
+    "options": [
+      "Arquitectura física",
+      "Durabilidad",
+      "SELECT version()",
+      "POSTGRES_USER"
+    ],
+    "correct": 1,
+    "explanation": "Durabilidad: Persiste tras confirmación."
+  },
+  {
+    "id": "b094",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Normalización?",
+    "options": [
+      "Duplica todos los datos",
+      "Elimina todas las claves",
+      "Reduce redundancia y anomalías",
+      "Evita toda consulta JOIN"
+    ],
+    "correct": 2,
+    "explanation": "Normalización: Reduce redundancia y anomalías."
+  },
+  {
+    "id": "b095",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Normalización — Evita toda consulta JOIN.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Normalización: Reduce redundancia y anomalías."
+  },
+  {
+    "id": "b096",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «reduce redundancia y anomalías»?",
+    "options": [
+      "Monitorización",
+      "Integridad",
+      "Disponibilidad",
+      "Normalización"
+    ],
+    "correct": 3,
+    "explanation": "Normalización: Reduce redundancia y anomalías."
+  },
+  {
+    "id": "b097",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Modelo relacional?",
+    "options": [
+      "Tablas relacionadas por claves",
+      "Aristas exclusivamente",
+      "Pares clave-valor exclusivamente",
+      "Documentos exclusivamente"
+    ],
+    "correct": 0,
+    "explanation": "Modelo relacional: Tablas relacionadas por claves."
+  },
+  {
+    "id": "b098",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Modelo relacional — Tablas relacionadas por claves.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Modelo relacional: Tablas relacionadas por claves."
+  },
+  {
+    "id": "b099",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «tablas relacionadas por claves»?",
+    "options": [
+      "Monitorización",
+      "Modelo relacional",
+      "psql",
+      "Dato"
+    ],
+    "correct": 1,
+    "explanation": "Modelo relacional: Tablas relacionadas por claves."
+  },
+  {
+    "id": "b100",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Modelo documental?",
+    "options": [
+      "Solo valores escalares",
+      "Solo aristas",
+      "Documentos con campos y estructuras",
+      "Solo filas rígidas"
+    ],
+    "correct": 2,
+    "explanation": "Modelo documental: Documentos con campos y estructuras."
+  },
+  {
+    "id": "b101",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Modelo documental — Solo aristas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Modelo documental: Documentos con campos y estructuras."
+  },
+  {
+    "id": "b102",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «documentos con campos y estructuras»?",
+    "options": [
+      "Backup",
+      "DBA",
+      "SELECT version()",
+      "Modelo documental"
+    ],
+    "correct": 3,
+    "explanation": "Modelo documental: Documentos con campos y estructuras."
+  },
+  {
+    "id": "b103",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Clave-valor?",
+    "options": [
+      "Acceso por clave a valor",
+      "Documentos exclusivamente",
+      "Modelo de aristas",
+      "Tablas con claves foráneas siempre"
+    ],
+    "correct": 0,
+    "explanation": "Clave-valor: Acceso por clave a valor."
+  },
+  {
+    "id": "b104",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Clave-valor — Acceso por clave a valor.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Clave-valor: Acceso por clave a valor."
+  },
+  {
+    "id": "b105",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «acceso por clave a valor»?",
+    "options": [
+      "Puerto PostgreSQL predeterminado",
+      "Clave-valor",
+      "Integridad",
+      "SELECT version()"
+    ],
+    "correct": 1,
+    "explanation": "Clave-valor: Acceso por clave a valor."
+  },
+  {
+    "id": "b106",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Grafo?",
+    "options": [
+      "Ficheros planos",
+      "Solo columnas numéricas",
+      "Nodos y aristas",
+      "Pares sin relaciones"
+    ],
+    "correct": 2,
+    "explanation": "Grafo: Nodos y aristas."
+  },
+  {
+    "id": "b107",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Grafo — Solo columnas numéricas.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Grafo: Nodos y aristas."
+  },
+  {
+    "id": "b108",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «nodos y aristas»?",
+    "options": [
+      "SGBD",
+      "Volumen Docker",
+      "Puerto PostgreSQL predeterminado",
+      "Grafo"
+    ],
+    "correct": 3,
+    "explanation": "Grafo: Nodos y aristas."
+  },
+  {
+    "id": "b109",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a MongoDB?",
+    "options": [
+      "Gestor documental",
+      "Gestor objeto-relacional del laboratorio",
+      "Gestor relacional Oracle",
+      "Herramienta de contenedores"
+    ],
+    "correct": 0,
+    "explanation": "MongoDB: Gestor documental."
+  },
+  {
+    "id": "b110",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: MongoDB — Gestor documental.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "MongoDB: Gestor documental."
+  },
+  {
+    "id": "b111",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «gestor documental»?",
+    "options": [
+      "Modelo documental",
+      "MongoDB",
+      "POSTGRES_USER",
+      "Backup"
+    ],
+    "correct": 1,
+    "explanation": "MongoDB: Gestor documental."
+  },
+  {
+    "id": "b112",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a PostgreSQL?",
+    "options": [
+      "Gestor documental exclusivo",
+      "Herramienta de backup",
+      "Gestor objeto-relacional abierto",
+      "Cliente gráfico"
+    ],
+    "correct": 2,
+    "explanation": "PostgreSQL: Gestor objeto-relacional abierto."
+  },
+  {
+    "id": "b113",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: PostgreSQL — Cliente gráfico.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "PostgreSQL: Gestor objeto-relacional abierto."
+  },
+  {
+    "id": "b114",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «gestor objeto-relacional abierto»?",
+    "options": [
+      "Monitorización",
+      "POSTGRES_PASSWORD",
+      "Volumen Docker",
+      "PostgreSQL"
+    ],
+    "correct": 3,
+    "explanation": "PostgreSQL: Gestor objeto-relacional abierto."
+  },
+  {
+    "id": "b115",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Oracle Database?",
+    "options": [
+      "Gestor relacional empresarial",
+      "Imagen Docker solamente",
+      "Lenguaje de scripting",
+      "Gestor documental del laboratorio"
+    ],
+    "correct": 0,
+    "explanation": "Oracle Database: Gestor relacional empresarial."
+  },
+  {
+    "id": "b116",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Oracle Database — Gestor relacional empresarial.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Oracle Database: Gestor relacional empresarial."
+  },
+  {
+    "id": "b117",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «gestor relacional empresarial»?",
+    "options": [
+      "Grafo",
+      "Oracle Database",
+      "POSTGRES_PASSWORD",
+      "Monitorización"
+    ],
+    "correct": 1,
+    "explanation": "Oracle Database: Gestor relacional empresarial."
+  },
+  {
+    "id": "b118",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a MySQL?",
+    "options": [
+      "Editor de documentos",
+      "Sistema de archivos",
+      "Gestor relacional común en web",
+      "Gestor de grafos puro"
+    ],
+    "correct": 2,
+    "explanation": "MySQL: Gestor relacional común en web."
+  },
+  {
+    "id": "b119",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: MySQL — Sistema de archivos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "MySQL: Gestor relacional común en web."
+  },
+  {
+    "id": "b120",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «gestor relacional común en web»?",
+    "options": [
+      "POSTGRES_USER",
+      "Normalización",
+      "Consistencia ACID",
+      "MySQL"
+    ],
+    "correct": 3,
+    "explanation": "MySQL: Gestor relacional común en web."
+  },
+  {
+    "id": "b121",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Replicación?",
+    "options": [
+      "Mantiene copias en nodos",
+      "Elimina claves",
+      "Ordena filas",
+      "Normaliza una tabla"
+    ],
+    "correct": 0,
+    "explanation": "Replicación: Mantiene copias en nodos."
+  },
+  {
+    "id": "b122",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Replicación — Mantiene copias en nodos.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Replicación: Mantiene copias en nodos."
+  },
+  {
+    "id": "b123",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «mantiene copias en nodos»?",
+    "options": [
+      "Clave-valor",
+      "Replicación",
+      "Arquitectura centralizada",
+      "Integridad"
+    ],
+    "correct": 1,
+    "explanation": "Replicación: Mantiene copias en nodos."
+  },
+  {
+    "id": "b124",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a POSTGRES_USER?",
+    "options": [
+      "Puerto publicado",
+      "Nombre de base inicial",
+      "Usuario inicial",
+      "Contraseña inicial"
+    ],
+    "correct": 2,
+    "explanation": "POSTGRES_USER: Usuario inicial."
+  },
+  {
+    "id": "b125",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: POSTGRES_USER — Nombre de base inicial.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "POSTGRES_USER: Usuario inicial."
+  },
+  {
+    "id": "b126",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «usuario inicial»?",
+    "options": [
+      "Oracle Database",
+      "MySQL",
+      "Durabilidad",
+      "POSTGRES_USER"
+    ],
+    "correct": 3,
+    "explanation": "POSTGRES_USER: Usuario inicial."
+  },
+  {
+    "id": "b127",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a POSTGRES_PASSWORD?",
+    "options": [
+      "Contraseña inicial",
+      "Nombre de volumen",
+      "Puerto publicado",
+      "Usuario inicial"
+    ],
+    "correct": 0,
+    "explanation": "POSTGRES_PASSWORD: Contraseña inicial."
+  },
+  {
+    "id": "b128",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: POSTGRES_PASSWORD — Contraseña inicial.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "POSTGRES_PASSWORD: Contraseña inicial."
+  },
+  {
+    "id": "b129",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «contraseña inicial»?",
+    "options": [
+      "Arquitectura lógica",
+      "POSTGRES_PASSWORD",
+      "Oracle Database",
+      "POSTGRES_USER"
+    ],
+    "correct": 1,
+    "explanation": "POSTGRES_PASSWORD: Contraseña inicial."
+  },
+  {
+    "id": "b130",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a POSTGRES_DB?",
+    "options": [
+      "Usuario inicial",
+      "Etiqueta de imagen",
+      "Base inicial",
+      "Contraseña inicial"
+    ],
+    "correct": 2,
+    "explanation": "POSTGRES_DB: Base inicial."
+  },
+  {
+    "id": "b131",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: POSTGRES_DB — Etiqueta de imagen.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "POSTGRES_DB: Base inicial."
+  },
+  {
+    "id": "b132",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «base inicial»?",
+    "options": [
+      "Volumen Docker",
+      "Normalización",
+      "Monitorización",
+      "POSTGRES_DB"
+    ],
+    "correct": 3,
+    "explanation": "POSTGRES_DB: Base inicial."
+  },
+  {
+    "id": "b133",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a psql?",
+    "options": [
+      "Cliente de PostgreSQL",
+      "Gestor de volúmenes",
+      "Comando para crear imagen",
+      "Motor documental"
+    ],
+    "correct": 0,
+    "explanation": "psql: Cliente de PostgreSQL."
+  },
+  {
+    "id": "b134",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: psql — Cliente de PostgreSQL.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "psql: Cliente de PostgreSQL."
+  },
+  {
+    "id": "b135",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «cliente de PostgreSQL»?",
+    "options": [
+      "Puerto PostgreSQL predeterminado",
+      "psql",
+      "Grafo",
+      "POSTGRES_USER"
+    ],
+    "correct": 1,
+    "explanation": "psql: Cliente de PostgreSQL."
+  },
+  {
+    "id": "b136",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Puerto PostgreSQL predeterminado?",
+    "options": [
+      "3306",
+      "27017",
+      "5432",
+      "1521"
+    ],
+    "correct": 2,
+    "explanation": "Puerto PostgreSQL predeterminado: 5432."
+  },
+  {
+    "id": "b137",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Puerto PostgreSQL predeterminado — 1521.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "Puerto PostgreSQL predeterminado: 5432."
+  },
+  {
+    "id": "b138",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «5432»?",
+    "options": [
+      "Clave-valor",
+      "Confidencialidad",
+      "Tres capas",
+      "Puerto PostgreSQL predeterminado"
+    ],
+    "correct": 3,
+    "explanation": "Puerto PostgreSQL predeterminado: 5432."
+  },
+  {
+    "id": "b139",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a Volumen Docker?",
+    "options": [
+      "Persistencia fuera del ciclo del contenedor",
+      "Imagen de solo lectura",
+      "Puerto de conexión",
+      "Variable de entorno"
+    ],
+    "correct": 0,
+    "explanation": "Volumen Docker: Persistencia fuera del ciclo del contenedor."
+  },
+  {
+    "id": "b140",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: Volumen Docker — Persistencia fuera del ciclo del contenedor.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 0,
+    "explanation": "Volumen Docker: Persistencia fuera del ciclo del contenedor."
+  },
+  {
+    "id": "b141",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «persistencia fuera del ciclo del contenedor»?",
+    "options": [
+      "Arquitectura lógica",
+      "Volumen Docker",
+      "Modelo relacional",
+      "MongoDB"
+    ],
+    "correct": 1,
+    "explanation": "Volumen Docker: Persistencia fuera del ciclo del contenedor."
+  },
+  {
+    "id": "b142",
+    "type": "choice",
+    "format": "single",
+    "prompt": "¿Qué descripción corresponde a SELECT version()?",
+    "options": [
+      "Enumera volúmenes",
+      "Borra una base",
+      "Consulta versión del servidor",
+      "Crea un usuario"
+    ],
+    "correct": 2,
+    "explanation": "SELECT version(): Consulta versión del servidor."
+  },
+  {
+    "id": "b143",
+    "type": "choice",
+    "format": "boolean",
+    "prompt": "Verdadero o falso: SELECT version() — Crea un usuario.",
+    "options": [
+      "Verdadero",
+      "Falso"
+    ],
+    "correct": 1,
+    "explanation": "SELECT version(): Consulta versión del servidor."
+  },
+  {
+    "id": "b144",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En un repaso técnico, ¿qué término corresponde a «consulta versión del servidor»?",
+    "options": [
+      "Volumen Docker",
+      "POSTGRES_PASSWORD",
+      "Dato",
+      "SELECT version()"
+    ],
+    "correct": 3,
+    "explanation": "SELECT version(): Consulta versión del servidor."
+  },
+  {
+    "id": "b145",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 2 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 1)",
+    "options": [
+      "2 y 0",
+      "3 y 0",
+      "2 y 1",
+      "3 y 1"
+    ],
+    "correct": 0,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b146",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 3 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 2)",
+    "options": [
+      "4 y 0",
+      "3 y 0",
+      "4 y 1",
+      "3 y 1"
+    ],
+    "correct": 1,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b147",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 4 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 3)",
+    "options": [
+      "5 y 1",
+      "5 y 0",
+      "4 y 0",
+      "4 y 1"
+    ],
+    "correct": 2,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b148",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 5 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 4)",
+    "options": [
+      "6 y 0",
+      "5 y 1",
+      "6 y 1",
+      "5 y 0"
+    ],
+    "correct": 3,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b149",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 6 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 5)",
+    "options": [
+      "6 y 0",
+      "7 y 0",
+      "6 y 1",
+      "7 y 1"
+    ],
+    "correct": 0,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b150",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 7 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 6)",
+    "options": [
+      "8 y 1",
+      "7 y 0",
+      "7 y 1",
+      "8 y 0"
+    ],
+    "correct": 1,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b151",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 8 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 7)",
+    "options": [
+      "9 y 0",
+      "8 y 1",
+      "8 y 0",
+      "9 y 1"
+    ],
+    "correct": 2,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b152",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 2 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 8)",
+    "options": [
+      "3 y 1",
+      "2 y 1",
+      "3 y 0",
+      "2 y 0"
+    ],
+    "correct": 3,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b153",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 3 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 9)",
+    "options": [
+      "3 y 0",
+      "4 y 1",
+      "3 y 1",
+      "4 y 0"
+    ],
+    "correct": 0,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b154",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 4 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 10)",
+    "options": [
+      "5 y 1",
+      "4 y 0",
+      "5 y 0",
+      "4 y 1"
+    ],
+    "correct": 1,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b155",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 5 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 11)",
+    "options": [
+      "5 y 1",
+      "6 y 0",
+      "5 y 0",
+      "6 y 1"
+    ],
+    "correct": 2,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b156",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 6 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 12)",
+    "options": [
+      "7 y 1",
+      "7 y 0",
+      "6 y 1",
+      "6 y 0"
+    ],
+    "correct": 3,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b157",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 7 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 13)",
+    "options": [
+      "7 y 0",
+      "8 y 1",
+      "8 y 0",
+      "7 y 1"
+    ],
+    "correct": 0,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b158",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 8 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 14)",
+    "options": [
+      "8 y 1",
+      "8 y 0",
+      "9 y 0",
+      "9 y 1"
+    ],
+    "correct": 1,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b159",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 2 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 15)",
+    "options": [
+      "3 y 1",
+      "2 y 1",
+      "2 y 0",
+      "3 y 0"
+    ],
+    "correct": 2,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b160",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 3 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 16)",
+    "options": [
+      "4 y 0",
+      "3 y 1",
+      "4 y 1",
+      "3 y 0"
+    ],
+    "correct": 3,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b161",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 4 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 17)",
+    "options": [
+      "4 y 0",
+      "5 y 1",
+      "4 y 1",
+      "5 y 0"
+    ],
+    "correct": 0,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b162",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 5 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 18)",
+    "options": [
+      "6 y 0",
+      "5 y 0",
+      "6 y 1",
+      "5 y 1"
+    ],
+    "correct": 1,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b163",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 6 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 19)",
+    "options": [
+      "6 y 1",
+      "7 y 0",
+      "6 y 0",
+      "7 y 1"
+    ],
+    "correct": 2,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  },
+  {
+    "id": "b164",
+    "type": "choice",
+    "format": "single",
+    "prompt": "En la práctica de ganadería, un propietario tiene 7 caballos y otro ninguno. Si agrupamos por propietario tras LEFT JOIN y usamos COUNT(c.id_caballo), ¿qué recuentos obtenemos? (Caso 20)",
+    "options": [
+      "8 y 0",
+      "7 y 1",
+      "8 y 1",
+      "7 y 0"
+    ],
+    "correct": 3,
+    "explanation": "COUNT de la clave del caballo ignora el NULL del propietario sin caballos."
+  }
+]

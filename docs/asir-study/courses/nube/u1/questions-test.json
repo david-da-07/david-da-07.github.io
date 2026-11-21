@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "¿Qué modelo ofrece máquinas virtuales?",
+    "options": [
+      "SaaS",
+      "IaaS",
+      "PaaS"
+    ],
+    "correct": 1,
+    "explanation": "IaaS proporciona infraestructura."
+  }
+]

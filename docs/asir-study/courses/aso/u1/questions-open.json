@@ -1,0 +1,8 @@
+[
+  {
+    "id": "q2",
+    "type": "open",
+    "prompt": "Explica chmod 640 informe.txt.",
+    "reference": "Propietario lectura/escritura, grupo lectura, otros sin permisos."
+  }
+]

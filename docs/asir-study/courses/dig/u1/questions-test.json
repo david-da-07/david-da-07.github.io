@@ -1,0 +1,14 @@
+[
+  {
+    "id": "q1",
+    "type": "choice",
+    "prompt": "¿Qué describe mejor IoT?",
+    "options": [
+      "Dispositivos conectados que intercambian datos",
+      "Una base de datos local",
+      "Un editor de texto"
+    ],
+    "correct": 0,
+    "explanation": "IoT conecta objetos físicos a redes."
+  }
+]

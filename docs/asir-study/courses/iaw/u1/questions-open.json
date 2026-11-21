@@ -1,0 +1,8 @@
+[
+  {
+    "id": "q2",
+    "type": "open",
+    "prompt": "Diferencia HTTP y HTTPS.",
+    "reference": "HTTPS es HTTP sobre TLS; cifra, protege integridad y autentica normalmente al servidor con certificados."
+  }
+]

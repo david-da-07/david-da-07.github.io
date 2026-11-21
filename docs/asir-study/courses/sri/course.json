@@ -1,0 +1,11 @@
+{
+  "id": "sri",
+  "name": "Servicios de Red e Internet",
+  "color": "#7c3aed",
+  "units": [
+    {
+      "id": "u1",
+      "title": "DNS y DHCP"
+    }
+  ]
+}

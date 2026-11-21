@@ -1,0 +1,8 @@
+[
+  {
+    "id": "q2",
+    "type": "writing",
+    "prompt": "Write a formal email to your IT manager explaining a network outage and proposing a solution (100–150 words).",
+    "reference": "Formal greeting, clear description of the outage, impact, practical solution and professional closing."
+  }
+]
