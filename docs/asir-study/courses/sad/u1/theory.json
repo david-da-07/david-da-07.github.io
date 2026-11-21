@@ -1,6 +1,4 @@
 {
   "summary": "La tríada CIA comprende confidencialidad, integridad y disponibilidad. RPO mide pérdida de datos tolerable en tiempo; RTO mide tiempo objetivo de recuperación. Las copias deben probarse.",
-  "lessons": [],
-  "pages": [],
-  "resources": []
+  "lessons": []
 }

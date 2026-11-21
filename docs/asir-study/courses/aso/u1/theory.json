@@ -1,6 +1,4 @@
 {
   "summary": "Los permisos r, w y x controlan lectura, escritura y ejecución. chmod modifica permisos; chown cambia propietario. El valor octal 750 concede rwx al propietario, r-x al grupo y ninguno al resto.",
-  "lessons": [],
-  "pages": [],
-  "resources": []
+  "lessons": []
 }

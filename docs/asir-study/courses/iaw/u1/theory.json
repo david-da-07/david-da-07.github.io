@@ -1,6 +1,4 @@
 {
   "summary": "HTTP intercambia peticiones y respuestas. GET solicita recursos; POST envía datos. HTTPS protege la comunicación mediante TLS. Un servidor web sirve contenido o deriva peticiones a aplicaciones.",
-  "lessons": [],
-  "pages": [],
-  "resources": []
+  "lessons": []
 }
